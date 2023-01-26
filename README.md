@@ -1,2 +1,2 @@
 # ico-gemsandgoblins
-Page for selling NFTs GemsAndGoblins
+Page for GemsAndGoblins
