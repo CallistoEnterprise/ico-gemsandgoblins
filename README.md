@@ -1,2 +1,2 @@
 # ico-gemsandgoblins
-Page for GemsAndGoblins
+Page for GemsAndGoblins.
