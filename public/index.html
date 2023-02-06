@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Callisto Network application" />
+    <meta
+      name="keywords"
+      content="Gems and Goblins, gems & goblins? gems, goblins, Play to earn, play and earn, GameFi, Blockchain game, Blockchain gaming, NFT game, Gems and Goblins, gems & goblins, gems, goblins, Play to earn, play and earn, GameFi, Blockchain game, Blockchain gaming, NFT game, we make games, callisto network, callisto"
+    />
+
+    <meta property="og:url" content="https://www.gemsandgoblins.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Gems and Goblins" />
+    <meta property="og:description" content="DESCRIPTION" />
+    <!-- DONT FORGET-->
+    <meta
+      property="og:image"
+      content="https://www.gemsandgoblins.com/img/universal/favicon/shareicon.png"
+    />
+
+    <meta
+      name="msapplication-square150x150logo"
+      content="%PUBLIC_URL%/img/universal/favicon/mstile.png"
+    />
+
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="%PUBLIC_URL%/img/universal/favicon/favicon.ico"
+    />
+    <link
+      rel="icon"
+      href="%PUBLIC_URL%/img/universal/favicon/android-chrome-192x192.png"
+      type="image/png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="%PUBLIC_URL%/img/universal/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="mask-icon"
+      href="%PUBLIC_URL%/img/universal/favicon/pinned-tab.svg"
+      color="black"
+    />
+    <link
+      rel="manifest"
+      href="%PUBLIC_URL%/img/universal/favicon/site.webmanifest"
+    />
+
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/mobile.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/mobile-footer.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/mobile-presale.css">
+
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/desktop.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/desktop-footer.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/desktop-presale.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/roadmap.css" />
+
+    <title>Gems & Goblins</title>
+
+    <script src="%PUBLIC_URL%/js/luxon.min.js"></script>
+    <script src="%PUBLIC_URL%/js/presale.js"></script>
+    <script src="%PUBLIC_URL%/js/header.js"></script>
+    <script src="%PUBLIC_URL%/js/preloader.js"></script>
+    <script src="%PUBLIC_URL%/js/roadmap.js"></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  </head>
+
+  <body ontouchstart="">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <header>
+      <!-- MOBILE HEADER -->
+      <div class="header content unselectable hidden-on-desktop" id="header">
+        <div class="header-content" id="header-content">
+          <a href="#introduction">
+            <p class="header-text">
+              <underline> Introduction </underline>
+            </p>
+          </a>
+          <a href="#gngtokens">
+            <p class="header-text">
+              <underline> GNG Tokens </underline>
+            </p>
+          </a>
+          <a href="#startYourAdventure">
+            <p class="header-text">
+              <underline> Get started </underline>
+            </p>
+          </a>
+          <a href="#team">
+            <p class="header-text">
+              <underline> Team </underline>
+            </p>
+          </a>
+
+          <div class="header-social-icon">
+            <a href="https://twitter.com/GemsAndGoblins" target="_blank">
+              <img src="img/universal/twitter.svg" class="social-icon-header" />
+            </a>
+            <a href="https://t.me/GemsAndGoblins" target="_blank">
+              <img
+                src="img/universal/telegram.svg"
+                class="social-icon-header"
+              />
+            </a>
+          </div>
+        </div>
+        <button class="header-button unselectable" id="header-button"></button>
+      </div>
+      <div
+        class="header-background hidden-on-desktop"
+        id="header-background"
+      ></div>
+      <!-- BETA STICKER -->
+
+      <img
+        src="img/universal/beta-sticker.png"
+        class="content beta-sticker hidden-on-mobile"
+      />
+
+      <!-- NARROW DESKTOP HEADER -->
+      <div class="desktop-header-narrow content-delayed hidden-on-mobile">
+        <div class="logo hidden-on-mobile">
+          <div class="logo-wrapper" id="logo-wrapper-desktop">
+            <img src="img/hero-section/logo/hero_logo_1.png" />
+            <img src="img/hero-section/logo/hero_logo_2.png" />
+            <img src="img/hero-section/logo/hero_logo_3.png" />
+            <img src="img/hero-section/logo/hero_logo_4.png" />
+            <img src="img/hero-section/logo/hero_logo_5.png" />
+            <img src="img/hero-section/logo/hero_logo_6.png" />
+            <img src="img/hero-section/logo/hero_logo_7.png" />
+            <img src="img/hero-section/logo/hero_logo_8.png" />
+            <img src="img/hero-section/logo/hero_logo_9.png" />
+            <img src="img/hero-section/logo/hero_logo_10.png" />
+            <img src="img/hero-section/logo/hero_logo_11.png" />
+          </div>
+        </div>
+        <div class="desktop-header-texts">
+          <a href="#introduction" class="desktop-header-text">
+            <p>
+              <underline> Introduction </underline>
+            </p>
+          </a>
+          <a href="#gngtokens" class="desktop-header-text">
+            <p>
+              <underline> GNG Tokens </underline>
+            </p>
+          </a>
+          <a href="#startYourAdventure" class="desktop-header-text">
+            <p>
+              <underline> Get started </underline>
+            </p>
+          </a>
+          <a href="#team" class="desktop-header-text">
+            <p>
+              <underline> Team </underline>
+            </p>
+          </a>
+        </div>
+        <a
+          href="https://whitepaper.gemsandgoblins.com/"
+          id="button-whitepaper-header"
+          target="_blank"
+          class="button-whitepaper-header"
+        ></a>
+      </div>
+
+      <!-- STICKY HEADER -->
+      <div
+        id="header-sticky"
+        class="desktop-header-sticky content hidden-on-mobile"
+      >
+        <div class="logo hidden-on-mobile">
+          <div class="logo-wrapper" id="logo-wrapper-desktop-sticky">
+            <img src="img/hero-section/logo/hero_logo_1.png" />
+            <img src="img/hero-section/logo/hero_logo_2.png" />
+            <img src="img/hero-section/logo/hero_logo_3.png" />
+            <img src="img/hero-section/logo/hero_logo_4.png" />
+            <img src="img/hero-section/logo/hero_logo_5.png" />
+            <img src="img/hero-section/logo/hero_logo_6.png" />
+            <img src="img/hero-section/logo/hero_logo_7.png" />
+            <img src="img/hero-section/logo/hero_logo_8.png" />
+            <img src="img/hero-section/logo/hero_logo_9.png" />
+            <img src="img/hero-section/logo/hero_logo_10.png" />
+            <img src="img/hero-section/logo/hero_logo_11.png" />
+          </div>
+        </div>
+        <div class="desktop-header-sticky-texts">
+          <a href="#introduction">
+            <p class="desktop-header-sticky-text">
+              <underline> Introduction </underline>
+            </p>
+          </a>
+          <a href="#gngtokens">
+            <p class="desktop-header-sticky-text">
+              <underline> GNG Tokens </underline>
+            </p>
+          </a>
+          <a href="#startYourAdventure">
+            <p class="desktop-header-sticky-text">
+              <underline> Get started </underline>
+            </p>
+          </a>
+          <a href="#team">
+            <p class="desktop-header-sticky-text">
+              <underline> Team </underline>
+            </p>
+          </a>
+        </div>
+        <a
+          href="https://whitepaper.gemsandgoblins.com/"
+          id="button-whitepaper-sticky"
+          target="_blank"
+          class="button-whitepaper-sticky"
+        ></a>
+      </div>
+    </header>
+
+    <!-- LOADING SCREEN -->
+    <div id="loading-wrapper" class="loading-wrapper">
+      <div class="loading-screen" id="loading-screen">
+        <div class="loader"></div>
+      </div>
+    </div>
+
+    <div id="root"></div>
+
+    <footer class="content">
+      <div class="footer-background">
+          <!-- NETWORK SECTION -->
+          <div class="network-section" >
+              <div class="network-logo"></div>
+              <div class="network-col">
+                  <img src = "img/network-section/callisto-network-heading.png" class="universal-heading callisto-network-logo"/>
+                  <p class="info-text">
+                      Gems & Goblins operates on top of Callisto Network,
+                      a layer 1 Ethereum Compatible smart contract solution
+                      based on proof-of-work blockchain. Powered by its
+                      native cryptocurrency, CLO, Callisto Network is fast,
+                      safe, and cheap, with a cost below 0.0001 USD per
+                      transaction, combined with a 51% attacks protection.
+                  </p>
+                  <p class="info-text">
+                      Callisto Network is the blockchain as seen by Security
+                      Experts. It has made numerous contributions to improve
+                      $ETH, $ETC, $EOS and audited over 360 smart contracts,
+                      establishing the team as the leader in the
+                      crypto-security industry.
+                  </p>
+  
+              </div>
+          </div>
+          <iframe name="popupNotRedirectingFrame" id="popupNotRedirectingFrame" style="display: none;"></iframe>
+  
+          <div class="footer">
+                  <div class="footer-underline-text">
+                      <a href="#introduction">
+                          <p class="footer-text">
+                              <underline>
+                                  Introduction
+                              </underline>
+                          </p>
+                      </a>
+                      <a href="#gngtokens">
+                          <p class="footer-text">
+                              <underline>
+                                  GNG Tokens
+                              </underline>
+                          </p>
+                      </a>
+                      <a href="#startYourAdventure">
+                          <p class="footer-text">
+                              <underline>
+                                  Get started
+                              </underline> 
+                          </p>
+                      </a>
+                      <a href="#team">
+                          <p class="footer-text">
+                              <underline>
+                                  Team
+                              </underline>
+                          </p>
+                      </a>
+                  </div>
+              <div class="footer-desktop-left-col">
+                  <div class="footer-social-icon">
+                      <a href="https://twitter.com/GemsAndGoblins" target="_blank">
+                          <img src = "img/universal/twitter.svg" class="social-icon"/>
+                      </a>
+                      <a href="https://t.me/GemsAndGoblins" target="_blank">
+                          <img src = "img/universal/telegram.svg" class="social-icon"/>
+                      </a>
+                  </div>
+  
+                  <img src = "img/footer-section/footer-line.png" class="footer-line"/>
+                  <div class="footer-copyright-and-trademarks">
+                      <p class="footer-text">
+                          <bold>
+                              Gems & Goblins © 2022
+                          </bold> 
+                      </p>
+                      <p class="footer-text">
+                          <gray>
+                              All trademarks referenced herein are </br>
+                              the properties of their respective owners.
+                          </gray>
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </footer>
+
+    
+  </body>
+</html>

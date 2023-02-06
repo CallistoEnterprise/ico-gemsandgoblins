@@ -1,0 +1,88 @@
+/* DESKTOP FOOTER SECTION */
+
+@media only screen and (min-width: 801px) {
+
+.footer-background{
+    width: 100%;
+    background-image: url("../img/universal/desktop-green-background.png");
+    background-size: 100% 100%;
+}
+
+.footer {
+    display: flex;
+    margin:auto;
+    justify-content: space-between;
+    gap: 100px;
+    padding: 24px;
+    overflow: auto;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.footer-text{
+    font-size: 1.2vw;
+    color:white;
+}
+
+.footer-copyright-and-trademarks{
+    display: flex;
+    flex-direction: column;
+    order:1;
+}
+
+.footer-social-icon{
+    display:flex;
+    flex-direction: row;
+    align-items: left;
+    width: 10vw;
+    text-decoration: none currentColor solid auto;
+    order: 2;
+    padding-top: 5%;
+}
+
+.social-icon {
+    padding: 0vw 2vw 3vw 0vw ;
+    width: 2.5vw;
+}
+
+.footer-underline-text{
+    order: 3;
+    margin-left: 25%;
+}
+
+.footer-gray-text{
+    order:4;
+}
+
+.footer-text bold{
+    font-weight: bold;
+}
+
+.footer-text underline{
+    text-decoration: underline;
+    font-size: 1.2vw;
+    color:white;
+}
+
+.footer-text gray {
+    color:#d0e6ec85;
+}
+
+.footer-text gray-underline {
+    color:#d0e6ec85;
+    text-decoration: underline;
+}
+
+
+.footer-line{
+    display: none;
+}
+
+
+.footer-desktop-left-col{
+    display: flex;
+    flex-direction: column;
+    float: left;
+}
+
+}

@@ -1,2 +1,2 @@
-# ico-gemsandgoblins
-Page for GemsAndGoblins.
+# new-react-project-callisto
+New react project for Callisto Network
