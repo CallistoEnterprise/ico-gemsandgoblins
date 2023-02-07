@@ -268,7 +268,6 @@ window.presale = () => {
         );
 
         stateMachine.button(el.parentElement, animations);
-        el.parentElement.onclick = () => window.location.href = 'presale-3.php';
 
         onResizeHandlers.push(() => {
             el.style.scale = vw(16.67) / 700;
