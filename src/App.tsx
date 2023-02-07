@@ -17,6 +17,9 @@ function App() {
   const [loading, setLoading] = useState(false);
   const { open } = useWeb3Modal();
 
+  // state variable for phase 2
+  const [phase2, setPhase2] = useState(false);
+
   const { address, isConnecting, isDisconnected } = useAccount();
 
   async function onOpen() {
@@ -45,7 +48,8 @@ function App() {
   return (
     <div className="App">
 
-    <div className="content">
+    {!phase2 ? (
+    <div className="content phaseOne">
 
       <div className="hero-video">
         <video preload="auto" autoPlay muted loop playsInline>
@@ -251,7 +255,7 @@ function App() {
             </div>
 
             <div className="presale-buy-button-container">
-              <button className="presale-buy-button">
+              <button className="presale-buy-button" onClick={() => setPhase2(true)}>
                 <span className="presale-buy-button-img"></span>
               </button>
             </div>
@@ -259,6 +263,289 @@ function App() {
         </div>
       </div>
     </div>
+    ) : (
+      <div className="content PhaseTwo">
+        
+        <div className="hero-video">
+            <video preload="auto" autoPlay muted loop playsInline>
+                <source src="/img/hero-section/hero-video.mp4" type="video/mp4"/>
+            </video>
+            <div className="caption">
+                <div className="logo hidden-on-desktop">
+                    <div className="logo-wrapper" id="logo-wrapper">
+                        <img src="img/hero-section/logo/hero_logo_1.png" alt=""/>
+                        <img src="img/hero-section/logo/hero_logo_2.png" alt=""/>
+                        <img src="img/hero-section/logo/hero_logo_3.png" alt=""/>
+                        <img src="img/hero-section/logo/hero_logo_4.png" alt=""/>
+                        <img src="img/hero-section/logo/hero_logo_5.png" alt=""/>
+                        <img src="img/hero-section/logo/hero_logo_6.png" alt=""/>
+                        <img src="img/hero-section/logo/hero_logo_7.png" alt=""/>
+                        <img src="img/hero-section/logo/hero_logo_8.png" alt=""/>
+                        <img src="img/hero-section/logo/hero_logo_9.png" alt=""/>
+                        <img src="img/hero-section/logo/hero_logo_10.png" alt=""/>
+                        <img src="img/hero-section/logo/hero_logo_11.png" alt=""/>
+                    </div>
+                </div>
+
+                <div className="presale-container presale-2">
+                    <div className="presale-cable-right"></div>
+
+                    <div className="presale-heading-container">
+                        <h2 className="presale-heading text-center">
+                            Buy GNG tokens
+                        </h2>
+                    </div>
+
+                    <div className="round-container">
+                        <div className="round-heading-container">
+                            <span className="round-heading">
+                                Round 1 is live
+                            </span>
+                            <div className="round-heading-indicator">
+                                <div className="round-heading-indicator-light"></div>
+                            </div>
+                        </div>
+                        <span className="round-subheading">
+                        </span>
+                        <div className="round-progress-container">
+                            <div className="round-progress-bar-container position-inset">
+                                <div className="round-progress-bar position-inset">
+                                    <div className="round-progress-bar-fill"></div>
+                                </div>
+                                <div className="round-progress-bar-mask"
+                                     style={styles.progressBar}
+                                >
+                                    <img src="img/presale/Mask_BarFill_L.png"
+                                         alt=""
+                                         className="round-progress-bar-mask-l"
+                                    />
+                                    <img src="img/presale/Mask_BarFill_M.png"
+                                         alt=""
+                                         className="round-progress-bar-mask-m"
+                                    />
+                                    <img src="img/presale/Mask_BarFill_R.png"
+                                         alt=""
+                                         className="round-progress-bar-mask-r"
+                                    />
+                                </div>
+                                <div className="round-progress-bar-mask-tail flex-1"></div>
+                            </div>
+                            <div className="round-progress-divider round-progress-divider-l"></div>
+                            <span className="round-progress-value">
+                                20%
+                            </span>
+                            <div className="round-progress-divider round-progress-divider-r"></div>
+                        </div>
+                        <div className="round-progress-label-container">
+                            <span>
+                                SOLD:
+                            </span>
+                            <span>
+                                3M <span className="round-progress-label-dark">/ 15M</span>
+                            </span>
+                        </div>
+                        <span className="round-price text-center">
+                            $0,02 per GNG token
+                        </span>
+
+                        <div className="round-time-left-container">
+                            <span className="round-time-left-label">
+                                time left in private round
+                            </span>
+                            <div className="round-time-left-clock-container">
+                                <div className="round-time-left-clock-column">
+                                    <div className="round-time-left-clock-value" data-field="days">
+                                        <div className="round-time-left-clock-value-bg">
+                                            <div className="round-time-left-clock-value-bg-flip"></div>
+                                        </div>
+                                        <span className="round-time-left-clock-value-text">
+                                            20
+                                        </span>
+                                    </div>
+                                    <span className="round-time-left-clock-label">
+                                        D
+                                    </span>
+                                </div>
+                                <div className="round-time-left-clock-column">
+                                    <div className="round-time-left-clock-value" data-field="hours">
+                                        <div className="round-time-left-clock-value-bg">
+                                            <div className="round-time-left-clock-value-bg-flip"></div>
+                                        </div>
+                                        <span className="round-time-left-clock-value-text">
+                                            15
+                                        </span>
+                                    </div>
+                                    <span className="round-time-left-clock-label">
+                                        H
+                                    </span>
+                                </div>
+                                <div className="round-time-left-clock-column">
+                                    <div className="round-time-left-clock-value" data-field="minutes">
+                                        <div className="round-time-left-clock-value-bg">
+                                            <div className="round-time-left-clock-value-bg-flip"></div>
+                                        </div>
+                                        <span className="round-time-left-clock-value-text">
+                                            48
+                                        </span>
+                                    </div>
+                                    <span className="round-time-left-clock-label">
+                                        M
+                                    </span>
+                                </div>
+                                <div className="round-time-left-clock-column">
+                                    <div className="round-time-left-clock-value" data-field="seconds">
+                                        <div className="round-time-left-clock-value-bg">
+                                            <div className="round-time-left-clock-value-bg-flip"></div>
+                                        </div>
+                                        <span className="round-time-left-clock-value-text">
+                                            15
+                                        </span>
+                                    </div>
+                                    <span className="round-time-left-clock-label">
+                                        S
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="supported-currencies-container">
+                        <span className="supported-currencies-heading">
+                            Supported crypto currency:
+                        </span>
+                        <div className="supported-currencies">
+                            <div className="supported-currency highlighted">
+                                <img src="img/presale/Supported_Currencies_Placeholder.png"
+                                     className="supported-currency-logo"
+                                alt="" />
+                                <span className="supported-currency-title">
+                                    CLO
+                                </span>
+                            </div>
+                            <div className="supported-currency highlighted">
+                                <img src="img/presale/Supported_Currencies_Placeholder.png"
+                                     className="supported-currency-logo"
+                                alt="" />
+                                <span className="supported-currency-title">
+                                    SOY
+                                </span>
+                            </div>
+                            <div className="supported-currency highlighted">
+                                <img src="img/presale/Supported_Currencies_Placeholder.png"
+                                     className="supported-currency-logo"
+                                alt="" />
+                                <span className="supported-currency-title">
+                                    CLOE
+                                </span>
+                            </div>
+                            <div className="supported-currency">
+                                <img src="img/presale/Supported_Currencies_Placeholder.png"
+                                     className="supported-currency-logo"
+                                alt="" />
+                                <span className="supported-currency-title">
+                                    VGR
+                                </span>
+                            </div>
+                            <div className="supported-currency">
+                                <img src="img/presale/Supported_Currencies_Placeholder.png"
+                                     className="supported-currency-logo"
+                                alt="" />
+                                <span className="supported-currency-title">
+                                    BTC
+                                </span>
+                            </div>
+                            <div className="supported-currency">
+                                <img src="img/presale/Supported_Currencies_Placeholder.png"
+                                     className="supported-currency-logo"
+                                alt="" />
+                                <span className="supported-currency-title">
+                                    ETH
+                                </span>
+                            </div>
+                            <div className="supported-currency">
+                                <img src="img/presale/Supported_Currencies_Placeholder.png"
+                                     className="supported-currency-logo"
+                                alt="" />
+                                <span className="supported-currency-title">
+                                    VER
+                                </span>
+                            </div>
+                        </div>
+                        <span className="supported-currencies-info">
+                            By using CLO, SOY or CLOE you get +5% bonus on GNG tokens!
+                        </span>
+                    </div>
+                    <div className="backers-container">
+                        <span className="backers-label">
+                            Backed by:
+                        </span>
+                        <div className="backers">
+                            <img src="img/presale/backers/callisto.png"
+                                 alt="Callisto Network"
+                            />
+                            <img src="img/presale/backers/eig.png"
+                                 alt="EIG"
+                            />
+                            <img src="img/presale/backers/soy-finance.png"
+                                 alt="Soy Finance"
+                            />
+                            <img src="img/presale/backers/absolute-wallet.png"
+                                 alt="Absolute Wallet"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className="connect-wallet-container">
+                    <div className="connect-wallet-offer-container">
+                        <span className="connect-wallet-offer-heading">
+                            5% MORE TOKENS
+                        </span>
+                        <span className="connect-wallet-offer-subtitle">
+                            with CLO, SOY, CLOE
+                        </span>
+                        <div className="connect-wallet-offer-chest">
+                            <img src="img/presale/Page2_BG_Chest.png"
+                                 alt=""
+                            />
+                        </div>
+                    </div>
+                    <span className="connect-wallet-heading">
+                        Connect your wallet<br />
+                        to get GNG tokens
+                    </span>
+                    <div className="connect-wallet-subtitle">
+                        <a href="#" target="_blank"
+                           className="connect-wallet-link"
+                        >
+                            New to crypto?
+                        </a>
+                    </div>
+
+                    <div className="connect-wallet-cable-left"></div>
+
+                    <div className="connect-wallet-button-container">
+                        <button className="connect-wallet-button">
+                            <span className="connect-wallet-button-img"></span>
+                        </button>
+                    </div>
+
+                    <div className="connect-wallet-footnote-container">
+                        <a href="#" target="_blank"
+                           className="connect-wallet-footnote-link connect-wallet-link"
+                        >
+                            Smart Contract Address
+                        </a>
+                        <span className="connect-wallet-footnote-secure">
+                            Secure payment
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    )}
 
       <div className="web3stuff">      
         <h1>Testing:</h1>
