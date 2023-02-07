@@ -6,6 +6,7 @@ import { useWeb3Modal, Web3Button, Web3NetworkSwitch } from "@web3modal/react";
 import { useAccount } from "wagmi";
 
 import { useContractRead, erc20ABI } from "wagmi";
+import priceFeedAbi from "./abi/priceFeed.json";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -13,6 +14,10 @@ function App() {
 
   // state variable for phase 2
   const [phase2, setPhase2] = useState(false);
+
+  // State variable for the selected coin
+  const [selectedCoin, setSelectedCoin] = useState("0x0000000000000000000000000000000000000001");
+  const [selectedCoinPrice, setSelectedCoinPrice] = useState("0");
 
   const { address, isConnecting, isDisconnected, isConnected } = useAccount();
 
@@ -38,6 +43,20 @@ function App() {
       width: volumePercentage,
     },
   } as const;
+
+  const priceFeed = useContractRead({
+    address: "0x9bFc3046ea26f8B09D3E85bd22AEc96C80D957e3",
+    abi: priceFeedAbi,
+    functionName: "getPrice",
+    args: [selectedCoin],
+    onSuccess(data: any) {
+      // transfor data from big number to number
+      const data_display = Number(data.toString()) / 1000000000000000000;
+      // get only 5 decimals after the comma
+      const data_display_rounded = data_display.toFixed(5);
+      setSelectedCoinPrice(data_display_rounded);
+    },
+  });
 
   return (
     <div className="App">
@@ -593,17 +612,17 @@ function App() {
                         Selected currency:
                       </label>
                       <div className="wallet-connected-form-select">
-                        <select id="selected-currency" name="">
-                          <option>CLO</option>
-                          <option>SOY</option>
-                          <option>CLOE</option>
+                        <select id="selected-currency" name="" onChange={e => setSelectedCoin(e.target.value)}>
+                          <option value="0x0000000000000000000000000000000000000001">CLO</option>
+                          <option value="0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65">SOY</option>
+                          <option value="0x1eAa43544dAa399b87EEcFcC6Fa579D5ea4A6187">CLOE</option>
                         </select>
                         <div className="wallet-connected-form-select-arrow">
                           <img src="img/presale/Page3_RollDown.png" alt="" />
                         </div>
                       </div>
                       <span className="wallet-connected-form-info">
-                        +5% bonus on GNG tokens
+                        current price is {selectedCoinPrice}
                       </span>
                     </div>
                     <div className="wallet-connected-form-group flex-1">
