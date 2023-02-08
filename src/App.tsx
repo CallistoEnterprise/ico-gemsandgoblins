@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 
 import { useWeb3Modal, Web3Button, Web3NetworkSwitch } from "@web3modal/react";
@@ -7,6 +7,7 @@ import { useAccount } from "wagmi";
 
 import { useContractRead, erc20ABI } from "wagmi";
 import priceFeedAbi from "./abi/priceFeed.json";
+import icoAbi from "./abi/ico.json";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -16,8 +17,16 @@ function App() {
   const [phase2, setPhase2] = useState(false);
 
   // State variable for the selected coin
+  // SelectedCoin from the select dropdown
   const [selectedCoin, setSelectedCoin] = useState("0x0000000000000000000000000000000000000001");
+  // SelectedCoinPrice from the price feed contract  
   const [selectedCoinPrice, setSelectedCoinPrice] = useState("0");
+  // SelectedCoinName from the select dropdown + function to change the name
+  const [selectedCoinName, setSelectedCoinName] = useState("CLO");
+  // GNG amount from the ICO contract, function get_reward
+  const [gngAmount, setGngAmount] = useState("0");
+  // Money amount input from the input Amount used to purchase
+  const [moneyAmountInput, setMoneyAmountInput] = useState(0);
 
   const { address, isConnecting, isDisconnected, isConnected } = useAccount();
 
@@ -45,6 +54,7 @@ function App() {
   } as const;
 
   const priceFeed = useContractRead({
+    // Price Feed Contract Address
     address: "0x9bFc3046ea26f8B09D3E85bd22AEc96C80D957e3",
     abi: priceFeedAbi,
     functionName: "getPrice",
@@ -57,6 +67,31 @@ function App() {
       setSelectedCoinPrice(data_display_rounded);
     },
   });
+
+  const gngAmountFunction = useContractRead({
+    // ICO Contract Address
+    address: "0xA3498FAc3A45ddEAdF66c0A905Ac1e1AD10d99E2",
+    abi: icoAbi,
+    functionName: "get_reward",
+    args: [moneyAmountInput, selectedCoin],
+    onSuccess(data: any) {
+      const rewards = Number(data.reward.toString());
+      console.log("Success get_reward", rewards);
+      setGngAmount(rewards.toString());
+    },
+  });
+
+
+  useEffect(() => {
+    if (selectedCoin === "0x0000000000000000000000000000000000000001") {
+      setSelectedCoinName("CLO");
+    } else if (selectedCoin === "0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65") {
+      setSelectedCoinName("SOY");
+    } else if (selectedCoin === "0x1eAa43544dAa399b87EEcFcC6Fa579D5ea4A6187") {
+      setSelectedCoinName("CLOE");
+    }
+  }, [selectedCoin]);
+
 
   return (
     <div className="App">
@@ -622,7 +657,7 @@ function App() {
                         </div>
                       </div>
                       <span className="wallet-connected-form-info">
-                        current price is {selectedCoinPrice}
+                        current price is ${selectedCoinPrice}
                       </span>
                     </div>
                     <div className="wallet-connected-form-group flex-1">
@@ -655,9 +690,10 @@ function App() {
                           type="text"
                           inputMode="numeric"
                           className="with-suffix"
+                          onChange={e => setMoneyAmountInput(Number(e.target.value))}
                         />
                         <div className="wallet-connected-form-input-suffix">
-                          CLO
+                          {selectedCoinName}
                         </div>
                       </div>
                       <span className="wallet-connected-form-info">
@@ -671,13 +707,8 @@ function App() {
                       >
                         GNG Tokens:
                       </label>
-                      <div className="wallet-connected-form-input">
-                        <input
-                          type="text"
-                          readOnly
-                          disabled
-                          value="52,500 GNG"
-                        />
+                      <div className="wallet-connected-form-gngValue">
+                        {gngAmount} GnG
                       </div>
                       <span className="wallet-connected-form-info">
                         Amount to be purchased (min 5,000)
