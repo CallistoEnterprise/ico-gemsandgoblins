@@ -1,0 +1,389 @@
+
+h2 {
+    font-family: 'Friz Quadrata Std Medium';
+    font-size: 1.667vw;
+    line-height: 2vw;
+    font-weight: bold;
+    color: white;
+}
+
+.presale-container {
+    font-family: 'Friz Quadrata Std Medium';
+    color: #FFFFFF;
+
+    text-align: left;
+    width: 100vw;
+    max-width: 88.89vw;
+    margin: auto;
+
+    padding: 0 4.51vw;
+
+    background: url("/img/presale/Asset_BG_A.png") top no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.presale-heading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.891vw;
+    position: relative;
+}
+
+.presale-heading {
+    margin: 0 0 1.03vw;
+    padding-top: 2.11vw;
+    width: 59.56vw;
+    height: 8.18vw;
+
+    background: url("/img/presale/Asset_Field_Top.png") center no-repeat;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+    font-size: 5vw;
+
+    color: #4d3e27;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.round-container {
+    padding: 1.11vw 1.67vw 0;
+
+    background: url("/img/presale/Asset_BG_B.png") center no-repeat;
+    background-size: 100% 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    margin-bottom: 2.7vw;
+}
+
+.round-heading-container {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 0.52vw;
+}
+
+.round-heading {
+    font-size: 1.25vw;
+    line-height: 1.6vw;
+    font-weight: bold;
+}
+
+.round-subheading {
+    font-size: 0.833vw;
+    line-height: 1vw;
+    margin-bottom: 0.70vw;
+}
+
+.round-heading-indicator {
+    margin-top: 0.3vw;
+    width: 0.69vw;
+    height: 0.69vw;
+    overflow: visible;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.round-heading-indicator-light {
+    flex: none;
+    width: 50px;
+    height: 50px;
+
+    background: url("/img/presale/SS_Light.png") center 0 no-repeat;
+    background-size: 50px;
+}
+
+.round-progress-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 3.02vw;
+
+    align-items: center;
+    margin-bottom: 0.42vw;
+
+    background: url("/img/presale/Asset_Bar_Frame.png") center no-repeat;
+    background-size: 100%;
+}
+
+.round-progress-bar-container {
+    position: absolute;
+    top: -1.2vw;
+    right: 1vw;
+    bottom: -1.2vw;
+    left: 1vw;
+
+    /*background: url("/img/presale/SS_BarFill.png") 0 0 no-repeat;*/
+    /*background-size: 100%;*/
+}
+
+.round-progress-value {
+    position: relative;
+    font-size: 0.972vw;
+    line-height: 1.17vw;
+
+    color: #FFFFFF;
+    text-shadow: 1px 0 1px #2B170C, 0 1px 1px #2B170C, -1px 0 1px #2B170C, 0 -1px 1px #2B170C;
+    margin-top: 1.2vw;
+}
+
+.round-progress-divider {
+    position: absolute;
+    width: 0.95vw;
+    height: 4vw;
+    top: -0.42vw;
+}
+
+.round-progress-divider-l {
+    left: 4.93vw;
+
+    background: url("/img/presale/Asset_Bar_Divider_1.png") 0 0 no-repeat;
+    background-size: 100%;
+}
+
+.round-progress-divider-r {
+    right: 4.93vw;
+
+    background: url("/img/presale/Asset_Bar_Divider_2.png") 0 0 no-repeat;
+    background-size: 100%;
+}
+
+.round-progress-label-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.34vw;
+
+    color: #FF955F;
+    font-weight: bold;
+    font-size: 0.833vw;
+    line-height: 1vw;
+
+    margin-bottom: 1.04vw;
+}
+
+.round-progress-label-dark {
+    color: #B57B5B;
+}
+
+.round-price {
+    font-size: 1.39vw;
+    line-height: 1.67vw;
+    font-weight: bold;
+    margin-bottom: 1.11vw;
+}
+
+.round-time-left-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.round-time-left-label {
+    color: #FF955F;
+    font-size: 0.833vw;
+    line-height: 1vw;
+    font-weight: bold;
+    margin-bottom: 0.35vw;
+}
+
+.round-time-left-clock-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 0.56vw;
+
+    margin-bottom: -3vw;
+
+    background: url("/img/presale/Asset_Clock_BG.png") 0 0 no-repeat;
+    background-size: 100%;
+    padding: 0.25vw 0.63vw;
+}
+
+.round-time-left-clock-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.round-time-left-clock-value {
+    font-size: 1.67vw;
+    line-height: 2vw;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.79vw 0 0.25vw;
+    position: relative;
+
+    width: 3.47vw;
+    margin-bottom: 0.347vw;
+}
+
+.round-time-left-clock-value-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.round-time-left-clock-value-text {
+    position: relative;
+}
+
+.round-time-left-clock-value-bg-flip {
+    flex: none;
+    width: 150px;
+    height: 130px;
+    background: url("/img/presale/SS_Clock_Flip.png") center 0 no-repeat;
+    background-size: 150px;
+}
+
+.round-time-left-clock-label {
+    font-size: 0.833vw;
+    line-height: 1vw;
+    font-weight: bold;
+}
+
+.next-rounds-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 0.8vw;
+}
+
+.next-rounds-heading {
+    font-size: 0.972vw;
+    line-height: 1.17vw;
+    font-weight: bold;
+    margin-bottom: 0.28vw;
+}
+
+.next-rounds-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.56vw;
+
+    background: url("/img/presale/Asset_Fields_Bottom.png") 0 0 no-repeat;
+    background-size: 100%;
+}
+
+.next-rounds-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    padding: 0.7vw 0.69vw 0.49vw;
+
+    flex: 1 1 0;
+    height: 6.2vw;
+    box-sizing: border-box;
+}
+
+.next-rounds-card-title {
+    font-size: 0.972vw;
+    line-height: 1.17vw;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.next-rounds-card-subtitle {
+    font-size: 0.833vw;
+    line-height: 1.17vw;
+    font-weight: bold;
+    color: #bc7459;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-grow: 1;
+}
+
+.next-rounds-card-separator {
+}
+
+.next-rounds-card-info {
+    font-size: 0.833vw;
+    line-height: 1vw;
+    font-weight: bold;
+    color: #bc7459;
+}
+
+.investor-cta-container {
+    font-size: 0.972vw;
+    line-height: 1.17vw;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.56vw;
+    margin-bottom: 0.4vw;
+}
+
+.investor-cta-link {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+.investor-cta-link:hover {
+    text-decoration: none;
+}
+
+.presale-buy-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.presale-buy-button {
+    position: relative;
+    width: 15.21vw;
+    height: 4.35vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.presale-buy-button-img {
+    flex: none;
+    width: 700px;
+    height: 200px;
+    background: url("/img/presale/SS_Button_Buy.png") center 0 no-repeat;
+    background-size: 700px;
+}
+
+.presale-cable-left {
+    position: absolute;
+    width: 11.8vw;
+    height: 30vw;
+    background: url("/img/presale/Asset_Cable_L.png") 0 0 no-repeat;
+    background-size: 100%;
+    left: -0.9vw;
+    top: 19.1vw
+}
+
+.presale-cable-right {
+    position: absolute;
+    width: 11.6vw;
+    height: 30vw;
+    background: url("/img/presale/Asset_Cable_R.png") 0 0 no-repeat;
+    background-size: 100%;
+    right: -0.8vw;
+    top: 1.4vw
+}

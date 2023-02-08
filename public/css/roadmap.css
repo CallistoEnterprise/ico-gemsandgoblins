@@ -1,0 +1,270 @@
+@font-face {
+    font-family: 'Friz Quadrata Std Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Friz Quadrata Std Italic'), url('/fonts/friz-quadrata-std-italic-587033b2c95df.woff') format('woff');
+}
+    
+
+ @font-face {
+    font-family: 'Friz Quadrata Std Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Friz Quadrata Std Medium'), url('/fonts/friz-quadrata-std-medium-5870338ec7ef8.woff') format('woff');
+}
+    
+
+@font-face {
+    font-family: 'Friz Quadrata Std Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Friz Quadrata Std Bold'), url('/fonts/friz-quadrata-std-bold-587034a220f9f.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Friz Quadrata Std Bold Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Friz Quadrata Std Bold Italic'), url('/fonts/friz-quadrata-std-bold-italic-587033d6d4298.woff') format('woff');
+}
+
+h1, h2, h3 {
+    font-family: 'Friz Quadrata Std Medium';
+}
+
+a {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+
+p{
+    font-family: 'Friz Quadrata Std Medium';
+}
+
+li{
+    font-family: 'Friz Quadrata Std Medium';
+}
+
+
+/* annual heading */
+h1 {
+    color: #1DDA90;
+    font-size: 36px;
+    font-weight: bolder;
+    padding-right: 24px;
+}
+
+
+/* quarter heading */
+h3 {
+    color: #1DDA90;
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+/* RESET */
+body {
+    padding: 0%;
+    margin: 0%;
+}
+
+
+button{
+    all: unset;
+    cursor: pointer;
+}
+
+
+
+.year-data{
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.5s;
+    z-index: -5;
+
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+
+.year-data-active{
+    opacity: 1;
+    position: relative;
+    margin: auto;
+    transition: opacity 0.5s;
+    z-index: 1;
+}
+
+
+.roadmap{
+    margin: auto;
+}
+
+.roadmap-heading h2{
+    font-size: 3vw;
+    color: #1DDA90;
+    transition: all 0.2s;
+}
+
+/* DESKTOP VERSION */
+
+
+
+@media only screen and (min-width: 801px){
+.roadmap {
+    background-image: url("../img/universal/desktop-green-background.png");
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 37px;
+}
+
+.desktop-roadmap-layout{
+    max-width: 1200px;
+    width:100%;
+    align-items: left;
+    justify-content: left;
+
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+.info-text {
+    color: #D0E6EC;
+    font-size: 18px;
+}
+
+.info-text bold{
+    font-weight: bold;
+}
+/* ANNUAL SECTION */
+.annual-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3vw;
+}
+
+/* QUARTER SECTION */
+.polygon {
+    height: 21px;
+    width: 21px;
+    padding: 21px 21px 21px 0px;
+}
+
+.specific-info{
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.roadmap-logo{
+    width: 30vw;
+    display: block;
+    margin: auto;
+}
+
+.roadmap-heading h2{
+    font-size: 3vw;
+    filter: brightness(0.5);
+    color: #1DDA90;
+    transition: all 0.2s;
+}
+
+.roadmap-heading h2:hover{
+    filter: brightness(0.7);
+    transition: all 0.2s;
+}
+
+.roadmap-heading-active h2{
+    filter: brightness(1);
+    transition: all 0.2s;
+}
+
+.roadmap-logo-with-heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 24px;
+}
+
+}
+
+/* MOBILE VERSION*/
+@media only screen and (max-width: 800px){
+.roadmap {
+
+    padding-top: 40%;
+    margin-top: -40%;
+    background-image: url(../img/universal/green-background.png);
+    background-repeat: repeat-y;
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.roadmap-heading h2{
+    font-size: 7vw;
+    color: #1DDA90;
+    transition: all 0.2s;
+}
+
+.info-text {
+    color: #D0E6EC;
+    font-size: 18px;
+}
+
+.info-text bold{
+    font-weight: bold;
+}
+/* ANNUAL SECTION */
+.annual-section{
+    display: flex;
+    flex-direction: row;
+    gap: 10vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.specific-year{
+    padding-right: 24px
+}
+
+/* QUARTER SECTION */
+.polygon {
+    height: 21px;
+    width: 21px;
+    padding: 21px 21px 21px 0px;
+}
+
+.specific-info{
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.roadmap-logo{
+    width: 360px;
+    margin: auto;
+    display: block;
+}
+
+.roadmap-logo-with-heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 24px;
+}
+
+}

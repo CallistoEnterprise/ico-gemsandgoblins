@@ -1,0 +1,14 @@
+.hidePhase{
+    display: none;
+}
+
+.displayPhase{
+    opacity: 1;
+}
+
+.wallet-connected-form-gngValue{
+    font-size: 1.67vw;
+    line-height: 2vw;
+    font-weight: bold;
+    margin: 7px 0;
+}
