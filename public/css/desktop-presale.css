@@ -26,6 +26,11 @@
     .hero-text {
         font-size: 1.25vw;
         line-height: 1.5vw;
+        margin-bottom: 0;
+    }
+
+    .presale-prototype-button {
+        width: 17.78vw;
     }
 
     .presale-container {

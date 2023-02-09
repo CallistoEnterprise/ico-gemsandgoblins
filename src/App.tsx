@@ -137,6 +137,10 @@ function App() {
                 </p>
               </div>
               <div className="desktop-hero-buttons-layout hidden-on-mobile">
+                <img src="/img/presale/Asset_Button_Prototype.png"
+                     className="presale-prototype-button"
+                     alt=""
+                />
               </div>
             </div>
 
