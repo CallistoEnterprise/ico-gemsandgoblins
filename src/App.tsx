@@ -132,10 +132,6 @@ function App() {
                 </p>
               </div>
               <div className="desktop-hero-buttons-layout hidden-on-mobile">
-                <button
-                  id="button-whitelist-desktop"
-                  className="button-whitelist desktop-hero-button"
-                ></button>
               </div>
             </div>
 
