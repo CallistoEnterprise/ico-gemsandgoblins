@@ -499,7 +499,7 @@ function App() {
                 <div className="supported-currencies">
                   <div className="supported-currency">
                     <img
-                      src="img/presale/Supported_Currencies_Placeholder.png"
+                      src="img/presale/tokens/Icon_CLO.png"
                       className="supported-currency-logo"
                       alt=""
                     />
@@ -507,7 +507,7 @@ function App() {
                   </div>
                   <div className="supported-currency">
                     <img
-                      src="img/presale/Supported_Currencies_Placeholder.png"
+                      src="img/presale/tokens/Icon_SOY.png"
                       className="supported-currency-logo"
                       alt=""
                     />
@@ -515,7 +515,7 @@ function App() {
                   </div>
                   <div className="supported-currency">
                     <img
-                      src="img/presale/Supported_Currencies_Placeholder.png"
+                      src="img/presale/tokens/Icon_CLOE.png"
                       className="supported-currency-logo"
                       alt=""
                     />
