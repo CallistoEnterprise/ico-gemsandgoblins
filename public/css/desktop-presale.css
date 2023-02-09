@@ -23,6 +23,11 @@
         color: white;
     }
 
+    .hero-text {
+        font-size: 1.25vw;
+        line-height: 1.5vw;
+    }
+
     .presale-container {
         font-family: 'Friz Quadrata Std Medium';
         color: #FFFFFF;
@@ -726,6 +731,7 @@
     .wallet-connected-wallet {
         font-size: 1.11vw;
         line-height: 1.33vw;
+        min-height: 1.33vw;
         font-weight: bold;
         color: #ffffff;
         text-align: center;

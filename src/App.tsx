@@ -138,12 +138,6 @@ function App() {
                 ></button>
               </div>
             </div>
-            <div className="hero-buttons unselectable hidden-on-desktop">
-              <button
-                id="button-whitelist-mobile"
-                className="button-whitelist unselectable"
-              ></button>
-            </div>
 
             <div className="presale-container">
               <div className="presale-cable-left"></div>
@@ -287,7 +281,8 @@ function App() {
                     </span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $X per token X tokens
+                      $X per token<br/>
+                      X tokens
                     </span>
                   </div>
                   <div className="next-rounds-card">
@@ -295,7 +290,8 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $X per token X tokens
+                      $X per token<br/>
+                      X tokens
                     </span>
                   </div>
                   <div className="next-rounds-card">
@@ -303,7 +299,8 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $X per token X tokens
+                      $X per token<br/>
+                      X tokens
                     </span>
                   </div>
                   <div className="next-rounds-card">
@@ -311,7 +308,8 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $X per token X tokens
+                      $X per token<br/>
+                      X tokens
                     </span>
                   </div>
                 </div>
@@ -570,7 +568,7 @@ function App() {
                 </div>
               </div>
             </div>
-            {!isConnected ? (
+            {!isConnected ? (<>
               <div className="connect-wallet-container">
                 <div className="connect-wallet-offer-container">
                   <span className="connect-wallet-offer-heading">
@@ -622,7 +620,26 @@ function App() {
                 </div>
               </div>
 
-            ) : (
+              <div className="backers-container-mobile">
+                <span className="backers-label">Backed by:</span>
+                <div className="backers">
+                  <img
+                      src="img/presale/backers/callisto.png"
+                      alt="Callisto Network"
+                  />
+                  <img src="img/presale/backers/eig.png" alt="EIG" />
+                  <img
+                      src="img/presale/backers/soy-finance.png"
+                      alt="Soy Finance"
+                  />
+                  <img
+                      src="img/presale/backers/absolute-wallet.png"
+                      alt="Absolute Wallet"
+                  />
+                </div>
+              </div>
+
+            </>) : (
 
               <div className="wallet-connected-container">
                 <span className="wallet-connected-heading">
@@ -723,7 +740,7 @@ function App() {
                   </button>
                 </div>
 
-                <div className="wallet-connected-footnote-container">
+                <div className="wallet-connected-footnote-container mobile-hidden">
                   <a
                     href="#"
                     target="_blank"

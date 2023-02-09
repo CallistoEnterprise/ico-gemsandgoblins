@@ -1,9 +1,7 @@
 const {DateTime} = luxon;
 
-const vw = (percent) => {
-    const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    return (percent * w) / 100;
-}
+const windowWidth = () => Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+const vw = (percent) => (percent * windowWidth()) / 100;
 
 const objectMap = (object, map) => Object.fromEntries(
     Object.entries(object).map(
@@ -179,7 +177,7 @@ window.presale = () => {
     document.querySelectorAll('.round-heading-indicator-light').forEach(el => {
         animation.loop(animationSetter(el, 50), 0, 24, 24);
         onResizeHandlers.push(() => {
-            el.style.scale = vw(1.11) / 32;
+            el.style.scale = windowWidth() > 800 ? vw(1.11) / 32 : vw(4.44) / 32;
         });
     });
 
@@ -234,7 +232,7 @@ window.presale = () => {
 
     document.querySelectorAll('.round-time-left-clock-value-bg-flip').forEach(el => {
         onResizeHandlers.push(() => {
-            el.style.scale = vw(3.47) / 150;
+            el.style.scale = windowWidth() > 800 ? vw(3.47) / 150 : vw(13.88) / 150;
         });
     });
 
@@ -243,7 +241,7 @@ window.presale = () => {
             animationSetter(el, 145), 0, 47, 24
         );
         onResizeHandlers.push(() => {
-            el.style.scale = vw(3.02) / 145;
+            el.style.scale = windowWidth() > 800 ? vw(3.02) / 145 : vw(9.42) / 145;
         });
     });
 
@@ -257,7 +255,7 @@ window.presale = () => {
        
 
         onResizeHandlers.push(() => {
-            el.style.scale = vw(15.2) / 700;
+            el.style.scale = windowWidth() > 800 ? vw(15.2) / 700 : vw(71.11) / 700;
         });
     });
 
@@ -270,7 +268,7 @@ window.presale = () => {
         stateMachine.button(el.parentElement, animations);
 
         onResizeHandlers.push(() => {
-            el.style.scale = vw(16.67) / 700;
+            el.style.scale = windowWidth() > 800 ? vw(16.67) / 700 : vw(66.67) / 700;
         });
     });
 
@@ -283,7 +281,7 @@ window.presale = () => {
         stateMachine.button(el.parentElement, animations);
 
         onResizeHandlers.push(() => {
-            el.style.scale = vw(16.67) / 700;
+            el.style.scale = windowWidth() > 800 ? vw(16.67) / 700 : vw(66.67) / 700;
         });
     });
 

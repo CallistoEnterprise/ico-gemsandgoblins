@@ -1,25 +1,29 @@
-
-h2 {
+@media only screen and (max-width: 800px) {
+    h2 {
     font-family: 'Friz Quadrata Std Medium';
-    font-size: 1.667vw;
-    line-height: 2vw;
+    font-size: 7.78vw;
+    line-height: 9.33vw;
     font-weight: bold;
     color: white;
+}
+
+.hero-text {
+    font-size: 3.89vw;
+    line-height: 4.67vw;
 }
 
 .presale-container {
     font-family: 'Friz Quadrata Std Medium';
     color: #FFFFFF;
 
+    position: relative;
     text-align: left;
-    width: 100vw;
-    max-width: 88.89vw;
-    margin: auto;
+    margin: 16vw 5.56vw;
 
-    padding: 0 4.51vw;
+    padding: 0 3.89vw;
 
-    background: url("/img/presale/Asset_BG_A.png") top no-repeat;
-    background-size: contain;
+    background: url("/img/presale/MOBILE_BG_A_shorter.png") top no-repeat;
+    background-size: 100%;
     box-sizing: border-box;
 
     display: flex;
@@ -27,21 +31,26 @@ h2 {
     align-items: stretch;
 }
 
+.presale-container.presale-2 {
+    top: -33vw;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-size: 100% 100%;
+}
+
 .presale-heading-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 0.891vw;
+    align-items: stretch;
+    margin-top: 0;
     position: relative;
 }
 
 .presale-heading {
-    margin: 0 0 1.03vw;
-    padding-top: 2.11vw;
-    width: 59.56vw;
-    height: 8.18vw;
+    margin: 0 0 0.38vw;
+    padding-top: 0.78vw;
 
-    background: url("/img/presale/Asset_Field_Top.png") center no-repeat;
+    background: url("/img/presale/MOBILE_Field_Top.png") center no-repeat;
     background-size: 100% 100%;
     box-sizing: border-box;
     font-size: 5vw;
@@ -54,41 +63,43 @@ h2 {
 }
 
 .round-container {
-    padding: 1.11vw 1.67vw 0;
+    padding: 3.33vw 0 0;
 
-    background: url("/img/presale/Asset_BG_B.png") center no-repeat;
+    background: url("/img/presale/MOBILE_BG_B.png") center no-repeat;
     background-size: 100% 100%;
 
     display: flex;
     flex-direction: column;
     align-items: stretch;
 
-    margin-bottom: 2.7vw;
+    margin-bottom: 12.8vw;
 }
 
 .round-heading-container {
     display: flex;
     flex-direction: row;
     align-items: start;
-    gap: 0.52vw;
+    justify-content: center;
+    gap: 2.08vw;
 }
 
 .round-heading {
-    font-size: 1.25vw;
-    line-height: 1.6vw;
+    font-size: 4.44vw;
+    line-height: 5.33vw;
     font-weight: bold;
 }
 
 .round-subheading {
-    font-size: 0.833vw;
-    line-height: 1vw;
-    margin-bottom: 0.70vw;
+    font-size: 2.78vw;
+    line-height: 3.33vw;
+    margin-bottom: 3vw;
+    text-align: center;
 }
 
 .round-heading-indicator {
-    margin-top: 0.3vw;
-    width: 0.69vw;
-    height: 0.69vw;
+    margin-top: 0.6vw;
+    width: 2.78vw;
+    height: 2.78vw;
     overflow: visible;
     position: relative;
     display: flex;
@@ -109,52 +120,92 @@ h2 {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 3.02vw;
+    height: 9.42vw;
 
     align-items: center;
-    margin-bottom: 0.42vw;
+    margin-bottom: 1.94vw;
 
     background: url("/img/presale/Asset_Bar_Frame.png") center no-repeat;
     background-size: 100%;
 }
+.presale-2 .round-progress-container {
+    margin-top: 1.1vw;
+}
 
 .round-progress-bar-container {
     position: absolute;
-    top: -1.2vw;
-    right: 1vw;
-    bottom: -1.2vw;
-    left: 1vw;
 
-    /*background: url("/img/presale/SS_BarFill.png") 0 0 no-repeat;*/
-    /*background-size: 100%;*/
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+    isolation: isolate;
+    mix-blend-mode: lighten;
+}
+
+.round-progress-bar {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.round-progress-bar-fill {
+    flex: none;
+    width: 1249px;
+    height: 145px;
+
+    background: url("/img/presale/SS_BarFill.png") 0 0 no-repeat;
+    background-size: 1249px 6815px;
+}
+
+.round-progress-bar-mask {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    mix-blend-mode: darken;
+    min-width: 1.6875vw;
+}
+
+.round-progress-bar-mask-tail {
+    background-color: black;
+    position: relative;
+}
+
+.round-progress-bar-mask-l, .round-progress-bar-mask-r {
+}
+
+.round-progress-bar-mask-m {
+    flex: 1 1 0;
+    min-width: 0;
 }
 
 .round-progress-value {
     position: relative;
-    font-size: 0.972vw;
-    line-height: 1.17vw;
+    font-size: 3.33vw;
+    line-height: 4vw;
 
     color: #FFFFFF;
     text-shadow: 1px 0 1px #2B170C, 0 1px 1px #2B170C, -1px 0 1px #2B170C, 0 -1px 1px #2B170C;
-    margin-top: 1.2vw;
+    margin-top: 3.4vw;
 }
 
 .round-progress-divider {
     position: absolute;
-    width: 0.95vw;
-    height: 4vw;
-    top: -0.42vw;
+    width: 3vw;
+    height: 14vw;
+    top: -1.35vw;
 }
 
 .round-progress-divider-l {
-    left: 4.93vw;
+    left: 11.11vw;
 
     background: url("/img/presale/Asset_Bar_Divider_1.png") 0 0 no-repeat;
     background-size: 100%;
 }
 
 .round-progress-divider-r {
-    right: 4.93vw;
+    right: 11.11vw;
 
     background: url("/img/presale/Asset_Bar_Divider_2.png") 0 0 no-repeat;
     background-size: 100%;
@@ -164,14 +215,14 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.34vw;
+    gap: 1.11vw;
 
     color: #FF955F;
     font-weight: bold;
-    font-size: 0.833vw;
-    line-height: 1vw;
+    font-size: 2.78vw;
+    line-height: 3.33vw;
 
-    margin-bottom: 1.04vw;
+    margin-bottom: 2.7vw;
 }
 
 .round-progress-label-dark {
@@ -179,8 +230,8 @@ h2 {
 }
 
 .round-price {
-    font-size: 1.39vw;
-    line-height: 1.67vw;
+    font-size: 4.44vw;
+    line-height: 5.33vw;
     font-weight: bold;
     margin-bottom: 1.11vw;
 }
@@ -193,8 +244,8 @@ h2 {
 
 .round-time-left-label {
     color: #FF955F;
-    font-size: 0.833vw;
-    line-height: 1vw;
+    font-size: 2.78vw;
+    line-height: 3.33vw;
     font-weight: bold;
     margin-bottom: 0.35vw;
 }
@@ -203,13 +254,13 @@ h2 {
     position: relative;
     display: flex;
     flex-direction: row;
-    gap: 0.56vw;
+    gap: 2.22vw;
 
-    margin-bottom: -3vw;
+    margin-bottom: -12.8vw;
 
     background: url("/img/presale/Asset_Clock_BG.png") 0 0 no-repeat;
     background-size: 100%;
-    padding: 0.25vw 0.63vw;
+    padding: 1vw 2.63vw;
 }
 
 .round-time-left-clock-column {
@@ -219,15 +270,15 @@ h2 {
 }
 
 .round-time-left-clock-value {
-    font-size: 1.67vw;
-    line-height: 2vw;
+    font-size: 6.68vw;
+    line-height: 8vw;
     font-weight: bold;
     text-align: center;
-    padding: 0.79vw 0 0.25vw;
+    padding: 3.17vw 0 1vw;
     position: relative;
 
-    width: 3.47vw;
-    margin-bottom: 0.347vw;
+    width: 13.89vw;
+    margin-bottom: 3vw;
 }
 
 .round-time-left-clock-value-bg {
@@ -254,8 +305,8 @@ h2 {
 }
 
 .round-time-left-clock-label {
-    font-size: 0.833vw;
-    line-height: 1vw;
+    font-size: 3.28vw;
+    line-height: 4vw;
     font-weight: bold;
 }
 
@@ -263,23 +314,22 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    margin-bottom: 0.8vw;
+    margin-bottom: 5.5vw;
 }
 
 .next-rounds-heading {
-    font-size: 0.972vw;
-    line-height: 1.17vw;
-    font-weight: bold;
-    margin-bottom: 0.28vw;
+    font-size: 0;
 }
 
 .next-rounds-cards {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 0.56vw;
+    flex-wrap: wrap;
+    gap: 4.3vw;
+    margin-top: 3vw;
 
-    background: url("/img/presale/Asset_Fields_Bottom.png") 0 0 no-repeat;
+    background: url("/img/presale/MOBILE_Fields.png") 0 0 no-repeat;
     background-size: 100%;
 }
 
@@ -288,23 +338,24 @@ h2 {
     flex-direction: column;
     align-items: stretch;
 
-    padding: 0.7vw 0.69vw 0.49vw;
+    padding: 5vw 4vw 2.78vw;
+    min-width: 38.06vw;
+    min-height: 32.06vw;
 
-    flex: 1 1 0;
     height: 6.2vw;
     box-sizing: border-box;
 }
 
 .next-rounds-card-title {
-    font-size: 0.972vw;
-    line-height: 1.17vw;
+    font-size: 3.33vw;
+    line-height: 4vw;
     font-weight: bold;
     color: #ffffff;
 }
 
 .next-rounds-card-subtitle {
-    font-size: 0.833vw;
-    line-height: 1.17vw;
+    font-size: 3.33vw;
+    line-height: 4vw;
     font-weight: bold;
     color: #bc7459;
 
@@ -319,42 +370,142 @@ h2 {
 }
 
 .next-rounds-card-info {
-    font-size: 0.833vw;
-    line-height: 1vw;
+    font-size: 3.33vw;
+    line-height: 4vw;
     font-weight: bold;
     color: #bc7459;
 }
 
+.supported-currencies-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 4.3vw;
+    padding: 0 10vw;
+}
+
+.supported-currencies-heading {
+    font-size: 3.33vw;
+    line-height: 4.00vw;
+    font-weight: bold;
+    margin-top: 2.8vw;
+    margin-bottom: 1.2vw;
+}
+
+.supported-currencies {
+    display: flex;
+    flex-direction: row;
+    gap: 5.56vw;
+    margin-bottom: 1.6vw;
+    flex-wrap: wrap;
+}
+
+.supported-currency {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-sizing: border-box;
+}
+
+.supported-currency-logo {
+    width: 7.76vw;
+    margin-bottom: 0.56vw;
+}
+
+.supported-currency-title {
+    font-size: 3.33vw;
+    line-height: 4.00vw;
+    font-weight: bold;
+    color: #ffffff;
+}
+.highlighted .supported-currency-title {
+    color: #DD7FF1;
+}
+
+.supported-currencies-info {
+    color: #DD7FF1;
+    font-size: 3.33vw;
+    line-height: 4.00vw;
+    margin-bottom: 0.8vw;
+}
+
 .investor-cta-container {
-    font-size: 0.972vw;
-    line-height: 1.17vw;
+    font-size: 3.33vw;
+    line-height: 4.00vw;
     font-weight: bold;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 0.56vw;
-    margin-bottom: 0.4vw;
+    gap: 3.33vw;
+    margin-bottom: 4.2vw;
 }
 
 .investor-cta-link {
     text-decoration: underline;
     color: #ffffff;
 }
-
 .investor-cta-link:hover {
     text-decoration: none;
+}
+
+.backers-container {
+    display: none;
+    flex-direction: column;
+}
+
+.backers-container-mobile {
+    font-family: 'Friz Quadrata Std Medium';
+    color: #FFFFFF;
+
+    position: relative;
+    text-align: left;
+    margin: 0 5.56vw;
+
+    top: -41vw;
+    padding: 11vw 3.89vw 7vw;
+    z-index: -1;
+
+    background: url("/img/presale/MOBILE_BG_A_shorter.png") bottom no-repeat;
+    background-size: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.backers-label {
+    font-size: 3.33vw;
+    line-height: 4.00vw;
+    font-weight: bold;
+    margin-bottom: 1.2vw;
+}
+
+.backers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 3vw;
+}
+
+.backers img {
+    margin-right: 10vw;
+    width: 25vw;
 }
 
 .presale-buy-button-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .presale-buy-button {
     position: relative;
-    width: 15.21vw;
-    height: 4.35vw;
+    width: 60.84vw;
+    height: 17.4vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -370,20 +521,381 @@ h2 {
 
 .presale-cable-left {
     position: absolute;
-    width: 11.8vw;
-    height: 30vw;
-    background: url("/img/presale/Asset_Cable_L.png") 0 0 no-repeat;
+    width: 52.5vw;
+    height: 115vw;
+    background: url("/img/presale/MOBILE_Cable_L.png") 0 0 no-repeat;
     background-size: 100%;
-    left: -0.9vw;
-    top: 19.1vw
+    left: -5vw;
+    top: 57.5vw;
 }
 
 .presale-cable-right {
     position: absolute;
-    width: 11.6vw;
-    height: 30vw;
+    width: 35.5vw;
+    height: 120vw;
     background: url("/img/presale/Asset_Cable_R.png") 0 0 no-repeat;
     background-size: 100%;
-    right: -0.8vw;
-    top: 1.4vw
+    right: -3.2vw;
+    top: 4vw
+}
+
+.connect-wallet-container {
+    font-family: 'Friz Quadrata Std Medium';
+    color: #FFFFFF;
+
+    text-align: left;
+    position: relative;
+
+    top: -35vw;
+    padding: 0;
+
+    background: url("/img/presale/MOBILE_BG_C.png") bottom no-repeat;
+    background-size: 88.89vw;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.connect-wallet-offer-container {
+    background: url("/img/presale/MOBILE_Page2_BG_Section.png") top no-repeat;
+    background-size: 100%;
+    height: 40.0vw;
+    box-sizing: border-box;
+    padding: 0 14.72vw 2vw;
+    margin-top: -7vw;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+
+    color: #3b221c;
+    position: relative;
+}
+
+.connect-wallet-offer-heading {
+    font-size: 5vw;
+    line-height: 6vw;
+    font-weight: bold;
+}
+
+.connect-wallet-offer-subtitle {
+    font-size: 3.88vw;
+    line-height: 4.67vw;
+    font-weight: bold;
+}
+
+.connect-wallet-offer-chest {
+    display: none;
+}
+
+.connect-wallet-offer-chest img {
+}
+
+.connect-wallet-heading {
+    font-size: 6.68vw;
+    line-height: 8vw;
+    font-weight: bold;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5vw;
+    margin-bottom: 1.4vw;
+    text-align: center;
+}
+
+.connect-wallet-subtitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.connect-wallet-link {
+    font-size: 3.88vw;
+    line-height: 4.68vw;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+.connect-wallet-link:hover {
+    text-decoration: none;
+}
+
+.connect-wallet-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6vw;
+}
+
+.connect-wallet-button {
+    position: relative;
+    width: 66.67vw;
+    height: 19.05vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.connect-wallet-button-img {
+    flex: none;
+    width: 700px;
+    height: 200px;
+    background: url("/img/presale/Page2_SS_Button_Wallet.png") center 0 no-repeat;
+    background-size: 700px;
+}
+
+.connect-wallet-footnote-container {
+    font-size: 3.88vw;
+    line-height: 4.68vw;
+    font-weight: bold;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3vw 0;
+    gap: 3vw;
+}
+
+.connect-wallet-footnote-link {
+
+}
+
+.connect-wallet-footnote-secure {
+
+}
+
+.connect-wallet-cable-left {
+    display: none;
+}
+
+.wallet-connected-container {
+    font-family: 'Friz Quadrata Std Medium';
+    color: #FFFFFF;
+
+    text-align: left;
+    position: relative;
+
+    top: -41vw;
+    padding: 8vw 3.89vw 0;
+    margin: 0 5.55vw;
+    z-index: -1;
+
+    background: url("/img/presale/MOBILE_BG_D.png") top no-repeat;
+    box-sizing: border-box;
+    background-size: 100% 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.wallet-connected-heading {
+    font-size: 4.44vw;
+    line-height: 5.32vw;
+    font-weight: bold;
+    color: #a85f37;
+
+    padding: 4.4vw 0 0;
+}
+
+.wallet-connected-wallet {
+    font-size: 4.44vw;
+    line-height: 5.32vw;
+    min-height: 10.64vw;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    padding: 1vw 0;
+    background-size: 100% 100%;
+    overflow-wrap: anywhere;
+    text-align: center;
+}
+
+.wallet-connected-change-wallet {
+    text-align: left;
+    margin: 0.4vw 0 2.4vw;
+}
+
+.wallet-connected-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 4.8vw 4.8vw;
+    gap: 8vw;
+
+    background-color: #1f140f;
+    box-sizing: border-box;
+
+}
+
+.wallet-connected-form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8vw;
+}
+
+.wallet-connected-form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.wallet-connected-form-label {
+    font-size: 3.33vw;
+    line-height: 4vw;
+    font-weight: bold;
+    color: #a85f37;
+    margin-bottom: 1.68vw;
+}
+
+.wallet-connected-form-select {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.wallet-connected-form-select select {
+    font-family: 'Friz Quadrata Std Medium';
+    appearance: none;
+    font-size: 6.68vw;
+    line-height: 8vw;
+    font-weight: bold;
+    border: none;
+    background-color: #18100c;
+    color: #ffffff;
+    padding: 2.6vw 10vw 0.6vw 3.33vw;
+}
+
+.wallet-connected-form-select-arrow {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 3.33vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.wallet-connected-form-select-arrow img {
+    width: 3.33vw;
+}
+
+.wallet-connected-form-text {
+    font-size: 6.68vw;
+    line-height: 8vw;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    padding: 1.64vw 10vw 1.64vw 3.33vw;
+}
+
+.wallet-connected-form-text-subtitle {
+    font-size: 3.33vw;
+    line-height: 4vw;
+}
+
+.wallet-connected-form-info {
+    font-size: 2.72vw;
+    line-height: 3.312vw;
+
+    margin-top: 1.68vw;
+    min-height: 2.76vw;
+
+    color: #ad6237;
+}
+
+.wallet-connected-form-input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.wallet-connected-form-input input {
+    font-family: 'Friz Quadrata Std Medium';
+    appearance: none;
+    font-size: 6.68vw;
+    line-height: 6.68vw;
+    font-weight: bold;
+    border: none;
+    background-color: #18100c;
+    color: #ffffff;
+    padding: 2.6vw 3.33vw 0.6vw;
+    min-width: 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.wallet-connected-form-input input.with-suffix {
+    padding: 2.6vw 20vw 0.6vw 3.33vw;
+}
+
+.wallet-connected-form-input-suffix {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 3.24vw 3.33vw 0;
+    font-size: 6.68vw;
+    line-height: 6.68vw;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.wallet-connected-form-gngValue {
+    font-size: 5.56vw !important;
+    line-height: 6.672vw !important;
+}
+
+.highlighted select, .highlighted .wallet-connected-form-info {
+    color: #DD7FF1;
+}
+
+.wallet-connected-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4vw;
+}
+
+.wallet-connected-button {
+    position: relative;
+    width: 66.68vw;
+    height: 19.05vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -10vw;
+}
+
+.wallet-connected-button-img {
+    flex: none;
+    width: 700px;
+    height: 200px;
+    background: url("/img/presale/SS_Button_Buy.png") center 0 no-repeat;
+    background-size: 700px;
+}
+
+.wallet-connected-footnote-container {
+    font-size: 0.972vw;
+    line-height: 1.17vw;
+    font-weight: bold;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2vw 2.5vw 0;
+}
+
+.mobile-hidden {
+    display: none;
+}
 }
