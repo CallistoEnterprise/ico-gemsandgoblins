@@ -327,7 +327,7 @@ function App() {
                 <span className="investor-cta-label">
                   Are you a venture investor?
                 </span>
-                <a className="investor-cta-link" href="http://google.com/">
+                <a className="investor-cta-link" href="mailto:wemakegames@wemakegames.sk">
                   {" "}
                   Reach out to us{" "}
                 </a>
@@ -605,7 +605,7 @@ function App() {
                 </span>
                 <div className="connect-wallet-subtitle">
                   <a
-                    href="https://google.com/"
+                    href="https://whitepaper.gemsandgoblins.com/how-to-buy-tokens"
                     target="_blank"
                     className="connect-wallet-link"
                     rel="noreferrer"
