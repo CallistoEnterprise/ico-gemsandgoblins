@@ -174,30 +174,37 @@ const stateMachine = {
 window.presale = () => {
     const onResizeHandlers = [];
 
+    const roundStart = DateTime.fromISO("2023-02-13T00:00:00");
+    const roundEnd = DateTime.fromISO("2023-03-13T00:00:00");
+    let oldRemaining = roundEnd.diffNow(['days', 'hours', 'minutes', 'seconds', 'milliseconds']);
+    const untilStart = roundStart.diffNow(['milliseconds']);
+
     document.querySelectorAll('.round-heading-indicator-light').forEach(el => {
-        animation.loop(animationSetter(el, 50), 0, 24, 24);
+        if (untilStart.milliseconds > 0)
+            el.classList.add('inactive');
+        else {
+            el.classList.remove('inactive');
+            animation.loop(animationSetter(el, 50), 0, 24, 24);
+        }
+
         onResizeHandlers.push(() => {
             el.style.scale = windowWidth() > 800 ? vw(1.11) / 32 : vw(4.44) / 32;
         });
     });
 
-    const roundEnd = DateTime.fromISO("2023-02-27T12:00:00");
-    let oldRemaining = roundEnd.diffNow(['days', 'hours', 'minutes', 'seconds', 'milliseconds']);
-
     const updateClock = (isFirstRun) => {
         const remaining = roundEnd.diffNow(['days', 'hours', 'minutes', 'seconds', 'milliseconds']);
-        const updateValue = (unit, value) => setTimeout(() => document.querySelector(
+        const updateValue = (unit, value) => setTimeout(() => document.querySelectorAll(
             `.round-time-left-clock-value[data-field="${unit}"] .round-time-left-clock-value-text`
-        ).innerHTML = value, 187);
+        ).forEach(el => el.innerHTML = value), 187);
 
-        const animate = (unit) => animation.oneShot(
-            animationSetter(
-                document.querySelector(
+        const animate = (unit) => document.querySelectorAll(
                     `.round-time-left-clock-value[data-field="${unit}"] .round-time-left-clock-value-bg-flip`
-                ),
-                130
-            ),
-            0, 9, 24
+                ).forEach(
+                    el => animation.oneShot(
+                        animationSetter(el, 130),
+                    0, 9, 24
+                    )
         );
 
         if (isFirstRun) {
@@ -259,33 +266,36 @@ window.presale = () => {
         });
     });
 
-    document.querySelectorAll('.connect-wallet-button-img').forEach(el => {
-        const animations = animation.button(
-            animationSetter(el, 200),
-            0, 2, 4, 9, 29, 24
-        );
-
-        stateMachine.button(el.parentElement, animations);
-
-        onResizeHandlers.push(() => {
-            el.style.scale = windowWidth() > 800 ? vw(16.67) / 700 : vw(66.67) / 700;
-        });
-    });
-
-    document.querySelectorAll('.wallet-connected-button-img').forEach(el => {
-        const animations = animation.button(
-            animationSetter(el, 200),
-            0, 2, 4, 9, 29, 24
-        );
-
-        stateMachine.button(el.parentElement, animations);
-
-        onResizeHandlers.push(() => {
-            el.style.scale = windowWidth() > 800 ? vw(16.67) / 700 : vw(66.67) / 700;
-        });
-    });
-
     const onResize = () => onResizeHandlers.forEach(handler => handler());
     window.onresize = onResize;
-    onResize();
+
+    window.presaleRefreshUi = () => {
+        document.querySelectorAll('.connect-wallet-button-img').forEach(el => {
+            const animations = animation.button(
+                animationSetter(el, 200),
+                0, 2, 4, 9, 29, 24
+            );
+
+            stateMachine.button(el.parentElement, animations);
+
+            onResizeHandlers.push(() => {
+                el.style.scale = windowWidth() > 800 ? vw(16.67) / 700 : vw(66.67) / 700;
+            });
+        });
+
+        document.querySelectorAll('.wallet-connected-button-img').forEach(el => {
+            const animations = animation.button(
+                animationSetter(el, 200),
+                0, 2, 4, 9, 29, 24
+            );
+
+            stateMachine.button(el.parentElement, animations);
+
+            onResizeHandlers.push(() => {
+                el.style.scale = windowWidth() > 800 ? vw(16.67) / 700 : vw(66.67) / 700;
+            });
+        });
+        onResize();
+    };
+    window.presaleRefreshUi();
 };

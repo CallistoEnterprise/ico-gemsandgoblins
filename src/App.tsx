@@ -92,6 +92,11 @@ function App() {
     }
   }, [selectedCoin]);
 
+  useEffect(() => {
+    if ((window as any).presaleRefreshUi)
+      (window as any).presaleRefreshUi();
+  }, [isConnected]);
+
 
   return (
     <div className="App">
@@ -182,9 +187,13 @@ function App() {
                     </div>
                     <div className="round-progress-bar-mask-tail flex-1"></div>
                   </div>
+{/*
                   <div className="round-progress-divider round-progress-divider-l"></div>
+*/}
                   <span className="round-progress-value"> 20% </span>
+{/*
                   <div className="round-progress-divider round-progress-divider-r"></div>
+*/}
                 </div>
                 <div className="round-progress-label-container">
                   <span> SOLD: </span>
@@ -277,8 +286,8 @@ function App() {
                     </span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $X per token<br/>
-                      X tokens
+                      $0,025 / token<br/>
+                      13M tokens
                     </span>
                   </div>
                   <div className="next-rounds-card">
@@ -286,8 +295,8 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $X per token<br/>
-                      X tokens
+                      $0,05 / token<br/>
+                      8M tokens
                     </span>
                   </div>
                   <div className="next-rounds-card">
@@ -295,8 +304,8 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $X per token<br/>
-                      X tokens
+                      $0,06 / token<br/>
+                      8M tokens
                     </span>
                   </div>
                   <div className="next-rounds-card">
@@ -304,8 +313,8 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $X per token<br/>
-                      X tokens
+                      $0,085 / token<br/>
+                      6M tokens
                     </span>
                   </div>
                 </div>
@@ -400,9 +409,13 @@ function App() {
                     </div>
                     <div className="round-progress-bar-mask-tail flex-1"></div>
                   </div>
+{/*
                   <div className="round-progress-divider round-progress-divider-l"></div>
+*/}
                   <span className="round-progress-value">20%</span>
+{/*
                   <div className="round-progress-divider round-progress-divider-r"></div>
+*/}
                 </div>
                 <div className="round-progress-label-container">
                   <span>SOLD:</span>
@@ -484,7 +497,7 @@ function App() {
                   Supported crypto currency:
                 </span>
                 <div className="supported-currencies">
-                  <div className="supported-currency highlighted">
+                  <div className="supported-currency">
                     <img
                       src="img/presale/Supported_Currencies_Placeholder.png"
                       className="supported-currency-logo"
@@ -492,7 +505,7 @@ function App() {
                     />
                     <span className="supported-currency-title">CLO</span>
                   </div>
-                  <div className="supported-currency highlighted">
+                  <div className="supported-currency">
                     <img
                       src="img/presale/Supported_Currencies_Placeholder.png"
                       className="supported-currency-logo"
@@ -500,7 +513,7 @@ function App() {
                     />
                     <span className="supported-currency-title">SOY</span>
                   </div>
-                  <div className="supported-currency highlighted">
+                  <div className="supported-currency">
                     <img
                       src="img/presale/Supported_Currencies_Placeholder.png"
                       className="supported-currency-logo"
@@ -508,6 +521,7 @@ function App() {
                     />
                     <span className="supported-currency-title">CLOE</span>
                   </div>
+{/*
                   <div className="supported-currency">
                     <img
                       src="img/presale/Supported_Currencies_Placeholder.png"
@@ -540,9 +554,12 @@ function App() {
                     />
                     <span className="supported-currency-title">VER</span>
                   </div>
+*/}
                 </div>
                 <span className="supported-currencies-info">
+{/*
                   By using CLO, SOY or CLOE you get +5% bonus on GNG tokens!
+*/}
                 </span>
               </div>
               <div className="backers-container">
@@ -568,7 +585,7 @@ function App() {
               <div className="connect-wallet-container">
                 <div className="connect-wallet-offer-container">
                   <span className="connect-wallet-offer-heading">
-                    5% MORE TOKENS
+                    BUY NOW
                   </span>
                   <span className="connect-wallet-offer-subtitle">
                     with CLO, SOY, CLOE

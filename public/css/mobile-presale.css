@@ -520,6 +520,7 @@
 }
 
 .presale-cable-left {
+    pointer-events: none;
     position: absolute;
     width: 52.5vw;
     height: 115vw;
@@ -530,6 +531,7 @@
 }
 
 .presale-cable-right {
+    pointer-events: none;
     position: absolute;
     width: 35.5vw;
     height: 120vw;
