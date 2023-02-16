@@ -99,8 +99,20 @@ function App() {
   }, [selectedCoin]);
 
   useEffect(() => {
+    // Frontend template javascript refresh
     if ((window as any).presaleRefreshUi)
       (window as any).presaleRefreshUi();
+    else {
+      // Delay if unavailable on page load
+      const interval = setInterval(() => {
+        if ((window as any).presaleRefreshUi) {
+          clearInterval(interval);
+          (window as any).presaleRefreshUi();
+        }
+      }, 50);
+
+      return () => clearInterval(interval);
+    }
   }, [isConnected]);
 
 
