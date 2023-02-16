@@ -173,6 +173,7 @@
 }
 
 .round-progress-bar-mask-l, .round-progress-bar-mask-r {
+    height: 100%;
 }
 
 .round-progress-bar-mask-m {
