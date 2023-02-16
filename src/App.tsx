@@ -88,6 +88,16 @@ function App() {
     },
   });
 
+  // buy GnG react function
+  const buyGnG = async () => {
+    // check if the amount used to purchase is not empty
+    if (moneyAmountInput !== 0) {
+      // check if the selected coin is CLO
+      
+    }
+  };
+  
+
 
   useEffect(() => {
     if (selectedCoin === "0x0000000000000000000000000000000000000001") {
@@ -738,7 +748,7 @@ function App() {
                         </div>
                       </div>
                       <span className="wallet-connected-form-info">
-                        Amount in dollars: $1000
+                        Amount in dollars: ${(Number(selectedCoinPrice) * moneyAmountInput).toFixed(3)}
                       </span>
                     </div>
                     <div className="wallet-connected-form-group flex-1">
