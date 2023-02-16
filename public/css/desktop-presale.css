@@ -23,6 +23,16 @@
         color: white;
     }
 
+    .hero-text {
+        font-size: 1.25vw;
+        line-height: 1.5vw;
+        margin-bottom: 0;
+    }
+
+    .presale-prototype-button {
+        width: 17.78vw;
+    }
+
     .presale-container {
         font-family: 'Friz Quadrata Std Medium';
         color: #FFFFFF;
@@ -114,7 +124,7 @@
     }
 
     .round-heading-indicator {
-        margin-top: 0.3vw;
+        margin-top: 0.2vw;
         width: 0.69vw;
         height: 0.69vw;
         overflow: visible;
@@ -130,6 +140,15 @@
         height: 50px;
 
         background: url("/img/presale/SS_Light.png") center 0 no-repeat;
+        background-size: 50px;
+    }
+
+    .round-heading-indicator-light.inactive {
+        flex: none;
+        width: 50px;
+        height: 50px;
+
+        background: url("/img/presale/Light_Red_STATIC.png") center 0 no-repeat;
         background-size: 50px;
     }
 
@@ -190,6 +209,7 @@
     }
 
     .round-progress-bar-mask-l, .round-progress-bar-mask-r {
+        height: 100%;
     }
 
     .round-progress-bar-mask-m {
@@ -387,9 +407,10 @@
     }
 
     .next-rounds-card-info {
-        font-size: 0.833vw;
-        line-height: 1vw;
+        font-size: 0.69vw;
+        line-height: 0.828vw;
         font-weight: bold;
+        margin-bottom: 0.1vw;
         color: #bc7459;
     }
 
@@ -398,6 +419,7 @@
         flex-direction: column;
         align-items: stretch;
         margin-bottom: 0.8vw;
+        margin-top: 1vw;
     }
 
     .supported-currencies-heading {
@@ -469,6 +491,10 @@
         flex-direction: column;
     }
 
+    .backers-container-mobile {
+        display: none;
+    }
+
     .backers-label {
         font-size: 0.83vw;
         line-height: 1.00vw;
@@ -512,6 +538,7 @@
     }
 
     .presale-cable-left {
+        pointer-events: none;
         position: absolute;
         width: 11.8vw;
         height: 30vw;
@@ -522,6 +549,7 @@
     }
 
     .presale-cable-right {
+        pointer-events: none;
         position: absolute;
         width: 11.6vw;
         height: 30vw;
@@ -677,6 +705,7 @@
     }
 
     .connect-wallet-cable-left {
+        pointer-events: none;
         position: absolute;
         width: 11vw;
         height: 30vw;
@@ -726,6 +755,7 @@
     .wallet-connected-wallet {
         font-size: 1.11vw;
         line-height: 1.33vw;
+        min-height: 1.33vw;
         font-weight: bold;
         color: #ffffff;
         text-align: center;

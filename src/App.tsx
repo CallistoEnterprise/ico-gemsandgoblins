@@ -92,6 +92,11 @@ function App() {
     }
   }, [selectedCoin]);
 
+  useEffect(() => {
+    if ((window as any).presaleRefreshUi)
+      (window as any).presaleRefreshUi();
+  }, [isConnected]);
+
 
   return (
     <div className="App">
@@ -132,17 +137,11 @@ function App() {
                 </p>
               </div>
               <div className="desktop-hero-buttons-layout hidden-on-mobile">
-                <button
-                  id="button-whitelist-desktop"
-                  className="button-whitelist desktop-hero-button"
-                ></button>
+                <img src="/img/presale/Asset_Button_Prototype.png"
+                     className="presale-prototype-button"
+                     alt=""
+                />
               </div>
-            </div>
-            <div className="hero-buttons unselectable hidden-on-desktop">
-              <button
-                id="button-whitelist-mobile"
-                className="button-whitelist unselectable"
-              ></button>
             </div>
 
             <div className="presale-container">
@@ -192,9 +191,13 @@ function App() {
                     </div>
                     <div className="round-progress-bar-mask-tail flex-1"></div>
                   </div>
+{/*
                   <div className="round-progress-divider round-progress-divider-l"></div>
+*/}
                   <span className="round-progress-value"> 20% </span>
+{/*
                   <div className="round-progress-divider round-progress-divider-r"></div>
+*/}
                 </div>
                 <div className="round-progress-label-container">
                   <span> SOLD: </span>
@@ -287,7 +290,8 @@ function App() {
                     </span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $X per token X tokens
+                      $0,025 / token<br/>
+                      13M tokens
                     </span>
                   </div>
                   <div className="next-rounds-card">
@@ -295,7 +299,8 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $X per token X tokens
+                      $0,05 / token<br/>
+                      8M tokens
                     </span>
                   </div>
                   <div className="next-rounds-card">
@@ -303,7 +308,8 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $X per token X tokens
+                      $0,06 / token<br/>
+                      8M tokens
                     </span>
                   </div>
                   <div className="next-rounds-card">
@@ -311,7 +317,8 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $X per token X tokens
+                      $0,085 / token<br/>
+                      6M tokens
                     </span>
                   </div>
                 </div>
@@ -320,7 +327,7 @@ function App() {
                 <span className="investor-cta-label">
                   Are you a venture investor?
                 </span>
-                <a className="investor-cta-link" href="http://google.com/">
+                <a className="investor-cta-link" href="mailto:wemakegames@wemakegames.sk">
                   {" "}
                   Reach out to us{" "}
                 </a>
@@ -406,9 +413,13 @@ function App() {
                     </div>
                     <div className="round-progress-bar-mask-tail flex-1"></div>
                   </div>
+{/*
                   <div className="round-progress-divider round-progress-divider-l"></div>
+*/}
                   <span className="round-progress-value">20%</span>
+{/*
                   <div className="round-progress-divider round-progress-divider-r"></div>
+*/}
                 </div>
                 <div className="round-progress-label-container">
                   <span>SOLD:</span>
@@ -490,30 +501,31 @@ function App() {
                   Supported crypto currency:
                 </span>
                 <div className="supported-currencies">
-                  <div className="supported-currency highlighted">
+                  <div className="supported-currency">
                     <img
-                      src="img/presale/Supported_Currencies_Placeholder.png"
+                      src="img/presale/tokens/Icon_CLO.png"
                       className="supported-currency-logo"
                       alt=""
                     />
                     <span className="supported-currency-title">CLO</span>
                   </div>
-                  <div className="supported-currency highlighted">
+                  <div className="supported-currency">
                     <img
-                      src="img/presale/Supported_Currencies_Placeholder.png"
+                      src="img/presale/tokens/Icon_SOY.png"
                       className="supported-currency-logo"
                       alt=""
                     />
                     <span className="supported-currency-title">SOY</span>
                   </div>
-                  <div className="supported-currency highlighted">
+                  <div className="supported-currency">
                     <img
-                      src="img/presale/Supported_Currencies_Placeholder.png"
+                      src="img/presale/tokens/Icon_CLOE.png"
                       className="supported-currency-logo"
                       alt=""
                     />
                     <span className="supported-currency-title">CLOE</span>
                   </div>
+{/*
                   <div className="supported-currency">
                     <img
                       src="img/presale/Supported_Currencies_Placeholder.png"
@@ -546,9 +558,12 @@ function App() {
                     />
                     <span className="supported-currency-title">VER</span>
                   </div>
+*/}
                 </div>
                 <span className="supported-currencies-info">
+{/*
                   By using CLO, SOY or CLOE you get +5% bonus on GNG tokens!
+*/}
                 </span>
               </div>
               <div className="backers-container">
@@ -570,11 +585,11 @@ function App() {
                 </div>
               </div>
             </div>
-            {!isConnected ? (
+            {!isConnected ? (<>
               <div className="connect-wallet-container">
                 <div className="connect-wallet-offer-container">
                   <span className="connect-wallet-offer-heading">
-                    5% MORE TOKENS
+                    BUY NOW
                   </span>
                   <span className="connect-wallet-offer-subtitle">
                     with CLO, SOY, CLOE
@@ -590,7 +605,7 @@ function App() {
                 </span>
                 <div className="connect-wallet-subtitle">
                   <a
-                    href="https://google.com/"
+                    href="https://whitepaper.gemsandgoblins.com/how-to-buy-tokens"
                     target="_blank"
                     className="connect-wallet-link"
                     rel="noreferrer"
@@ -622,7 +637,26 @@ function App() {
                 </div>
               </div>
 
-            ) : (
+              <div className="backers-container-mobile">
+                <span className="backers-label">Backed by:</span>
+                <div className="backers">
+                  <img
+                      src="img/presale/backers/callisto.png"
+                      alt="Callisto Network"
+                  />
+                  <img src="img/presale/backers/eig.png" alt="EIG" />
+                  <img
+                      src="img/presale/backers/soy-finance.png"
+                      alt="Soy Finance"
+                  />
+                  <img
+                      src="img/presale/backers/absolute-wallet.png"
+                      alt="Absolute Wallet"
+                  />
+                </div>
+              </div>
+
+            </>) : (
 
               <div className="wallet-connected-container">
                 <span className="wallet-connected-heading">
@@ -723,7 +757,7 @@ function App() {
                   </button>
                 </div>
 
-                <div className="wallet-connected-footnote-container">
+                <div className="wallet-connected-footnote-container mobile-hidden">
                   <a
                     href="#"
                     target="_blank"
