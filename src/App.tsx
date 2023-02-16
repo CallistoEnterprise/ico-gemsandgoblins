@@ -115,6 +115,12 @@ function App() {
     }
   }, [isConnected]);
 
+  // Scroll to top on navigation to phase 2
+  useEffect(() => {
+    if (phase2)
+      window.scrollTo(0, 0);
+  }, [phase2]);
+
 
   return (
     <div className="App">
