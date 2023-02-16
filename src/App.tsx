@@ -9,6 +9,13 @@ import { useContractRead, erc20ABI } from "wagmi";
 import priceFeedAbi from "./abi/priceFeed.json";
 import icoAbi from "./abi/ico.json";
 
+const contractICO = "0x9c16739A99E3E48FaDB4F8224a1BbaE62b326D1C";
+const contractGnG = "0xB9dC1B31b4966303B4e2c3AEA5Fd42731e959670";
+const contractPriceFeed = "0x9bFc3046ea26f8B09D3E85bd22AEc96C80D957e3";
+const contractCLO = "0x0000000000000000000000000000000000000001";
+const contractSOY = "0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65";
+const contractCLOE = "0x1eAa43544dAa399b87EEcFcC6Fa579D5ea4A6187";
+
 function App() {
   const [loading, setLoading] = useState(false);
   const { open } = useWeb3Modal();
@@ -55,7 +62,7 @@ function App() {
 
   const priceFeed = useContractRead({
     // Price Feed Contract Address
-    address: "0x9bFc3046ea26f8B09D3E85bd22AEc96C80D957e3",
+    address: contractPriceFeed,
     abi: priceFeedAbi,
     functionName: "getPrice",
     args: [selectedCoin],
@@ -70,7 +77,7 @@ function App() {
 
   const gngAmountFunction = useContractRead({
     // ICO Contract Address
-    address: "0xA3498FAc3A45ddEAdF66c0A905Ac1e1AD10d99E2",
+    address: contractICO,
     abi: icoAbi,
     functionName: "get_reward",
     args: [moneyAmountInput, selectedCoin],
