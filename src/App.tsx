@@ -8,6 +8,8 @@ import { useAccount } from "wagmi";
 import { useContractRead, erc20ABI } from "wagmi";
 import priceFeedAbi from "./abi/priceFeed.json";
 import icoAbi from "./abi/ico.json";
+import {SuccessPopup} from './SuccessPopup';
+import {FailPopup} from './FailPopup';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -35,6 +37,10 @@ function App() {
     await open();
     setLoading(false);
   }
+
+  // Used to toggle popups
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showFail, setShowFail] = useState(false);
 
   const { data, isError, isLoading } = useContractRead({
     address: "0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65",
@@ -773,6 +779,21 @@ function App() {
             )}
           </div>
         </div>
+        <SuccessPopup title="Thanks for support!"
+                      tokenCount={501}
+                      isOpen={showSuccess}
+                      onClose={() => setShowSuccess(false)}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </SuccessPopup>
+        <FailPopup title="Something went wrong!"
+                   isOpen={showFail}
+                   onClose={() => setShowFail(false)}
+        >
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat.
+        </FailPopup>
       </div>
     </div>
   );
