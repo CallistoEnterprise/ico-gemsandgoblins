@@ -295,6 +295,32 @@ window.presale = () => {
                 el.style.scale = windowWidth() > 800 ? vw(16.67) / 700 : vw(66.67) / 700;
             });
         });
+
+        document.querySelectorAll('.popup-close-button-img').forEach(el => {
+            const animations = animation.button(
+                animationSetter(el, 200),
+                0, 2, 4, 9, 29, 24
+            );
+
+            stateMachine.button(el.parentElement, animations);
+
+            onResizeHandlers.push(() => {
+                el.style.scale = windowWidth() > 800 ? vw(16.67) / 700 : vw(66.67) / 700;
+            });
+        });
+
+        document.querySelectorAll('.popup-contact-support-button-img').forEach(el => {
+            const animations = animation.button(
+                animationSetter(el, 200),
+                0, 2, 4, 9, 29, 24
+            );
+
+            stateMachine.button(el.parentElement, animations);
+
+            onResizeHandlers.push(() => {
+                el.style.scale = windowWidth() > 800 ? vw(16.67) / 700 : vw(66.67) / 700;
+            });
+        });
         onResize();
     };
     window.presaleRefreshUi();

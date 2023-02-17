@@ -9,6 +9,8 @@ import { useAccount } from "wagmi";
 import { useContractRead, erc20ABI, useContractWrite, usePrepareContractWrite } from "wagmi";
 import priceFeedAbi from "./abi/priceFeed.json";
 import icoAbi from "./abi/ico.json";
+import {SuccessPopup} from './SuccessPopup';
+import {FailPopup} from './FailPopup';
 
 const contractICO = "0x9c16739A99E3E48FaDB4F8224a1BbaE62b326D1C";
 const contractGnG = "0xB9dC1B31b4966303B4e2c3AEA5Fd42731e959670";
@@ -43,6 +45,10 @@ function App() {
     await open();
     setLoading(false);
   }
+
+  // Used to toggle popups
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showFail, setShowFail] = useState(false);
 
   const { data, isError, isLoading } = useContractRead({
     address: "0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65",
@@ -101,9 +107,27 @@ function App() {
   }, [selectedCoin]);
 
   useEffect(() => {
+    // Frontend template javascript refresh
     if ((window as any).presaleRefreshUi)
       (window as any).presaleRefreshUi();
+    else {
+      // Delay if unavailable on page load
+      const interval = setInterval(() => {
+        if ((window as any).presaleRefreshUi) {
+          clearInterval(interval);
+          (window as any).presaleRefreshUi();
+        }
+      }, 50);
+
+      return () => clearInterval(interval);
+    }
   }, [isConnected]);
+
+  // Scroll to top on navigation to phase 2
+  useEffect(() => {
+    if (phase2)
+      window.scrollTo(0, 0);
+  }, [phase2]);
 
 
   return (
@@ -779,6 +803,21 @@ function App() {
             )}
           </div>
         </div>
+        <SuccessPopup title="Thanks for support!"
+                      tokenCount={501}
+                      isOpen={showSuccess}
+                      onClose={() => setShowSuccess(false)}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </SuccessPopup>
+        <FailPopup title="Something went wrong!"
+                   isOpen={showFail}
+                   onClose={() => setShowFail(false)}
+        >
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat.
+        </FailPopup>
       </div>
     </div>
   );
