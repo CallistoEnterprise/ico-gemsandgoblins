@@ -20,7 +20,7 @@ export function FailPopup({title, isOpen, onClose, children}: PropsWithChildren<
                 </p>
 
                 <div className="popup-button-container">
-                    <a href="mailto:support@gemsandgoblins.com">
+                    <a href="mailto:wemakegames@wemakegames.sk">
                         <button className="popup-contact-support-button">
                             <span className="popup-contact-support-button-img"></span>
                         </button>
