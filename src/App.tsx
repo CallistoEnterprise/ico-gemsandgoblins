@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import { BuyClo } from "./components/buyClo";
 
 import { useWeb3Modal, Web3Button, Web3NetworkSwitch } from "@web3modal/react";
 
 import { useAccount } from "wagmi";
 
-import { useContractRead, erc20ABI } from "wagmi";
+import { useContractRead, erc20ABI, useContractWrite, usePrepareContractWrite } from "wagmi";
 import priceFeedAbi from "./abi/priceFeed.json";
 import icoAbi from "./abi/ico.json";
 
@@ -49,7 +50,7 @@ function App() {
     functionName: "balanceOf",
     args: ["0x584FE1D2Df3A0CD34d588139227b23bb268CECDe"],
     onSuccess(data) {
-      console.log("Success", data);
+      // console.log("Success", data);
     },
   });
 
@@ -83,20 +84,10 @@ function App() {
     args: [moneyAmountInput, selectedCoin],
     onSuccess(data: any) {
       const rewards = Number(data.reward.toString());
-      console.log("Success get_reward", rewards);
+      // console.log("Success get_reward", rewards);
       setGngAmount(rewards.toString());
     },
-  });
-
-  // buy GnG react function
-  const buyGnG = async () => {
-    // check if the amount used to purchase is not empty
-    if (moneyAmountInput !== 0) {
-      // check if the selected coin is CLO
-      
-    }
-  };
-  
+  });  
 
 
   useEffect(() => {
@@ -769,9 +760,7 @@ function App() {
                 </form>
 
                 <div className="wallet-connected-button-container">
-                  <button type="submit" className="wallet-connected-button">
-                    <span className="wallet-connected-button-img"></span>
-                  </button>
+                  <BuyClo moneyValue={moneyAmountInput} />
                 </div>
 
                 <div className="wallet-connected-footnote-container mobile-hidden">
