@@ -22,7 +22,7 @@ export function SuccessPopup({title, tokenCount, isOpen, onClose, children}: Pro
 
                 <div className="popup-token-count">
                     <span className="popup-token-count-label">
-                        Yout total GNG tokens:
+                        Your GNG tokens:
                     </span>
                     <span className="popup-token-count-value">
                         {tokenCount}

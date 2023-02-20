@@ -4,17 +4,14 @@ import { BuyClo } from "./components/buyClo";
 
 import { useWeb3Modal, Web3Button, Web3NetworkSwitch } from "@web3modal/react";
 
-import {
-  useAccount,
-  useContractRead,
-  erc20ABI,
-} from "wagmi";
+import { useAccount, useContractRead, erc20ABI } from "wagmi";
 
 import priceFeedAbi from "./abi/priceFeed.json";
 import icoAbi from "./abi/ico.json";
 import { SuccessPopup } from "./SuccessPopup";
 import { FailPopup } from "./FailPopup";
 import { ethers } from "ethers";
+import { BuySoy } from "./components/buySoy";
 
 const contractICO = "0x9c16739A99E3E48FaDB4F8224a1BbaE62b326D1C";
 const contractGnG = "0xB9dC1B31b4966303B4e2c3AEA5Fd42731e959670";
@@ -49,7 +46,7 @@ function App() {
   // Money amount input from the input Amount used to purchase
   const [moneyAmountInput, setMoneyAmountInput] = useState(1);
 
-  const { address, isConnecting, isDisconnected, isConnected } = useAccount()
+  const { address, isConnecting, isDisconnected, isConnected } = useAccount();
 
   async function onOpen() {
     setLoading(true);
@@ -826,12 +823,42 @@ function App() {
                 </form>
 
                 <div className="wallet-connected-button-container">
-                  <BuyClo
-                    moneyValue={moneyAmountInput}
-                    setShowSuccess={setShowSuccess}
-                    setShowFail={setShowFail}
-                    setErrorPopup={setErrorPopup}
-                  />
+                  <div
+                    className={
+                      selectedCoin ===
+                      "0x0000000000000000000000000000000000000001"
+                        ? "oops"
+                        : "hidePhase"
+                    }
+                  >
+                    <BuyClo
+                      moneyValue={moneyAmountInput}
+                      setShowSuccess={setShowSuccess}
+                      setShowFail={setShowFail}
+                      setErrorPopup={setErrorPopup}
+                    />
+                  </div>
+
+                  <div className={
+                      selectedCoin ===
+                      "0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65"
+                        ? "oops"
+                        : "hidePhase"
+                    }>
+                      <BuySoy
+                        moneyValue={moneyAmountInput}
+                        setShowSuccess={setShowSuccess}
+                        setShowFail={setShowFail}
+                        setErrorPopup={setErrorPopup}
+                      />
+                    </div> 
+
+                  {/*setSelectedCoinName("CLO");
+                    } else if (selectedCoin === "0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65") {
+                      setSelectedCoinName("SOY");
+                    } else if (selectedCoin === "0x1eAa43544dAa399b87EEcFcC6Fa579D5ea4A6187") {
+                      setSelectedCoinName("CLOE");
+                    }*/}
                 </div>
 
                 <div className="wallet-connected-footnote-container mobile-hidden">
@@ -852,7 +879,7 @@ function App() {
         </div>
         <SuccessPopup
           title="Thanks for support!"
-          tokenCount={gngBalance}
+          tokenCount={gngAmount}
           isOpen={showSuccess}
           onClose={() => setShowSuccess(false)}
         >
