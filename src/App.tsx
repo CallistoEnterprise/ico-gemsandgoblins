@@ -6,11 +6,16 @@ import { useWeb3Modal, Web3Button, Web3NetworkSwitch } from "@web3modal/react";
 
 import { useAccount } from "wagmi";
 
-import { useContractRead, erc20ABI, useContractWrite, usePrepareContractWrite } from "wagmi";
+import {
+  useContractRead,
+  erc20ABI,
+  useContractWrite,
+  usePrepareContractWrite,
+} from "wagmi";
 import priceFeedAbi from "./abi/priceFeed.json";
 import icoAbi from "./abi/ico.json";
-import {SuccessPopup} from './SuccessPopup';
-import {FailPopup} from './FailPopup';
+import { SuccessPopup } from "./SuccessPopup";
+import { FailPopup } from "./FailPopup";
 
 const contractICO = "0x9c16739A99E3E48FaDB4F8224a1BbaE62b326D1C";
 const contractGnG = "0xB9dC1B31b4966303B4e2c3AEA5Fd42731e959670";
@@ -28,15 +33,17 @@ function App() {
 
   // State variable for the selected coin
   // SelectedCoin from the select dropdown
-  const [selectedCoin, setSelectedCoin] = useState("0x0000000000000000000000000000000000000001");
-  // SelectedCoinPrice from the price feed contract  
+  const [selectedCoin, setSelectedCoin] = useState(
+    "0x0000000000000000000000000000000000000001"
+  );
+  // SelectedCoinPrice from the price feed contract
   const [selectedCoinPrice, setSelectedCoinPrice] = useState("0");
   // SelectedCoinName from the select dropdown + function to change the name
   const [selectedCoinName, setSelectedCoinName] = useState("CLO");
   // GNG amount from the ICO contract, function get_reward
   const [gngAmount, setGngAmount] = useState("0");
   // Money amount input from the input Amount used to purchase
-  const [moneyAmountInput, setMoneyAmountInput] = useState(0);
+  const [moneyAmountInput, setMoneyAmountInput] = useState(1);
 
   const { address, isConnecting, isDisconnected, isConnected } = useAccount();
 
@@ -49,6 +56,7 @@ function App() {
   // Used to toggle popups
   const [showSuccess, setShowSuccess] = useState(false);
   const [showFail, setShowFail] = useState(false);
+  const [errorPopup, setErrorPopup] = useState("Please check again!");
 
   const { data, isError, isLoading } = useContractRead({
     address: "0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65",
@@ -93,8 +101,7 @@ function App() {
       // console.log("Success get_reward", rewards);
       setGngAmount(rewards.toString());
     },
-  });  
-
+  });
 
   useEffect(() => {
     if (selectedCoin === "0x0000000000000000000000000000000000000001") {
@@ -108,8 +115,7 @@ function App() {
 
   useEffect(() => {
     // Frontend template javascript refresh
-    if ((window as any).presaleRefreshUi)
-      (window as any).presaleRefreshUi();
+    if ((window as any).presaleRefreshUi) (window as any).presaleRefreshUi();
     else {
       // Delay if unavailable on page load
       const interval = setInterval(() => {
@@ -125,10 +131,8 @@ function App() {
 
   // Scroll to top on navigation to phase 2
   useEffect(() => {
-    if (phase2)
-      window.scrollTo(0, 0);
+    if (phase2) window.scrollTo(0, 0);
   }, [phase2]);
-
 
   return (
     <div className="App">
@@ -169,9 +173,10 @@ function App() {
                 </p>
               </div>
               <div className="desktop-hero-buttons-layout hidden-on-mobile">
-                <img src="/img/presale/Asset_Button_Prototype.png"
-                     className="presale-prototype-button"
-                     alt=""
+                <img
+                  src="/img/presale/Asset_Button_Prototype.png"
+                  className="presale-prototype-button"
+                  alt=""
                 />
               </div>
             </div>
@@ -223,11 +228,11 @@ function App() {
                     </div>
                     <div className="round-progress-bar-mask-tail flex-1"></div>
                   </div>
-{/*
+                  {/*
                   <div className="round-progress-divider round-progress-divider-l"></div>
 */}
                   <span className="round-progress-value"> 20% </span>
-{/*
+                  {/*
                   <div className="round-progress-divider round-progress-divider-r"></div>
 */}
                 </div>
@@ -322,7 +327,8 @@ function App() {
                     </span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $0,025 / token<br/>
+                      $0,025 / token
+                      <br />
                       13M tokens
                     </span>
                   </div>
@@ -331,7 +337,8 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $0,05 / token<br/>
+                      $0,05 / token
+                      <br />
                       8M tokens
                     </span>
                   </div>
@@ -340,7 +347,8 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $0,06 / token<br/>
+                      $0,06 / token
+                      <br />
                       8M tokens
                     </span>
                   </div>
@@ -349,7 +357,8 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $0,085 / token<br/>
+                      $0,085 / token
+                      <br />
                       6M tokens
                     </span>
                   </div>
@@ -359,7 +368,10 @@ function App() {
                 <span className="investor-cta-label">
                   Are you a venture investor?
                 </span>
-                <a className="investor-cta-link" href="mailto:wemakegames@wemakegames.sk">
+                <a
+                  className="investor-cta-link"
+                  href="mailto:wemakegames@wemakegames.sk"
+                >
                   {" "}
                   Reach out to us{" "}
                 </a>
@@ -445,11 +457,11 @@ function App() {
                     </div>
                     <div className="round-progress-bar-mask-tail flex-1"></div>
                   </div>
-{/*
+                  {/*
                   <div className="round-progress-divider round-progress-divider-l"></div>
 */}
                   <span className="round-progress-value">20%</span>
-{/*
+                  {/*
                   <div className="round-progress-divider round-progress-divider-r"></div>
 */}
                 </div>
@@ -557,7 +569,7 @@ function App() {
                     />
                     <span className="supported-currency-title">CLOE</span>
                   </div>
-{/*
+                  {/*
                   <div className="supported-currency">
                     <img
                       src="img/presale/Supported_Currencies_Placeholder.png"
@@ -593,7 +605,7 @@ function App() {
 */}
                 </div>
                 <span className="supported-currencies-info">
-{/*
+                  {/*
                   By using CLO, SOY or CLOE you get +5% bonus on GNG tokens!
 */}
                 </span>
@@ -617,88 +629,90 @@ function App() {
                 </div>
               </div>
             </div>
-            {!isConnected ? (<>
-              <div className="connect-wallet-container">
-                <div className="connect-wallet-offer-container">
-                  <span className="connect-wallet-offer-heading">
-                    BUY NOW
+            {!isConnected ? (
+              <>
+                <div className="connect-wallet-container">
+                  <div className="connect-wallet-offer-container">
+                    <span className="connect-wallet-offer-heading">
+                      BUY NOW
+                    </span>
+                    <span className="connect-wallet-offer-subtitle">
+                      with CLO, SOY, CLOE
+                    </span>
+                    <div className="connect-wallet-offer-chest">
+                      <img src="img/presale/Page2_BG_Chest.png" alt="" />
+                    </div>
+                  </div>
+                  <span className="connect-wallet-heading">
+                    Connect your wallet
+                    <br />
+                    to get GNG tokens
                   </span>
-                  <span className="connect-wallet-offer-subtitle">
-                    with CLO, SOY, CLOE
-                  </span>
-                  <div className="connect-wallet-offer-chest">
-                    <img src="img/presale/Page2_BG_Chest.png" alt="" />
+                  <div className="connect-wallet-subtitle">
+                    <a
+                      href="https://whitepaper.gemsandgoblins.com/how-to-buy-tokens"
+                      target="_blank"
+                      className="connect-wallet-link"
+                      rel="noreferrer"
+                    >
+                      New to crypto?
+                    </a>
+                  </div>
+
+                  <div className="connect-wallet-cable-left"></div>
+
+                  <div className="connect-wallet-button-container">
+                    <button className="connect-wallet-button" onClick={onOpen}>
+                      <span className="connect-wallet-button-img"></span>
+                    </button>
+                  </div>
+
+                  <div className="connect-wallet-footnote-container">
+                    <a
+                      href="https://google.com/"
+                      target="_blank"
+                      className="connect-wallet-footnote-link connect-wallet-link"
+                      rel="noreferrer"
+                    >
+                      Smart Contract Address
+                    </a>
+                    <span className="connect-wallet-footnote-secure">
+                      Secure payment
+                    </span>
                   </div>
                 </div>
-                <span className="connect-wallet-heading">
-                  Connect your wallet
-                  <br />
-                  to get GNG tokens
-                </span>
-                <div className="connect-wallet-subtitle">
-                  <a
-                    href="https://whitepaper.gemsandgoblins.com/how-to-buy-tokens"
-                    target="_blank"
-                    className="connect-wallet-link"
-                    rel="noreferrer"
-                  >
-                    New to crypto?
-                  </a>
-                </div>
 
-                <div className="connect-wallet-cable-left"></div>
-
-                <div className="connect-wallet-button-container">
-                  <button className="connect-wallet-button" onClick={onOpen}>
-                    <span className="connect-wallet-button-img"></span>
-                  </button>
-                </div>
-
-                <div className="connect-wallet-footnote-container">
-                  <a
-                    href="https://google.com/"
-                    target="_blank"
-                    className="connect-wallet-footnote-link connect-wallet-link"
-                    rel="noreferrer"
-                  >
-                    Smart Contract Address
-                  </a>
-                  <span className="connect-wallet-footnote-secure">
-                    Secure payment
-                  </span>
-                </div>
-              </div>
-
-              <div className="backers-container-mobile">
-                <span className="backers-label">Backed by:</span>
-                <div className="backers">
-                  <img
+                <div className="backers-container-mobile">
+                  <span className="backers-label">Backed by:</span>
+                  <div className="backers">
+                    <img
                       src="img/presale/backers/callisto.png"
                       alt="Callisto Network"
-                  />
-                  <img src="img/presale/backers/eig.png" alt="EIG" />
-                  <img
+                    />
+                    <img src="img/presale/backers/eig.png" alt="EIG" />
+                    <img
                       src="img/presale/backers/soy-finance.png"
                       alt="Soy Finance"
-                  />
-                  <img
+                    />
+                    <img
                       src="img/presale/backers/absolute-wallet.png"
                       alt="Absolute Wallet"
-                  />
+                    />
+                  </div>
                 </div>
-              </div>
-
-            </>) : (
-
+              </>
+            ) : (
               <div className="wallet-connected-container">
                 <span className="wallet-connected-heading">
                   Wallet connected:
                 </span>
-                <span className="wallet-connected-wallet">
-                  {address}
-                </span>
+                <span className="wallet-connected-wallet">{address}</span>
                 <div className="wallet-connected-change-wallet">
-                  <button type="submit" className="connect-wallet-link" onClick={onOpen}>
+                  <button
+                    type="submit"
+                    className="connect-wallet-link"
+                    onClick={onOpen}
+                  >
                     disconnect
                   </button>
                 </div>
@@ -713,10 +727,20 @@ function App() {
                         Selected currency:
                       </label>
                       <div className="wallet-connected-form-select">
-                        <select id="selected-currency" name="" onChange={e => setSelectedCoin(e.target.value)}>
-                          <option value="0x0000000000000000000000000000000000000001">CLO</option>
-                          <option value="0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65">SOY</option>
-                          <option value="0x1eAa43544dAa399b87EEcFcC6Fa579D5ea4A6187">CLOE</option>
+                        <select
+                          id="selected-currency"
+                          name=""
+                          onChange={(e) => setSelectedCoin(e.target.value)}
+                        >
+                          <option value="0x0000000000000000000000000000000000000001">
+                            CLO
+                          </option>
+                          <option value="0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65">
+                            SOY
+                          </option>
+                          <option value="0x1eAa43544dAa399b87EEcFcC6Fa579D5ea4A6187">
+                            CLOE
+                          </option>
                         </select>
                         <div className="wallet-connected-form-select-arrow">
                           <img src="img/presale/Page3_RollDown.png" alt="" />
@@ -753,17 +777,24 @@ function App() {
                         <input
                           id=""
                           name=""
-                          type="text"
+                          type="number"
+                          min={1}
                           inputMode="numeric"
                           className="with-suffix"
-                          onChange={e => setMoneyAmountInput(Number(e.target.value))}
+                          onChange={(e) =>
+                            setMoneyAmountInput(Number(e.target.value))
+                          }
+                          value={moneyAmountInput}
                         />
                         <div className="wallet-connected-form-input-suffix">
                           {selectedCoinName}
                         </div>
                       </div>
                       <span className="wallet-connected-form-info">
-                        Amount in dollars: ${(Number(selectedCoinPrice) * moneyAmountInput).toFixed(3)}
+                        Amount in dollars: $
+                        {(Number(selectedCoinPrice) * moneyAmountInput).toFixed(
+                          3
+                        )}
                       </span>
                     </div>
                     <div className="wallet-connected-form-group flex-1">
@@ -784,7 +815,12 @@ function App() {
                 </form>
 
                 <div className="wallet-connected-button-container">
-                  <BuyClo moneyValue={moneyAmountInput} />
+                  <BuyClo
+                    moneyValue={moneyAmountInput}
+                    setShowSuccess={setShowSuccess}
+                    setShowFail={setShowFail}
+                    setErrorPopup={setErrorPopup}
+                  />
                 </div>
 
                 <div className="wallet-connected-footnote-container mobile-hidden">
@@ -803,20 +839,21 @@ function App() {
             )}
           </div>
         </div>
-        <SuccessPopup title="Thanks for support!"
-                      tokenCount={501}
-                      isOpen={showSuccess}
-                      onClose={() => setShowSuccess(false)}
+        <SuccessPopup
+          title="Thanks for support!"
+          tokenCount={501}
+          isOpen={showSuccess}
+          onClose={() => setShowSuccess(false)}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </SuccessPopup>
-        <FailPopup title="Something went wrong!"
-                   isOpen={showFail}
-                   onClose={() => setShowFail(false)}
+        <FailPopup
+          title="Something went wrong!"
+          isOpen={showFail}
+          onClose={() => setShowFail(false)}
         >
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat.
+          {errorPopup}
         </FailPopup>
       </div>
     </div>

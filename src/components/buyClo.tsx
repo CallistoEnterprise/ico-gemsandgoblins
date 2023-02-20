@@ -5,24 +5,56 @@ import {
   useSendTransaction,
   useWaitForTransaction,
 } from "wagmi";
+import { useEffect } from "react";
 
-export function BuyClo({ moneyValue }: { moneyValue: any }) {
-  console.log("moneyValue: ", moneyValue);
-  // moneyValue yo string
+export function BuyClo({
+  moneyValue,
+  setShowSuccess,
+  setShowFail,
+  setErrorPopup,
+}: {
+  moneyValue: any;
+  setShowSuccess: any;
+  setShowFail: any;
+  setErrorPopup: any;
+}) {
+  // moneyValue To string
   const moneyValueString = "" + moneyValue;
-  console.log("moneyValueString: ", moneyValueString);
   // value from ETH to WEI
   const amount = ethers.utils.parseUnits(moneyValueString, "ether");
-  console.log("amount: ", amount);
- 
+
   const { config } = usePrepareSendTransaction({
-    request: { to: '0x9c16739A99E3E48FaDB4F8224a1BbaE62b326D1C', value: amount },
-  })
-  const { data, isLoading, isSuccess, sendTransaction } =
-    useSendTransaction(config)
+    request: {
+      to: "0x9c16739A99E3E48FaDB4F8224a1BbaE62b326D1C",
+      value: amount,
+    },
+    onError(error) {
+        setShowFail(true);
+        console.log(error);
+      },
+  });
+  const { data, isError, isLoading, isSuccess, sendTransaction } = useSendTransaction({
+    ...config,
+    onError(error) {
+        setErrorPopup(error.message);
+      },
+  });
+
+  useEffect(() => {
+    if (isSuccess) {
+      setShowSuccess(true);
+    }
+    if(isError){
+      setShowFail(true);
+    }
+  }, [isSuccess, setShowSuccess, isError, setShowFail]);
 
   return (
-    <button type="submit" className="wallet-connected-button" onClick={() => sendTransaction?.()}>
+    <button
+      type="submit"
+      className="wallet-connected-button"
+      onClick={() => sendTransaction?.()}
+    >
       <span className="wallet-connected-button-img"></span>
     </button>
   );
