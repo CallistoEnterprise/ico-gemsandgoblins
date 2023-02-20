@@ -4,18 +4,17 @@ import { BuyClo } from "./components/buyClo";
 
 import { useWeb3Modal, Web3Button, Web3NetworkSwitch } from "@web3modal/react";
 
-import { useAccount } from "wagmi";
-
 import {
+  useAccount,
   useContractRead,
   erc20ABI,
-  useContractWrite,
-  usePrepareContractWrite,
 } from "wagmi";
+
 import priceFeedAbi from "./abi/priceFeed.json";
 import icoAbi from "./abi/ico.json";
 import { SuccessPopup } from "./SuccessPopup";
 import { FailPopup } from "./FailPopup";
+import { ethers } from "ethers";
 
 const contractICO = "0x9c16739A99E3E48FaDB4F8224a1BbaE62b326D1C";
 const contractGnG = "0xB9dC1B31b4966303B4e2c3AEA5Fd42731e959670";
@@ -31,6 +30,11 @@ function App() {
   // state variable for phase 2
   const [phase2, setPhase2] = useState(false);
 
+  // user address as string
+  const [userAddress, setUserAddress] = useState("");
+  // G&G balance of the user
+  const [gngBalance, setGngBalance] = useState("0");
+
   // State variable for the selected coin
   // SelectedCoin from the select dropdown
   const [selectedCoin, setSelectedCoin] = useState(
@@ -45,7 +49,7 @@ function App() {
   // Money amount input from the input Amount used to purchase
   const [moneyAmountInput, setMoneyAmountInput] = useState(1);
 
-  const { address, isConnecting, isDisconnected, isConnected } = useAccount();
+  const { address, isConnecting, isDisconnected, isConnected } = useAccount()
 
   async function onOpen() {
     setLoading(true);
@@ -59,12 +63,19 @@ function App() {
   const [errorPopup, setErrorPopup] = useState("Please check again!");
 
   const { data, isError, isLoading } = useContractRead({
-    address: "0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65",
+    address: contractGnG,
     abi: erc20ABI,
     functionName: "balanceOf",
-    args: ["0x584FE1D2Df3A0CD34d588139227b23bb268CECDe"],
+    // ignore the typescript check
+    // @ts-ignore
+    args: [address],
     onSuccess(data) {
-      // console.log("Success", data);
+      // convert from big number to number
+      const data_display = Number(data.toString()) / 1000000000000000000;
+      // get only 5 decimals after the comma
+      const data_display_rounded = data_display.toFixed(5);
+      const gngBalanceString = data_display_rounded.toString();
+      setGngBalance(gngBalanceString);
     },
   });
 
@@ -841,7 +852,7 @@ function App() {
         </div>
         <SuccessPopup
           title="Thanks for support!"
-          tokenCount={501}
+          tokenCount={gngBalance}
           isOpen={showSuccess}
           onClose={() => setShowSuccess(false)}
         >

@@ -2,7 +2,7 @@ import React, {PropsWithChildren} from 'react';
 
 export type SuccessPopupProps = {
     title: string,
-    tokenCount: number,
+    tokenCount: string,
     isOpen: boolean,
     onClose?: () => void,
 };
@@ -22,7 +22,7 @@ export function SuccessPopup({title, tokenCount, isOpen, onClose, children}: Pro
 
                 <div className="popup-token-count">
                     <span className="popup-token-count-label">
-                        GNG tokens bought:
+                        Yout total GNG tokens:
                     </span>
                     <span className="popup-token-count-value">
                         {tokenCount}
