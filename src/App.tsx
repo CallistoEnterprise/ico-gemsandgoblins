@@ -21,6 +21,9 @@ const contractCLO = "0x0000000000000000000000000000000000000001";
 const contractSOY = "0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65";
 const contractCLOE = "0x1eAa43544dAa399b87EEcFcC6Fa579D5ea4A6187";
 
+// Tokens allocated for the ICO in round 1: 10.000.000
+const tokensAllocated = 10000000;
+
 function App() {
   const [loading, setLoading] = useState(false);
   const { open } = useWeb3Modal();
@@ -33,6 +36,10 @@ function App() {
   const [userAddress, setUserAddress] = useState("");
   // G&G balance of the user
   const [gngBalance, setGngBalance] = useState("0");
+  // G&G balance on the ICO contract
+  const [gngBalanceICO, setGngBalanceICO] = useState(0);
+  // volumePercentage
+  const [volumePercentage, setVolumePercentage] = useState(0);
 
   // State variable for the selected coin
   // SelectedCoin from the select dropdown
@@ -61,7 +68,7 @@ function App() {
   const [showFail, setShowFail] = useState(false);
   const [errorPopup, setErrorPopup] = useState("Please check again!");
 
-  const { data, isError, isLoading } = useContractRead({
+  const { data: balanceOfUser } = useContractRead({
     address: contractGnG,
     abi: erc20ABI,
     functionName: "balanceOf",
@@ -78,10 +85,26 @@ function App() {
     },
   });
 
-  const volumePercentage = "20%";
+  const { data: balanceOfIco } = useContractRead({
+    address: contractGnG,
+    abi: erc20ABI,
+    functionName: "balanceOf",
+    // ignore the typescript check
+    // @ts-ignore
+    args: [contractICO],
+    onSuccess(data) {
+      // convert from big number to number
+      const data_display = Number(data.toString()) / 1000000000000000000;
+      // get only 5 decimals after the comma
+      const data_display_rounded = Number(data_display.toFixed(2));
+      setGngBalanceICO(data_display_rounded);
+    },
+  });
+
+  // Calculate the volume percentage for the progress bar
   const styles = {
     progressBar: {
-      width: volumePercentage,
+      width: `${volumePercentage}%`,
     },
   } as const;
 
@@ -142,7 +165,11 @@ function App() {
   // Scroll to top on navigation to phase 2
   useEffect(() => {
     if (phase2) window.scrollTo(0, 0);
-  }, [phase2]);
+
+    const volumePercentageEffect = ((tokensAllocated - gngBalanceICO)/tokensAllocated) * 100;
+    setVolumePercentage(volumePercentageEffect);
+
+  }, [gngBalanceICO, phase2, volumePercentage]);
 
   return (
     <div className="App">
@@ -253,7 +280,7 @@ function App() {
                   {/*
                   <div className="round-progress-divider round-progress-divider-l"></div>
 */}
-                  <span className="round-progress-value"> 20% </span>
+                  <span className="round-progress-value"> {volumePercentage.toFixed(2)}% </span>
                   {/*
                   <div className="round-progress-divider round-progress-divider-r"></div>
 */}
@@ -261,7 +288,7 @@ function App() {
                 <div className="round-progress-label-container">
                   <span> SOLD: </span>
                   <span>
-                    3M <span className="round-progress-label-dark">/ 15M</span>
+                    {(tokensAllocated - gngBalanceICO).toFixed(2)} <span className="round-progress-label-dark">/ 10M</span>
                   </span>
                 </div>
                 <span className="round-price text-center">
@@ -482,7 +509,7 @@ function App() {
                   {/*
                   <div className="round-progress-divider round-progress-divider-l"></div>
 */}
-                  <span className="round-progress-value">20%</span>
+                  <span className="round-progress-value"> {volumePercentage.toFixed(2)}% </span>
                   {/*
                   <div className="round-progress-divider round-progress-divider-r"></div>
 */}
@@ -490,7 +517,7 @@ function App() {
                 <div className="round-progress-label-container">
                   <span>SOLD:</span>
                   <span>
-                    3M <span className="round-progress-label-dark">/ 15M</span>
+                    {(tokensAllocated - gngBalanceICO).toFixed(2)} <span className="round-progress-label-dark">/ 10M</span>
                   </span>
                 </div>
                 <span className="round-price text-center">
