@@ -12,6 +12,7 @@ import { SuccessPopup } from "./SuccessPopup";
 import { FailPopup } from "./FailPopup";
 import { ethers } from "ethers";
 import { BuySoy } from "./components/buySoy";
+import { BuyCloe } from "./components/buyCloe";
 
 const contractICO = "0x9c16739A99E3E48FaDB4F8224a1BbaE62b326D1C";
 const contractGnG = "0xB9dC1B31b4966303B4e2c3AEA5Fd42731e959670";
@@ -839,26 +840,37 @@ function App() {
                     />
                   </div>
 
-                  <div className={
+                  <div
+                    className={
                       selectedCoin ===
                       "0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65"
                         ? "oops"
                         : "hidePhase"
-                    }>
-                      <BuySoy
-                        moneyValue={moneyAmountInput}
-                        setShowSuccess={setShowSuccess}
-                        setShowFail={setShowFail}
-                        setErrorPopup={setErrorPopup}
-                      />
-                    </div> 
+                    }
+                  >
+                    <BuySoy
+                      moneyValue={moneyAmountInput}
+                      setShowSuccess={setShowSuccess}
+                      setShowFail={setShowFail}
+                      setErrorPopup={setErrorPopup}
+                    />
+                  </div>
 
-                  {/*setSelectedCoinName("CLO");
-                    } else if (selectedCoin === "0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65") {
-                      setSelectedCoinName("SOY");
-                    } else if (selectedCoin === "0x1eAa43544dAa399b87EEcFcC6Fa579D5ea4A6187") {
-                      setSelectedCoinName("CLOE");
-                    }*/}
+                  <div
+                    className={
+                      selectedCoin ===
+                      "0x1eAa43544dAa399b87EEcFcC6Fa579D5ea4A6187"
+                        ? "oops"
+                        : "hidePhase"
+                    }
+                  >
+                    <BuyCloe
+                      moneyValue={moneyAmountInput}
+                      setShowSuccess={setShowSuccess}
+                      setShowFail={setShowFail}
+                      setErrorPopup={setErrorPopup}
+                    />
+                  </div>
                 </div>
 
                 <div className="wallet-connected-footnote-container mobile-hidden">
