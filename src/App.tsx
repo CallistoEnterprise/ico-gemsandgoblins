@@ -27,6 +27,7 @@ function App() {
 
   // state variable for phase 2
   const [phase2, setPhase2] = useState(false);
+  const [inProgress, setInProgress] = useState(false);
 
   // user address as string
   const [userAddress, setUserAddress] = useState("");
@@ -145,6 +146,18 @@ function App() {
 
   return (
     <div className="App">
+      <div className={inProgress? "displayProgress" : "hidePhase"}>
+        <div className="loadingPopup">
+          <div className="loadingPopup__content">
+            <div className="loadingPopup__content__icon">
+              <img src="/img/loading.gif" alt="" />
+            </div>
+            <div className="loadingPopup__content__text">
+                <p>Transaction in progress.. please wait!</p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div id="phaseOne" className={phase2 ? "content hidePhase" : " content"}>
         <div className="hero-video">
           <video preload="auto" autoPlay muted loop playsInline>
@@ -869,6 +882,7 @@ function App() {
                       setShowSuccess={setShowSuccess}
                       setShowFail={setShowFail}
                       setErrorPopup={setErrorPopup}
+                      setInProgress={setInProgress}
                     />
                   </div>
                 </div>
