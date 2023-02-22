@@ -12,11 +12,13 @@ export function BuySoy({
   setShowSuccess,
   setShowFail,
   setErrorPopup,
+  setInProgress,
 }: {
   moneyValue: any;
   setShowSuccess: any;
   setShowFail: any;
   setErrorPopup: any;
+  setInProgress: any;
 }) {
   // moneyValue To string
   const moneyValueString = "" + moneyValue;
@@ -33,17 +35,35 @@ export function BuySoy({
     },
   })
 
-  const { data, isError, isLoading, isSuccess, write } = useContractWrite({
+  const { data, isError, isLoading, isSuccess, writeAsync } = useContractWrite({
     ...config,
     onSuccess(data) {
-      setShowSuccess(true);
+      // setShowSuccess(true);
     },
     
   });
 
+  const onClickSendTransaction = async () => {
+    try {
+      setInProgress(true);
+      // @ts-ignore
+      const tx = await writeAsync();
+      const receipt = await tx.wait();
+      console.log({ receipt });
+      setInProgress(false);
+      setShowSuccess(true); 
+    } catch (error) {
+      console.error(error);
+      setInProgress(false);
+      setShowFail(true);
+    } finally {
+      
+    }
+  };
+
   useEffect(() => {
     if (isSuccess) {
-      setShowSuccess(true);
+      // setShowSuccess(true);
     }
     if(isError){
       setShowFail(true);
@@ -57,7 +77,7 @@ export function BuySoy({
       className="wallet-connected-button"
       // ignore onClick warning
       // @ts-ignore
-      onClick={() => write()}
+      onClick={() => onClickSendTransaction()}
     >
       <span className="wallet-connected-button-img"></span>
     </button>

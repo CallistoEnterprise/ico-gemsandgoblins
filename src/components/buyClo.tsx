@@ -31,7 +31,7 @@ export function BuyClo({
       value: amount,
     },
     onError(error) {
-        setShowFail(true);
+        // setShowFail(true);
         console.log(error);
       },
   });
