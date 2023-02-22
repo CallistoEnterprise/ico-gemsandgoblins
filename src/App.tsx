@@ -10,7 +10,7 @@ import priceFeedAbi from "./abi/priceFeed.json";
 import icoAbi from "./abi/ico.json";
 import { SuccessPopup } from "./SuccessPopup";
 import { FailPopup } from "./FailPopup";
-import { ethers } from "ethers";
+import { BigNumber, ethers } from "ethers";
 import { BuySoy } from "./components/buySoy";
 import { BuyCloe } from "./components/buyCloe";
 
@@ -128,11 +128,13 @@ function App() {
     address: contractICO,
     abi: icoAbi,
     functionName: "get_reward",
-    args: [moneyAmountInput, selectedCoin],
+    args: [ethers.utils.parseUnits(moneyAmountInput.toString()), selectedCoin],
     onSuccess(data: any) {
-      const rewards = Number(data.reward.toString());
-      // console.log("Success get_reward", rewards);
-      setGngAmount(rewards.toString());
+      const rewards = (data.reward).toString();
+      console.log("Success get_reward", rewards);
+      const rewardEth = ethers.utils.formatUnits(rewards, 18);
+      const rewardEthRounded = Number(rewardEth).toFixed(2);
+      setGngAmount(rewardEthRounded);
     },
   });
 
@@ -144,6 +146,7 @@ function App() {
     } else if (selectedCoin === "0x1eAa43544dAa399b87EEcFcC6Fa579D5ea4A6187") {
       setSelectedCoinName("CLOE");
     }
+    console.log("BigNumber.from(moneyAmountInput): ", BigNumber.from(moneyAmountInput));
   }, [selectedCoin]);
 
   useEffect(() => {
