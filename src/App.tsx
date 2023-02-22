@@ -877,6 +877,7 @@ function App() {
                       setShowSuccess={setShowSuccess}
                       setShowFail={setShowFail}
                       setErrorPopup={setErrorPopup}
+                      setInProgress={setInProgress}
                     />
                   </div>
 

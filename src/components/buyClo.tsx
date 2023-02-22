@@ -12,11 +12,13 @@ export function BuyClo({
   setShowSuccess,
   setShowFail,
   setErrorPopup,
+  setInProgress,
 }: {
   moneyValue: any;
   setShowSuccess: any;
   setShowFail: any;
   setErrorPopup: any;
+  setInProgress: any;
 }) {
   // moneyValue To string
   const moneyValueString = "" + moneyValue;
@@ -33,16 +35,34 @@ export function BuyClo({
         console.log(error);
       },
   });
-  const { data, isError, isLoading, isSuccess, sendTransaction } = useSendTransaction({
+  const { data, isError, isLoading, isSuccess, sendTransactionAsync } = useSendTransaction({
     ...config,
     onError(error) {
         setErrorPopup(error.message);
       },
   });
 
+  const onClickSendTransaction = async () => {
+    try {
+      setInProgress(true);
+      // @ts-ignore
+      const tx = await sendTransactionAsync();
+      const receipt = await tx.wait();
+      console.log({ receipt });
+      setInProgress(false);
+      setShowSuccess(true); 
+    } catch (error) {
+      console.error(error);
+      setInProgress(false);
+      setShowFail(true);
+    } finally {
+      
+    }
+  };
+
   useEffect(() => {
     if (isSuccess) {
-      setShowSuccess(true);
+      // setShowSuccess(true);
     }
     if(isError){
       setShowFail(true);
@@ -53,7 +73,7 @@ export function BuyClo({
     <button
       type="submit"
       className="wallet-connected-button"
-      onClick={() => sendTransaction?.()}
+      onClick={() => onClickSendTransaction()}
     >
       <span className="wallet-connected-button-img"></span>
     </button>
