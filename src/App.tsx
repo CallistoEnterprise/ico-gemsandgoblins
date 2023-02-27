@@ -743,9 +743,13 @@ function App() {
                     >
                       Smart Contract Address
                     </a>
-                    <span className="connect-wallet-footnote-secure">
-                      Secure payment
-                    </span>
+                    <a href="https://callisto.network/gems-goblins-ico-security-audit-report/?utm_source=gemsandgoblins.com"
+                       target="_blank"
+                       className="connect-wallet-footnote-secure connect-wallet-link"
+                       rel="noreferrer"
+                    >
+                      Security audit report
+                    </a>
                   </div>
                 </div>
 
@@ -943,9 +947,13 @@ function App() {
                   >
                     Smart Contract Address
                   </a>
-                  <span className="connect-wallet-footnote-secure">
-                    Secure payment
-                  </span>
+                  <a href="https://callisto.network/gems-goblins-ico-security-audit-report/?utm_source=gemsandgoblins.com"
+                     target="_blank"
+                     className="connect-wallet-footnote-secure connect-wallet-link"
+                     rel="noreferrer"
+                  >
+                    Security audit report
+                  </a>
                 </div>
               </div>
             )}
