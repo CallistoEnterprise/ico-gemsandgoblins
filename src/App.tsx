@@ -249,7 +249,7 @@ function App() {
                   </div>
                 </div>
                 <span className="round-subheading">
-                  Gng tokens are now available in a limited supply...
+                  GNG tokens are now available in a limited supply...
                 </span>
                 <div className="round-progress-container">
                   <div className="round-progress-bar-container position-inset">
