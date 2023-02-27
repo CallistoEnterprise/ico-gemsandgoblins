@@ -663,19 +663,36 @@ function App() {
               <div className="backers-container">
                 <span className="backers-label">Backed by:</span>
                 <div className="backers">
-                  <img
-                    src="img/presale/backers/callisto.png"
-                    alt="Callisto Network"
-                  />
-                  <img src="img/presale/backers/eig.png" alt="EIG" />
-                  <img
-                    src="img/presale/backers/soy-finance.png"
-                    alt="Soy Finance"
-                  />
-                  <img
-                    src="img/presale/backers/absolute-wallet.png"
-                    alt="Absolute Wallet"
-                  />
+                  <a href="https://callisto.network/?utm_source=gemsandgoblins.com"
+                     target="_blank" rel="noreferrer"
+                  >
+                    <img src="img/presale/backers/callisto.png"
+                         alt="Callisto Network"
+                         style={{marginTop: '0.3vw'}}
+                    />
+                  </a>
+                  <a href="https://www.esportsinnovation.group/?utm_source=gemsandgoblins.com"
+                     target="_blank" rel="noreferrer"
+                  >
+                    <img src="img/presale/backers/eig.png"
+                         alt="EIG"
+                    />
+                  </a>
+                  <a href="https://soy.finance/?utm_source=gemsandgoblins.com"
+                     target="_blank" rel="noreferrer"
+                  >
+                    <img src="img/presale/backers/soy-finance.png"
+                         alt="Soy Finance"
+                    />
+                  </a>
+                  <a href="https://absolutewallet.com/?utm_source=gemsandgoblins.com  "
+                     target="_blank" rel="noreferrer"
+                  >
+                    <img src="img/presale/backers/absolute-wallet.png"
+                         alt="Absolute Wallet"
+                         style={{marginTop: '0.3vw'}}
+                    />
+                  </a>
                 </div>
               </div>
             </div>
@@ -827,12 +844,13 @@ function App() {
                         <input
                           id=""
                           name=""
-                          type="number"
                           min={1}
+                          step={1}
+                          pattern="\d*"
                           inputMode="numeric"
                           className="with-suffix"
                           onChange={(e) =>
-                            setMoneyAmountInput(Number(e.target.value))
+                            setMoneyAmountInput(isNaN(Number(e.target.value)) ? moneyAmountInput : Number(e.target.value))
                           }
                           value={moneyAmountInput}
                         />
