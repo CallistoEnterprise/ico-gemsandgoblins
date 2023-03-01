@@ -58,9 +58,20 @@ function App() {
   const { address, isConnecting, isDisconnected, isConnected } = useAccount();
 
   async function onOpen() {
+    const getWidth = () => Math.max(
+        document.body.scrollWidth,
+        document.documentElement.scrollWidth,
+        document.body.offsetWidth,
+        document.documentElement.offsetWidth,
+        document.documentElement.clientWidth
+    );
+    const clientWidth = getWidth();
+
     setLoading(true);
     await open();
     setLoading(false);
+
+    document.body.style.paddingRight = `${getWidth() - clientWidth}px`;
   }
 
   // Used to toggle popups
@@ -218,7 +229,7 @@ function App() {
                   <br />
                   <br />
                   Gems & Goblins is a play-to-earn game with a scheduled beta
-                  release in Q1 2023. Tokens are now in limited pre-sale round –
+                  release in Q2 2023. Tokens are now in limited pre-sale round –
                   get yours while they're cheap!
                 </p>
               </div>
