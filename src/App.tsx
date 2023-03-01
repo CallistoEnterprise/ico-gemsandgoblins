@@ -736,7 +736,7 @@ function App() {
 
                   <div className="connect-wallet-footnote-container">
                     <a
-                      href="https://google.com/"
+                      href="https://explorer.callisto.network/address/0x700D226Be058a0110655575082Db12Fd6862EeF6/transactions"
                       target="_blank"
                       className="connect-wallet-footnote-link connect-wallet-link"
                       rel="noreferrer"
@@ -941,9 +941,10 @@ function App() {
 
                 <div className="wallet-connected-footnote-container mobile-hidden">
                   <a
-                    href="#"
+                    href="https://explorer.callisto.network/address/0x700D226Be058a0110655575082Db12Fd6862EeF6/transactions"
                     target="_blank"
                     className="connect-wallet-footnote-link connect-wallet-link"
+                    rel="noreferrer"
                   >
                     Smart Contract Address
                   </a>
