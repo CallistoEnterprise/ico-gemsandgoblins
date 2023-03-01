@@ -211,16 +211,14 @@ function App() {
 
             <div className="desktop-hero-layout">
               <div className="desktop-hero-left-col">
-                <h2>Take your heroes on a daring adventure</h2>
+                <h2>Get your tokens while they're hot!</h2>
                 <p className="hero-text">
-                  Assemble your team, explore mysterious places and fight in
-                  epic battles to earn crypto tokens, NFTs and other precious
-                  rewards.
+                  The exclusive pre-sale round of GNG tokens is live! Grab your tokens first and get them at the lowest
+                  price ever.
                   <br />
                   <br />
-                  Gems & Goblins is a play-to-earn game with a scheduled beta
-                  release on 23.6.2023. Tokens are now in limited pre-sale round –
-                  get yours while they're cheap!
+                  The tokens can later be exchanged for bundles of in-game assets or other cryptocurrencies.
+                  Get yours now - they're never going to be this cheap again!
                 </p>
               </div>
               <div className="desktop-hero-buttons-layout hidden-on-mobile">

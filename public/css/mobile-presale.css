@@ -226,11 +226,11 @@
         font-size: 4.44vw;
         line-height: 5.33vw;
         font-weight: bold;
-        margin-bottom: 1.11vw;
+        margin-bottom: 2vw;
     }
 
     .presale-2 .round-price {
-        margin-bottom: 2.5vw;
+        margin-bottom: 4vw;
     }
 
     .round-time-left-container {
@@ -253,7 +253,7 @@
         flex-direction: row;
         gap: 2.22vw;
 
-        margin-bottom: -12.8vw;
+        margin-bottom: -13.8vw;
 
         background: url("/img/presale/Asset_Clock_BG.png") 0 0 no-repeat;
         background-size: 100%;
