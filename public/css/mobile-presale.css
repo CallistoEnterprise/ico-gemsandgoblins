@@ -1,4 +1,13 @@
 @media only screen and (max-width: 800px) {
+    .App {
+        background-color: #082420;
+    }
+
+    .presale-hero-heading {
+        max-width: 88vw;
+        margin-top: 5vw;
+    }
+
     .hero-text {
         font-size: 3.89vw;
         line-height: 4.67vw;

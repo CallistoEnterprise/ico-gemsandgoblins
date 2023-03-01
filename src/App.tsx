@@ -211,7 +211,14 @@ function App() {
 
             <div className="desktop-hero-layout">
               <div className="desktop-hero-left-col">
-                <h2>Get your tokens while they're hot!</h2>
+                  <img src="img/presale/Text_Tokens_Lines_2.png"
+                       className="presale-hero-heading hidden-on-mobile"
+                       alt="Get your tokens while they're hot!"
+                  />
+                  <img src="img/presale/Text_Tokens_Line_3A.png"
+                       className="presale-hero-heading hidden-on-desktop"
+                       alt="Get your tokens while they're hot!"
+                  />
                 <p className="hero-text">
                   The exclusive pre-sale round of GNG tokens is live! Grab your tokens first and get them at the lowest
                   price ever.
