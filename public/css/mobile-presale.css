@@ -1,5 +1,5 @@
 @media only screen and (max-width: 800px) {
-    h2 {
+    .caption h2 {
     font-family: 'Friz Quadrata Std Medium';
     font-size: 7.78vw;
     line-height: 9.33vw;

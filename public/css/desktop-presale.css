@@ -19,8 +19,16 @@
     user-select: none;
 }
 
+.landing-rest {
+    user-select: none;
+}
+
+.divider-top {
+    pointer-events: none;
+}
+
 @media only screen and (min-width: 801px) {
-    h2 {
+    .caption h2 {
         font-family: 'Friz Quadrata Std Medium';
         font-size: 1.667vw;
         line-height: 2vw;
