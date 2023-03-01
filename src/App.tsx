@@ -15,7 +15,7 @@ import { BuySoy } from "./components/buySoy";
 import { BuyCloe } from "./components/buyCloe";
 
 const contractICO = "0x93026EcAED46d825989bBE298C7EE2B7cdC3c3A3";
-const contractGnG = "0xB9dC1B31b4966303B4e2c3AEA5Fd42731e959670";
+const contractGnG = "0x700D226Be058a0110655575082Db12Fd6862EeF6";
 const contractPriceFeed = "0x9bFc3046ea26f8B09D3E85bd22AEc96C80D957e3";
 const contractCLO = "0x0000000000000000000000000000000000000001";
 const contractSOY = "0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65";
@@ -965,8 +965,9 @@ function App() {
           isOpen={showSuccess}
           onClose={() => setShowSuccess(false)}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Thanks! <br />
+          You're now the proud owner of the GNG tokens below.<br />
+          We're excited to have you in the community!<br />
         </SuccessPopup>
         <FailPopup
           title="Something went wrong!"
