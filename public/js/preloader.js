@@ -185,7 +185,8 @@ window.addEventListener("load", function(){
 //header button animation
 var animationInterval;
 var position = 0;
-var open = 0
+var startAnimOpen = 0;
+
 
 function startAnim() {
     const speed = 36;
@@ -193,8 +194,8 @@ function startAnim() {
     var step = 0
     const numOfSteps = 14;
 
-    if (open == 2){
-        open = 0
+    if (startAnimOpen == 2){
+        startAnimOpen = 0
         position = 0
     }
   
@@ -208,7 +209,7 @@ function startAnim() {
         }
     }, speed);
 
-    open += 1 
+    startAnimOpen += 1
 }
 
 

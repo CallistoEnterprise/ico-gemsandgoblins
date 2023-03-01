@@ -16,6 +16,7 @@
 .App {
     position: relative;
     overflow-x: hidden;
+    user-select: none;
 }
 
 @media only screen and (min-width: 801px) {
@@ -128,7 +129,7 @@
     }
 
     .round-heading-indicator {
-        margin-top: 0.2vw;
+        margin-top: 0.25vw;
         width: 0.69vw;
         height: 0.69vw;
         overflow: visible;
@@ -516,6 +517,7 @@
     .backers img {
         min-width: 0;
         margin-right: 2vw;
+        width: 6vw;
     }
 
     .presale-buy-button-container {
