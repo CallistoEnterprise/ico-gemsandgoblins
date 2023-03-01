@@ -579,7 +579,7 @@
 
         top: 52%;
         transform: translateY(-50%);
-        left: 50.15vw;
+        right: 17vw;
         z-index: 1;
 
         padding: 0;
@@ -735,7 +735,7 @@
 
         top: 52%;
         transform: translateY(-50%);
-        left: 49.7vw;
+        right: 17vw;
         z-index: 1;
 
         padding: 0;

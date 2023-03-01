@@ -59,20 +59,9 @@ function App() {
   const { address, isConnecting, isDisconnected, isConnected } = useAccount();
 
   async function onOpen() {
-    const getWidth = () => Math.max(
-        document.body.scrollWidth,
-        document.documentElement.scrollWidth,
-        document.body.offsetWidth,
-        document.documentElement.offsetWidth,
-        document.documentElement.clientWidth
-    );
-    const clientWidth = getWidth();
-
     setLoading(true);
     await open();
     setLoading(false);
-
-    document.body.style.paddingRight = `${getWidth() - clientWidth}px`;
   }
 
   // Used to toggle popups
@@ -230,7 +219,7 @@ function App() {
                   <br />
                   <br />
                   Gems & Goblins is a play-to-earn game with a scheduled beta
-                  release in Q2 2023. Tokens are now in limited pre-sale round –
+                  release on 23.6.2023. Tokens are now in limited pre-sale round –
                   get yours while they're cheap!
                 </p>
               </div>
@@ -683,13 +672,13 @@ function App() {
                          style={{marginTop: '0.3vw'}}
                     />
                   </a>
-                  <a href="https://www.esportsinnovation.group/?utm_source=gemsandgoblins.com"
+                  {/*<a href="https://www.esportsinnovation.group/?utm_source=gemsandgoblins.com"
                      target="_blank" rel="noreferrer"
                   >
                     <img src="img/presale/backers/eig.png"
                          alt="EIG"
                     />
-                  </a>
+                  </a>*/}
                   <a href="https://soy.finance/?utm_source=gemsandgoblins.com"
                      target="_blank" rel="noreferrer"
                   >
@@ -768,19 +757,36 @@ function App() {
                 <div className="backers-container-mobile">
                   <span className="backers-label">Backed by:</span>
                   <div className="backers">
-                    <img
-                      src="img/presale/backers/callisto.png"
-                      alt="Callisto Network"
+                    <a href="https://callisto.network/?utm_source=gemsandgoblins.com"
+                       target="_blank" rel="noreferrer"
+                    >
+                      <img src="img/presale/backers/callisto.png"
+                           alt="Callisto Network"
+                           style={{marginTop: '0.3vw'}}
+                      />
+                    </a>
+                    {/*<a href="https://www.esportsinnovation.group/?utm_source=gemsandgoblins.com"
+                     target="_blank" rel="noreferrer"
+                  >
+                    <img src="img/presale/backers/eig.png"
+                         alt="EIG"
                     />
-                    <img src="img/presale/backers/eig.png" alt="EIG" />
-                    <img
-                      src="img/presale/backers/soy-finance.png"
-                      alt="Soy Finance"
-                    />
-                    <img
-                      src="img/presale/backers/absolute-wallet.png"
-                      alt="Absolute Wallet"
-                    />
+                  </a>*/}
+                    <a href="https://soy.finance/?utm_source=gemsandgoblins.com"
+                       target="_blank" rel="noreferrer"
+                    >
+                      <img src="img/presale/backers/soy-finance.png"
+                           alt="Soy Finance"
+                      />
+                    </a>
+                    <a href="https://absolutewallet.com/?utm_source=gemsandgoblins.com  "
+                       target="_blank" rel="noreferrer"
+                    >
+                      <img src="img/presale/backers/absolute-wallet.png"
+                           alt="Absolute Wallet"
+                           style={{marginTop: '0.3vw'}}
+                      />
+                    </a>
                   </div>
                 </div>
               </>

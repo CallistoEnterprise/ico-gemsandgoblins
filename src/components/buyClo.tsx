@@ -38,6 +38,7 @@ export function BuyClo({
   const { data, isError, isLoading, isSuccess, sendTransactionAsync } = useSendTransaction({
     ...config,
     onError(error) {
+      console.error(error);
         setErrorPopup(error.message);
       },
   });
