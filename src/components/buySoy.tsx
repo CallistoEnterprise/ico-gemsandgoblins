@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import soyAbi from "../abi/soy.json";
 import { useContractWrite, usePrepareContractWrite } from "wagmi";
 
-const contractICO = "0x9c16739A99E3E48FaDB4F8224a1BbaE62b326D1C";
+const contractICO = "0x93026EcAED46d825989bBE298C7EE2B7cdC3c3A3";
 const contractSOY = "0x9FaE2529863bD691B4A7171bDfCf33C7ebB10a65";
 
 export function BuySoy({

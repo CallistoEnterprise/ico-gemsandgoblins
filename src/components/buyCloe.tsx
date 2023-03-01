@@ -6,7 +6,7 @@ import icoAbi from "../abi/ico.json";
 
 import { useContractWrite, usePrepareContractWrite } from "wagmi";
 
-const contractICO = "0x9c16739A99E3E48FaDB4F8224a1BbaE62b326D1C";
+const contractICO = "0x93026EcAED46d825989bBE298C7EE2B7cdC3c3A3";
 const contractCLOE = "0x1eAa43544dAa399b87EEcFcC6Fa579D5ea4A6187";
 
 export function BuyCloe({

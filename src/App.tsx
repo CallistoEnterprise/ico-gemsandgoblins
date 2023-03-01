@@ -14,7 +14,7 @@ import { BigNumber, ethers } from "ethers";
 import { BuySoy } from "./components/buySoy";
 import { BuyCloe } from "./components/buyCloe";
 
-const contractICO = "0x9c16739A99E3E48FaDB4F8224a1BbaE62b326D1C";
+const contractICO = "0x93026EcAED46d825989bBE298C7EE2B7cdC3c3A3";
 const contractGnG = "0xB9dC1B31b4966303B4e2c3AEA5Fd42731e959670";
 const contractPriceFeed = "0x9bFc3046ea26f8B09D3E85bd22AEc96C80D957e3";
 const contractCLO = "0x0000000000000000000000000000000000000001";

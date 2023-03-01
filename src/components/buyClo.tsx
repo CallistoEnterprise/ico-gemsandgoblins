@@ -27,7 +27,7 @@ export function BuyClo({
 
   const { config } = usePrepareSendTransaction({
     request: {
-      to: "0x9c16739A99E3E48FaDB4F8224a1BbaE62b326D1C",
+      to: "0x93026EcAED46d825989bBE298C7EE2B7cdC3c3A3",
       value: amount,
     },
     onError(error) {
