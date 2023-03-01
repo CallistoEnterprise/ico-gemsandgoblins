@@ -1,4 +1,13 @@
 @media only screen and (max-width: 800px) {
+    .App {
+        background-color: #082420;
+    }
+
+    .presale-hero-heading {
+        max-width: 88vw;
+        margin-top: 5vw;
+    }
+
     .hero-text {
         font-size: 3.89vw;
         line-height: 4.67vw;
@@ -34,7 +43,7 @@
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        margin-top: 0;
+        margin: 1vw 0;
         position: relative;
     }
 
@@ -226,7 +235,11 @@
         font-size: 4.44vw;
         line-height: 5.33vw;
         font-weight: bold;
-        margin-bottom: 1.11vw;
+        margin-bottom: 2vw;
+    }
+
+    .presale-2 .round-price {
+        margin-bottom: 4vw;
     }
 
     .round-time-left-container {
@@ -249,7 +262,7 @@
         flex-direction: row;
         gap: 2.22vw;
 
-        margin-bottom: -12.8vw;
+        margin-bottom: -13.8vw;
 
         background: url("/img/presale/Asset_Clock_BG.png") 0 0 no-repeat;
         background-size: 100%;
