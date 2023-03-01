@@ -54,6 +54,7 @@ function App() {
   const [gngAmount, setGngAmount] = useState("0");
   // Money amount input from the input Amount used to purchase
   const [moneyAmountInput, setMoneyAmountInput] = useState(1);
+  const [moneyAmountString, setMoneyAmountString] = useState('1');
 
   const { address, isConnecting, isDisconnected, isConnected } = useAccount();
 
@@ -864,10 +865,20 @@ function App() {
                           pattern="\d*"
                           inputMode="numeric"
                           className="with-suffix"
-                          onChange={(e) =>
-                            setMoneyAmountInput(isNaN(Number(e.target.value)) ? moneyAmountInput : Number(e.target.value))
-                          }
-                          value={moneyAmountInput}
+                          onChange={(e) => {
+                            if (/^\d{0,7}$/.test(e.target.value)) {
+                              setMoneyAmountString(e.target.value);
+
+                              const input = parseInt(e.target.value);
+                              setMoneyAmountInput(
+                                  Math.min(9999999, Math.max(1, isNaN(input) ? 0 : input))
+                              );
+                            }
+                          }}
+                          onBlur={() => {
+                            setMoneyAmountString(moneyAmountInput.toString());
+                          }}
+                          value={moneyAmountString}
                         />
                         <div className="wallet-connected-form-input-suffix">
                           {selectedCoinName}
