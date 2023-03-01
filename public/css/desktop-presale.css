@@ -28,14 +28,6 @@
 }
 
 @media only screen and (min-width: 801px) {
-    .caption h2 {
-        font-family: 'Friz Quadrata Std Medium';
-        font-size: 1.667vw;
-        line-height: 2vw;
-        font-weight: bold;
-        color: white;
-    }
-
     .hero-text {
         font-size: 1.25vw;
         line-height: 1.5vw;
