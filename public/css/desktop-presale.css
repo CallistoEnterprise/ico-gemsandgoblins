@@ -13,14 +13,29 @@
     bottom: 0;
 }
 
-@media only screen and (min-width: 801px) {
+.App {
+    position: relative;
+    overflow-x: hidden;
+    user-select: none;
+}
 
+@media only screen and (min-width: 801px) {
     h2 {
         font-family: 'Friz Quadrata Std Medium';
         font-size: 1.667vw;
         line-height: 2vw;
         font-weight: bold;
         color: white;
+    }
+
+    .hero-text {
+        font-size: 1.25vw;
+        line-height: 1.5vw;
+        margin-bottom: 0;
+    }
+
+    .presale-prototype-button {
+        width: 17.78vw;
     }
 
     .presale-container {
@@ -114,7 +129,7 @@
     }
 
     .round-heading-indicator {
-        margin-top: 0.3vw;
+        margin-top: 0.25vw;
         width: 0.69vw;
         height: 0.69vw;
         overflow: visible;
@@ -130,6 +145,15 @@
         height: 50px;
 
         background: url("/img/presale/SS_Light.png") center 0 no-repeat;
+        background-size: 50px;
+    }
+
+    .round-heading-indicator-light.inactive {
+        flex: none;
+        width: 50px;
+        height: 50px;
+
+        background: url("/img/presale/Light_Red_STATIC.png") center 0 no-repeat;
         background-size: 50px;
     }
 
@@ -190,6 +214,7 @@
     }
 
     .round-progress-bar-mask-l, .round-progress-bar-mask-r {
+        height: 100%;
     }
 
     .round-progress-bar-mask-m {
@@ -387,9 +412,10 @@
     }
 
     .next-rounds-card-info {
-        font-size: 0.833vw;
-        line-height: 1vw;
+        font-size: 0.69vw;
+        line-height: 0.828vw;
         font-weight: bold;
+        margin-bottom: 0.1vw;
         color: #bc7459;
     }
 
@@ -398,6 +424,7 @@
         flex-direction: column;
         align-items: stretch;
         margin-bottom: 0.8vw;
+        margin-top: 1vw;
     }
 
     .supported-currencies-heading {
@@ -469,6 +496,10 @@
         flex-direction: column;
     }
 
+    .backers-container-mobile {
+        display: none;
+    }
+
     .backers-label {
         font-size: 0.83vw;
         line-height: 1.00vw;
@@ -486,6 +517,7 @@
     .backers img {
         min-width: 0;
         margin-right: 2vw;
+        width: 6vw;
     }
 
     .presale-buy-button-container {
@@ -512,6 +544,7 @@
     }
 
     .presale-cable-left {
+        pointer-events: none;
         position: absolute;
         width: 11.8vw;
         height: 30vw;
@@ -522,6 +555,7 @@
     }
 
     .presale-cable-right {
+        pointer-events: none;
         position: absolute;
         width: 11.6vw;
         height: 30vw;
@@ -677,6 +711,7 @@
     }
 
     .connect-wallet-cable-left {
+        pointer-events: none;
         position: absolute;
         width: 11vw;
         height: 30vw;
@@ -726,6 +761,7 @@
     .wallet-connected-wallet {
         font-size: 1.11vw;
         line-height: 1.33vw;
+        min-height: 1.33vw;
         font-weight: bold;
         color: #ffffff;
         text-align: center;
@@ -900,5 +936,183 @@
         align-items: center;
         justify-content: space-between;
         padding: 2vw 2.5vw 0;
+    }
+
+    .popup-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+
+        background-color: #00000088;
+        z-index: 100;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .popup {
+        box-sizing: content-box;
+        flex: none;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+
+        color: white;
+        font-family: 'Friz Quadrata Std Medium';
+    }
+
+    .popup.success {
+        background: url("/img/presale/Page4_BG_Success_Shadow.png") top no-repeat;
+        background-size: 100%;
+
+        width: 28.47vw;
+        height: 30.23vw;
+
+        padding: 3.2vw 2.5vw 3.2vw 2.2vw;
+    }
+
+    .popup.fail {
+        background: url("/img/presale/Page4_BG_Fail_Shadow.png") top no-repeat;
+        background-size: 100%;
+
+        width: 28.47vw;
+        height: 30.23vw;
+
+        padding: 3.2vw 2.5vw 3.2vw 2.2vw;
+    }
+
+    .popup-title {
+        font-size: 1.667vw;
+        line-height: 2vw;
+        font-weight: bold;
+
+        text-align: center;
+        margin: 2.8vw 3vw 0;
+    }
+
+    .popup-body {
+        font-size: 1.11vw;
+        line-height: 1.33vw;
+        font-weight: bold;
+        color: #cebeb7;
+
+        text-align: center;
+        margin: 1.60vw 3vw 0;
+    }
+
+    .popup-token-count {
+        position: relative;
+        margin: 2.36vw 3vw 0;
+        padding: 1.39vw 1.87vw 0;
+        display: flex;
+        flex-direction: column;
+
+        background: url("/img/presale/Page4_BG_Section_Light.png") top no-repeat;
+        background-size: 100%;
+
+        box-sizing: border-box;
+        height: 5.1vw;
+    }
+
+    .popup-token-count-label {
+        font-size: 1.11vw;
+        line-height: 1.33vw;
+        font-weight: bold;
+        color: #cebeb7;
+    }
+
+    .popup-token-count-value {
+        font-size: 1.39vw;
+        line-height: 1.67vw;
+        font-weight: bold;
+    }
+
+    .popup-token-count-dice {
+        position: absolute;
+
+        top: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .popup-token-count-dice-img {
+        flex: none;
+        background: url("/img/presale/Page4_Gem.png") center no-repeat;
+        background-size: 100%;
+
+        width: 8.19vw;
+        height: 8.19vw;
+    }
+
+    .popup-button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin: 2.5vw 3vw 0;
+    }
+
+    .popup-close-button {
+        position: relative;
+        width: 16.67vw;
+        height: 4.76vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .popup-close-button-img {
+        flex: none;
+        width: 700px;
+        height: 200px;
+        background: url("/img/presale/SS_Button_Close.png") center 0 no-repeat;
+        background-size: 700px;
+    }
+
+    .popup-contact-support-button {
+        position: relative;
+        width: 16.67vw;
+        height: 4.76vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .popup-contact-support-button-img {
+        flex: none;
+        width: 700px;
+        height: 200px;
+        background: url("/img/presale/SS_Button_Support.png") center 0 no-repeat;
+        background-size: 700px;
+    }
+
+    .popup-close-link-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin: 0.83vw 3vw 0;
+    }
+
+    .popup-close-link {
+        font-size: 1.11vw;
+        line-height: 1.33vw;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .popup-close-link:hover {
+        text-decoration: none;
     }
 }
