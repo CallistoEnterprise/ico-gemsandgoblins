@@ -54,13 +54,25 @@ function App() {
   const [gngAmount, setGngAmount] = useState("0");
   // Money amount input from the input Amount used to purchase
   const [moneyAmountInput, setMoneyAmountInput] = useState(1);
+  const [moneyAmountString, setMoneyAmountString] = useState('1');
 
   const { address, isConnecting, isDisconnected, isConnected } = useAccount();
 
   async function onOpen() {
+    const getWidth = () => Math.max(
+        document.body.scrollWidth,
+        document.documentElement.scrollWidth,
+        document.body.offsetWidth,
+        document.documentElement.offsetWidth,
+        document.documentElement.clientWidth
+    );
+    const clientWidth = getWidth();
+
     setLoading(true);
     await open();
     setLoading(false);
+
+    document.body.style.paddingRight = `${getWidth() - clientWidth}px`;
   }
 
   // Used to toggle popups
@@ -218,7 +230,7 @@ function App() {
                   <br />
                   <br />
                   Gems & Goblins is a play-to-earn game with a scheduled beta
-                  release in Q1 2023. Tokens are now in limited pre-sale round –
+                  release in Q2 2023. Tokens are now in limited pre-sale round –
                   get yours while they're cheap!
                 </p>
               </div>
@@ -853,10 +865,20 @@ function App() {
                           pattern="\d*"
                           inputMode="numeric"
                           className="with-suffix"
-                          onChange={(e) =>
-                            setMoneyAmountInput(isNaN(Number(e.target.value)) ? moneyAmountInput : Number(e.target.value))
-                          }
-                          value={moneyAmountInput}
+                          onChange={(e) => {
+                            if (/^\d{0,7}$/.test(e.target.value)) {
+                              setMoneyAmountString(e.target.value);
+
+                              const input = parseInt(e.target.value);
+                              setMoneyAmountInput(
+                                  Math.min(9999999, Math.max(1, isNaN(input) ? 0 : input))
+                              );
+                            }
+                          }}
+                          onBlur={() => {
+                            setMoneyAmountString(moneyAmountInput.toString());
+                          }}
+                          value={moneyAmountString}
                         />
                         <div className="wallet-connected-form-input-suffix">
                           {selectedCoinName}
