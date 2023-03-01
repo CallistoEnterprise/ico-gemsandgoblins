@@ -54,6 +54,7 @@ function App() {
   const [gngAmount, setGngAmount] = useState("0");
   // Money amount input from the input Amount used to purchase
   const [moneyAmountInput, setMoneyAmountInput] = useState(1);
+  const [moneyAmountString, setMoneyAmountString] = useState('1');
 
   const { address, isConnecting, isDisconnected, isConnected } = useAccount();
 
@@ -210,16 +211,21 @@ function App() {
 
             <div className="desktop-hero-layout">
               <div className="desktop-hero-left-col">
-                <h2>Take your heroes on a daring adventure</h2>
+                  <img src="img/presale/Text_Tokens_Lines_2.png"
+                       className="presale-hero-heading hidden-on-mobile"
+                       alt="Get your tokens while they're hot!"
+                  />
+                  <img src="img/presale/Text_Tokens_Line_3A.png"
+                       className="presale-hero-heading hidden-on-desktop"
+                       alt="Get your tokens while they're hot!"
+                  />
                 <p className="hero-text">
-                  Assemble your team, explore mysterious places and fight in
-                  epic battles to earn crypto tokens, NFTs and other precious
-                  rewards.
+                  The exclusive pre-sale round of GNG tokens is live! Grab your tokens first and get them at the lowest
+                  price ever.
                   <br />
                   <br />
-                  Gems & Goblins is a play-to-earn game with a scheduled beta
-                  release in Q1 2023. Tokens are now in limited pre-sale round –
-                  get yours while they're cheap!
+                  The tokens can later be exchanged for bundles of in-game assets or other cryptocurrencies.
+                  Get yours now - they're never going to be this cheap again!
                 </p>
               </div>
               <div className="desktop-hero-buttons-layout hidden-on-mobile">
@@ -671,13 +677,13 @@ function App() {
                          style={{marginTop: '0.3vw'}}
                     />
                   </a>
-                  <a href="https://www.esportsinnovation.group/?utm_source=gemsandgoblins.com"
+                  {/*<a href="https://www.esportsinnovation.group/?utm_source=gemsandgoblins.com"
                      target="_blank" rel="noreferrer"
                   >
                     <img src="img/presale/backers/eig.png"
                          alt="EIG"
                     />
-                  </a>
+                  </a>*/}
                   <a href="https://soy.finance/?utm_source=gemsandgoblins.com"
                      target="_blank" rel="noreferrer"
                   >
@@ -756,19 +762,36 @@ function App() {
                 <div className="backers-container-mobile">
                   <span className="backers-label">Backed by:</span>
                   <div className="backers">
-                    <img
-                      src="img/presale/backers/callisto.png"
-                      alt="Callisto Network"
+                    <a href="https://callisto.network/?utm_source=gemsandgoblins.com"
+                       target="_blank" rel="noreferrer"
+                    >
+                      <img src="img/presale/backers/callisto.png"
+                           alt="Callisto Network"
+                           style={{marginTop: '0.3vw'}}
+                      />
+                    </a>
+                    {/*<a href="https://www.esportsinnovation.group/?utm_source=gemsandgoblins.com"
+                     target="_blank" rel="noreferrer"
+                  >
+                    <img src="img/presale/backers/eig.png"
+                         alt="EIG"
                     />
-                    <img src="img/presale/backers/eig.png" alt="EIG" />
-                    <img
-                      src="img/presale/backers/soy-finance.png"
-                      alt="Soy Finance"
-                    />
-                    <img
-                      src="img/presale/backers/absolute-wallet.png"
-                      alt="Absolute Wallet"
-                    />
+                  </a>*/}
+                    <a href="https://soy.finance/?utm_source=gemsandgoblins.com"
+                       target="_blank" rel="noreferrer"
+                    >
+                      <img src="img/presale/backers/soy-finance.png"
+                           alt="Soy Finance"
+                      />
+                    </a>
+                    <a href="https://absolutewallet.com/?utm_source=gemsandgoblins.com  "
+                       target="_blank" rel="noreferrer"
+                    >
+                      <img src="img/presale/backers/absolute-wallet.png"
+                           alt="Absolute Wallet"
+                           style={{marginTop: '0.3vw'}}
+                      />
+                    </a>
                   </div>
                 </div>
               </>
@@ -853,10 +876,20 @@ function App() {
                           pattern="\d*"
                           inputMode="numeric"
                           className="with-suffix"
-                          onChange={(e) =>
-                            setMoneyAmountInput(isNaN(Number(e.target.value)) ? moneyAmountInput : Number(e.target.value))
-                          }
-                          value={moneyAmountInput}
+                          onChange={(e) => {
+                            if (/^\d{0,7}$/.test(e.target.value)) {
+                              setMoneyAmountString(e.target.value);
+
+                              const input = parseInt(e.target.value);
+                              setMoneyAmountInput(
+                                  Math.min(9999999, Math.max(1, isNaN(input) ? 0 : input))
+                              );
+                            }
+                          }}
+                          onBlur={() => {
+                            setMoneyAmountString(moneyAmountInput.toString());
+                          }}
+                          value={moneyAmountString}
                         />
                         <div className="wallet-connected-form-input-suffix">
                           {selectedCoinName}

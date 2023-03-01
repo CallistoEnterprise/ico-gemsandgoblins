@@ -19,13 +19,17 @@
     user-select: none;
 }
 
+.landing-rest {
+    user-select: none;
+}
+
+.divider-top {
+    pointer-events: none;
+}
+
 @media only screen and (min-width: 801px) {
-    h2 {
-        font-family: 'Friz Quadrata Std Medium';
-        font-size: 1.667vw;
-        line-height: 2vw;
-        font-weight: bold;
-        color: white;
+    .presale-hero-heading {
+        max-width: 25.42vw;
     }
 
     .hero-text {
@@ -50,7 +54,7 @@
         max-height: 960px;
         margin: auto;
 
-        top: 55%;
+        top: 52%;
         transform: translateY(-50%);
         right: 6.2vw;
 
@@ -577,9 +581,9 @@
         max-height: 960px;
         margin: auto;
 
-        top: 55%;
+        top: 52%;
         transform: translateY(-50%);
-        left: 50.15vw;
+        right: 17vw;
         z-index: 1;
 
         padding: 0;
@@ -733,9 +737,9 @@
         max-height: 960px;
         margin: auto;
 
-        top: 55%;
+        top: 52%;
         transform: translateY(-50%);
-        left: 49.7vw;
+        right: 17vw;
         z-index: 1;
 
         padding: 0;
