@@ -174,8 +174,8 @@ const stateMachine = {
 window.presale = () => {
     const onResizeHandlers = [];
 
-    const roundStart = DateTime.fromISO("2023-02-13T00:00:00");
-    const roundEnd = DateTime.fromISO("2023-03-13T00:00:00");
+    const roundStart = DateTime.fromISO("2023-03-01T00:00:00");
+    const roundEnd = DateTime.fromISO("2023-03-31T00:00:00");
     let oldRemaining = roundEnd.diffNow(['days', 'hours', 'minutes', 'seconds', 'milliseconds']);
     const untilStart = roundStart.diffNow(['milliseconds']);
 
