@@ -599,7 +599,7 @@ function App() {
 
               <div className="supported-currencies-container">
                 <span className="supported-currencies-heading">
-                  Supported crypto currency:
+                  Supported crypto currencies:
                 </span>
                 <div className="supported-currencies">
                   <div className="supported-currency">
