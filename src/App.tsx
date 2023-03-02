@@ -97,7 +97,7 @@ function App() {
       // convert from big number to number
       const data_display = Number(data.toString()) / 1000000000000000000;
       // get only 5 decimals after the comma
-      const data_display_rounded = Number(data_display.toFixed(2));
+      const data_display_rounded = Number(data_display.toFixed(2)); // value turned equal to 10M - the sold tokens
       setGngBalanceICO(data_display_rounded);
     },
   });
@@ -168,7 +168,8 @@ function App() {
   useEffect(() => {
     if (phase2) window.scrollTo(0, 0);
 
-    const volumePercentageEffect = ((tokensAllocated - gngBalanceICO)/tokensAllocated) * 100;
+    const volumePercentageEffect = ((tokensAllocated - gngBalanceICO)/tokensAllocated) * 500;
+    console.log("volumePercentageEffect: ", volumePercentageEffect);
     setVolumePercentage(volumePercentageEffect);
 
   }, [gngBalanceICO, phase2, volumePercentage]);
@@ -295,7 +296,7 @@ function App() {
                 <div className="round-progress-label-container">
                   <span> SOLD: </span>
                   <span>
-                    {(tokensAllocated - gngBalanceICO).toFixed(2)} <span className="round-progress-label-dark">/ 10M</span>
+                    {Number((tokensAllocated - gngBalanceICO).toFixed(2)) * 5} <span className="round-progress-label-dark">/ 10M</span>
                   </span>
                 </div>
                 <span className="round-price text-center">
@@ -524,7 +525,7 @@ function App() {
                 <div className="round-progress-label-container">
                   <span>SOLD:</span>
                   <span>
-                    {(tokensAllocated - gngBalanceICO).toFixed(2)} <span className="round-progress-label-dark">/ 10M</span>
+                    {Number((tokensAllocated - gngBalanceICO).toFixed(2)) * 5} <span className="round-progress-label-dark">/ 10M</span>
                   </span>
                 </div>
                 <span className="round-price text-center">
@@ -814,7 +815,7 @@ function App() {
                 </div>
 
                 <form className="wallet-connected-form">
-                  <div className="wallet-connected-form-row">
+                  <div className="wallet-connected-form-row mb">
                     <div className="wallet-connected-form-group highlighted flex-1">
                       <label
                         htmlFor="selected-currency"
@@ -897,12 +898,6 @@ function App() {
                           {selectedCoinName}
                         </div>
                       </div>
-                      <span className="wallet-connected-form-info">
-                        Amount in dollars: $
-                        {(Number(selectedCoinPrice) * moneyAmountInput).toFixed(
-                          3
-                        )}
-                      </span>
                     </div>
                     <div className="wallet-connected-form-group flex-1">
                       <label
@@ -914,11 +909,15 @@ function App() {
                       <div className="wallet-connected-form-gngValue">
                         {gngAmount} GnG
                       </div>
-                      <span className="wallet-connected-form-info">
-                        Amount to be purchased (min 5,000)
-                      </span>
                     </div>
                   </div>
+                  <span className="wallet-connected-form-info">
+                    Amount in dollars: ${(Number(selectedCoinPrice) * moneyAmountInput).toFixed(3)}<br/>
+                  </span>
+                  <span className="wallet-connected-form-info-note">
+                    Note: The tokens of this ICO are subject to vesting, meaning that they will be released over a
+                    set period rather than being immediately available. For more info visit our whitepaper.
+                  </span>
                 </form>
 
                 <div className="wallet-connected-button-container">
