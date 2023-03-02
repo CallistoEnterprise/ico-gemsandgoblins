@@ -677,13 +677,14 @@ function App() {
                          style={{marginTop: '0.3vw'}}
                     />
                   </a>
-                  {/*<a href="https://www.esportsinnovation.group/?utm_source=gemsandgoblins.com"
+                  <a href="https://zaka.vc/?utm_source=gemsandgoblins.com"
                      target="_blank" rel="noreferrer"
                   >
-                    <img src="img/presale/backers/eig.png"
-                         alt="EIG"
+                    <img src="https://zaka.vc/wp-content/themes/zaka/assets/imgs/general/logo.svg"
+                         alt="Zaka"
+                         style={{marginTop: '0.1vw', width: '4vw'}}
                     />
-                  </a>*/}
+                  </a>
                   <a href="https://soy.finance/?utm_source=gemsandgoblins.com"
                      target="_blank" rel="noreferrer"
                   >
@@ -770,13 +771,14 @@ function App() {
                            style={{marginTop: '0.3vw'}}
                       />
                     </a>
-                    {/*<a href="https://www.esportsinnovation.group/?utm_source=gemsandgoblins.com"
-                     target="_blank" rel="noreferrer"
-                  >
-                    <img src="img/presale/backers/eig.png"
-                         alt="EIG"
-                    />
-                  </a>*/}
+                    <a href="https://zaka.vc/?utm_source=gemsandgoblins.com"
+                       target="_blank" rel="noreferrer"
+                    >
+                      <img src="https://zaka.vc/wp-content/themes/zaka/assets/imgs/general/logo.svg"
+                           alt="Zaka"
+                           style={{marginTop: '0vw', width: '16vw'}}
+                      />
+                    </a>
                     <a href="https://soy.finance/?utm_source=gemsandgoblins.com"
                        target="_blank" rel="noreferrer"
                     >
