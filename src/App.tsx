@@ -174,6 +174,9 @@ function App() {
 
   }, [gngBalanceICO, phase2, volumePercentage]);
 
+  const soldNumber = Number((tokensAllocated - gngBalanceICO).toFixed(2)) * 5;
+  const sold = soldNumber > 1e6 ? `${(soldNumber / 1e6).toFixed(2)}M` : `${(soldNumber).toFixed(2)}`;
+
   return (
     <div className="App">
       <div className={inProgress? "displayProgress" : "hidePhase"}>
@@ -296,7 +299,7 @@ function App() {
                 <div className="round-progress-label-container">
                   <span> SOLD: </span>
                   <span>
-                    {Number((tokensAllocated - gngBalanceICO).toFixed(2)) * 5} <span className="round-progress-label-dark">/ 10M</span>
+                    {sold} <span className="round-progress-label-dark">/ 10M</span>
                   </span>
                 </div>
                 <span className="round-price text-center">
@@ -386,7 +389,7 @@ function App() {
                     <span className="next-rounds-card-info">
                       $0,025 / token
                       <br />
-                      13M tokens
+                      8M tokens
                     </span>
                   </div>
                   <div className="next-rounds-card">
@@ -396,7 +399,7 @@ function App() {
                     <span className="next-rounds-card-info">
                       $0,05 / token
                       <br />
-                      8M tokens
+                      5M tokens
                     </span>
                   </div>
                   <div className="next-rounds-card">
@@ -406,7 +409,7 @@ function App() {
                     <span className="next-rounds-card-info">
                       $0,06 / token
                       <br />
-                      8M tokens
+                      5M tokens
                     </span>
                   </div>
                   <div className="next-rounds-card">
@@ -416,7 +419,7 @@ function App() {
                     <span className="next-rounds-card-info">
                       $0,085 / token
                       <br />
-                      6M tokens
+                      3.5M tokens
                     </span>
                   </div>
                 </div>
