@@ -599,7 +599,7 @@ function App() {
 
               <div className="supported-currencies-container">
                 <span className="supported-currencies-heading">
-                  Supported crypto currency:
+                  Supported crypto currencies:
                 </span>
                 <div className="supported-currencies">
                   <div className="supported-currency">
@@ -678,13 +678,14 @@ function App() {
                          style={{marginTop: '0.3vw'}}
                     />
                   </a>
-                  {/*<a href="https://www.esportsinnovation.group/?utm_source=gemsandgoblins.com"
+                  <a href="https://zaka.vc/?utm_source=gemsandgoblins.com"
                      target="_blank" rel="noreferrer"
                   >
-                    <img src="img/presale/backers/eig.png"
-                         alt="EIG"
+                    <img src="https://zaka.vc/wp-content/themes/zaka/assets/imgs/general/logo.svg"
+                         alt="Zaka"
+                         style={{marginTop: '0.1vw', width: '4vw'}}
                     />
-                  </a>*/}
+                  </a>
                   <a href="https://soy.finance/?utm_source=gemsandgoblins.com"
                      target="_blank" rel="noreferrer"
                   >
@@ -771,13 +772,14 @@ function App() {
                            style={{marginTop: '0.3vw'}}
                       />
                     </a>
-                    {/*<a href="https://www.esportsinnovation.group/?utm_source=gemsandgoblins.com"
-                     target="_blank" rel="noreferrer"
-                  >
-                    <img src="img/presale/backers/eig.png"
-                         alt="EIG"
-                    />
-                  </a>*/}
+                    <a href="https://zaka.vc/?utm_source=gemsandgoblins.com"
+                       target="_blank" rel="noreferrer"
+                    >
+                      <img src="https://zaka.vc/wp-content/themes/zaka/assets/imgs/general/logo.svg"
+                           alt="Zaka"
+                           style={{marginTop: '0vw', width: '16vw'}}
+                      />
+                    </a>
                     <a href="https://soy.finance/?utm_source=gemsandgoblins.com"
                        target="_blank" rel="noreferrer"
                     >
@@ -813,7 +815,7 @@ function App() {
                 </div>
 
                 <form className="wallet-connected-form">
-                  <div className="wallet-connected-form-row">
+                  <div className="wallet-connected-form-row mb">
                     <div className="wallet-connected-form-group highlighted flex-1">
                       <label
                         htmlFor="selected-currency"
@@ -896,12 +898,6 @@ function App() {
                           {selectedCoinName}
                         </div>
                       </div>
-                      <span className="wallet-connected-form-info">
-                        Amount in dollars: $
-                        {(Number(selectedCoinPrice) * moneyAmountInput).toFixed(
-                          3
-                        )}
-                      </span>
                     </div>
                     <div className="wallet-connected-form-group flex-1">
                       <label
@@ -913,11 +909,15 @@ function App() {
                       <div className="wallet-connected-form-gngValue">
                         {gngAmount} GnG
                       </div>
-                      <span className="wallet-connected-form-info">
-                        Amount to be purchased (min 5,000)
-                      </span>
                     </div>
                   </div>
+                  <span className="wallet-connected-form-info">
+                    Amount in dollars: ${(Number(selectedCoinPrice) * moneyAmountInput).toFixed(3)}<br/>
+                  </span>
+                  <span className="wallet-connected-form-info-note">
+                    Note: The tokens of this ICO are subject to vesting, meaning that they will be released over a
+                    set period rather than being immediately available. For more info visit our whitepaper.
+                  </span>
                 </form>
 
                 <div className="wallet-connected-button-container">

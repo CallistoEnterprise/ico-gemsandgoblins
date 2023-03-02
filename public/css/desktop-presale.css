@@ -781,8 +781,11 @@
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        padding: 1.2vw 3vw;
-        gap: 2vw;
+        padding: 1.2vw 3vw 0;
+    }
+
+    .wallet-connected-form .mb {
+        margin-bottom: 2vw;
     }
 
     .wallet-connected-form-row {
@@ -863,6 +866,16 @@
         color: #ad6237;
     }
 
+    .wallet-connected-form-info-note {
+        font-size: 0.69vw;
+        line-height: 0.828vw;
+
+        margin-top: 0.42vw;
+        min-height: 0.69vw;
+
+        color: #ad6237;
+    }
+
     .wallet-connected-form-input {
         position: relative;
         display: flex;
@@ -910,7 +923,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 1vw;
     }
 
     .wallet-connected-button {
