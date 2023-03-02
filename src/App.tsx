@@ -97,7 +97,7 @@ function App() {
       // convert from big number to number
       const data_display = Number(data.toString()) / 1000000000000000000;
       // get only 5 decimals after the comma
-      const data_display_rounded = Number(data_display.toFixed(2));
+      const data_display_rounded = Number(data_display.toFixed(2)); // value turned equal to 10M - the sold tokens
       setGngBalanceICO(data_display_rounded);
     },
   });
@@ -168,7 +168,8 @@ function App() {
   useEffect(() => {
     if (phase2) window.scrollTo(0, 0);
 
-    const volumePercentageEffect = ((tokensAllocated - gngBalanceICO)/tokensAllocated) * 100;
+    const volumePercentageEffect = ((tokensAllocated - gngBalanceICO)/tokensAllocated) * 500;
+    console.log("volumePercentageEffect: ", volumePercentageEffect);
     setVolumePercentage(volumePercentageEffect);
 
   }, [gngBalanceICO, phase2, volumePercentage]);
@@ -295,7 +296,7 @@ function App() {
                 <div className="round-progress-label-container">
                   <span> SOLD: </span>
                   <span>
-                    {(tokensAllocated - gngBalanceICO).toFixed(2)} <span className="round-progress-label-dark">/ 10M</span>
+                    {Number((tokensAllocated - gngBalanceICO).toFixed(2)) * 5} <span className="round-progress-label-dark">/ 10M</span>
                   </span>
                 </div>
                 <span className="round-price text-center">
@@ -524,7 +525,7 @@ function App() {
                 <div className="round-progress-label-container">
                   <span>SOLD:</span>
                   <span>
-                    {(tokensAllocated - gngBalanceICO).toFixed(2)} <span className="round-progress-label-dark">/ 10M</span>
+                    {Number((tokensAllocated - gngBalanceICO).toFixed(2)) * 5} <span className="round-progress-label-dark">/ 10M</span>
                   </span>
                 </div>
                 <span className="round-price text-center">
