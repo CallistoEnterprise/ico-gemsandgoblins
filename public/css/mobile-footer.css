@@ -1,53 +1,59 @@
 /* MOBILE FOOTER SECTION */
 
 @media only screen and (max-width: 800px){
-.footer {
-    display:flex;
-    flex-direction: column;
-    padding: 24px 24px 0px 24px;
-    background-color: #062B26;
-}
-.footer-text {
-    font-size: 16px;
-    color:white;
-}
-.footer-text underline{
-    text-decoration: underline;
-    font-size: 16px;
-    color:white;
-}
-.footer-text bold{
-    font-weight: bold;
-}
-.footer-text gray {
-    color:#707070;
-}
-.footer-text gray-underline {
-    color:#707070;
-    text-decoration: underline;
-}
-.footer-social-icon {
-    background-color: #062B26;
-    display:flex;
-    flex-direction: row;
-    align-items: left;
-    padding-right: 52px;
-    text-decoration: none currentColor solid auto;
-    gap: 36px;
-}
+    .footer {
+        z-index: 5;
+        display:flex;
+        flex-direction: column;
+        padding: 24px 24px 0px 24px;
+        background-color: #062B26;
+    }
+    .footer-text {
+        font-size: 16px;
+        color:white;
+    }
+    .footer-text underline{
+        text-decoration: underline;
+        font-size: 16px;
+        color:white;
+    }
+    .footer-text bold{
+        font-weight: bold;
+    }
+    .footer-text gray {
+        color:#707070;
+    }
+    .footer-text gray-underline {
+        color:#707070;
+        text-decoration: underline;
+    }
+    .footer-social-icon {
+        background-color: #062B26;
+        display:flex;
+        flex-direction: row;
+        align-items: left;
+        padding-right: 52px;
+        text-decoration: none currentColor solid auto;
+        gap: 36px;
+    }
 
-.footer-social-icon {
-    padding: 24px 52px 24px 0px ;
-}
+    .footer-social-icon {
+        padding: 24px 52px 24px 0px ;
+    }
 
-.footer-social-icon > a{
-    padding: 0px 24px 0px 0px ;
-}
+    .footer-social-icon > a{
+        padding: 0px 24px 0px 0px ;
+        z-index: 5;
+    }
 
-.footer-gray-text {
-    display:flex;
-    flex-direction: row;
-    gap: 30px 116px;
-}
+    .footer-gray-text {
+        display:flex;
+        flex-direction: row;
+        gap: 30px 116px;
+    }
+
+    .footer-underline-text{
+        z-index: 5;
+    }
 
 }

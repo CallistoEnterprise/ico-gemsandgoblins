@@ -38,43 +38,50 @@ function heroButtonsLoad(){
 
     //whitelist button states
 
-    whitelistButtonDesktop.addEventListener('mouseover', () => {
-        clearIntervals()
-        changePosition(whitelistButtonDesktop, 0, 1)
-    });
+    if (whitelistButtonDesktop) {
 
-    whitelistButtonDesktop.addEventListener('mouseout', () => {
-        clearIntervals()
-        
-        changePosition(whitelistButtonDesktop, 12, 18)
-        
-        
-    });
+        whitelistButtonDesktop.addEventListener('mouseover', () => {
+            clearIntervals()
+            changePosition(whitelistButtonDesktop, 0, 1)
+        });
 
-    whitelistButtonDesktop.addEventListener('mousedown', () => {
-        clearIntervals()
-        changePosition(whitelistButtonDesktop, 2, 2)
-    });
+        whitelistButtonDesktop.addEventListener('mouseout', () => {
+            clearIntervals()
 
-    whitelistButtonDesktop.addEventListener('mouseup', () => {
-        clearIntervals()
-        changePosition(whitelistButtonDesktop, 5, 7)
-    });
+            changePosition(whitelistButtonDesktop, 12, 18)
 
-    whitelistButtonDesktop.addEventListener('click', () => {
-        desktopPopup.classList.toggle("desktop-popup-wrapper-active");
-        desktopPopupForm.classList.add("popup-element-active");
-        desktopPopupFail.classList.remove("popup-element-active");
-        desktopPopupSuccess.classList.remove("popup-element-active");
-    });
+
+        });
+
+        whitelistButtonDesktop.addEventListener('mousedown', () => {
+            clearIntervals()
+            changePosition(whitelistButtonDesktop, 2, 2)
+        });
+
+        whitelistButtonDesktop.addEventListener('mouseup', () => {
+            clearIntervals()
+            changePosition(whitelistButtonDesktop, 5, 7)
+        });
+
+        whitelistButtonDesktop.addEventListener('click', () => {
+            desktopPopup.classList.toggle("desktop-popup-wrapper-active");
+            desktopPopupForm.classList.add("popup-element-active");
+            desktopPopupFail.classList.remove("popup-element-active");
+            desktopPopupSuccess.classList.remove("popup-element-active");
+        });
+
+    }
 
     whitelistButtonDialogue.addEventListener('click', () => {
         desktopPopup.classList.toggle("desktop-popup-wrapper-active");
         desktopPopupForm.classList.add("popup-element-active");
         desktopPopupFail.classList.remove("popup-element-active");
         desktopPopupSuccess.classList.remove("popup-element-active");
+        mobilePopup.classList.toggle("mobile-popup-active");
+        mobilePopupForm.classList.add("popup-element-active");
+        mobilePopupSuccess.classList.remove("popup-element-active");
+        mobilePopupFail.classList.remove("popup-element-active");
     });
-
 
 
 

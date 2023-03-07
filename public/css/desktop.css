@@ -37,10 +37,20 @@ input:-webkit-autofill:focus {
     font-size: 1.2vw !important;
 }
 
+::placeholder {
+    color: rgb(95, 95, 95);
+    opacity: 1; /* Firefox */
+}
+
 /* LOADING */
 
 .loader{
     width: 10%;
+}
+
+#svg-click-wrapper{
+    position: absolute;
+    top: -200vh;
 }
 
 
@@ -149,13 +159,13 @@ input:-webkit-autofill:focus {
     font-size: 1.2vw;
     color: #F8B775;
     filter: drop-shadow(0 0 0.5vw #F8B775);
-    transition: all 0.2s ease-out;
+    transition: color 0.2s ease-out, filter 0.2s ease-out;
 }
 
 .desktop-header-text:hover{
     filter: drop-shadow(0 0 0.5vw white);
     color: white;
-    transition: all 0.2s ease-out;
+    transition: color 0.2s ease-out, filter 0.2s ease-out;
 }
 
 
@@ -189,6 +199,7 @@ input:-webkit-autofill:focus {
 
 .button-whitelist{
     width: 20vw;
+    z-index: 5;
     aspect-ratio: 16/5;
     background: url("../img/hero-section/buttons/button-whitelist-desktop-wide.png");
     background-size: cover;
@@ -197,6 +208,7 @@ input:-webkit-autofill:focus {
 
 .button-whitelist-confirm-desktop{
     width: 180px;
+    z-index: 5;
     aspect-ratio: 10/3;
     background: url("../img/hero-section/buttons/button-whitelist-desktop.png");
     background-size: 100%, 100%;
@@ -205,6 +217,7 @@ input:-webkit-autofill:focus {
 
 .button-whitepaper{
     width: 15vw;
+    z-index: 5;
     aspect-ratio: 10/3;
     background: url("../img/hero-section/buttons/button-whitepaper-desktop.png");
     background-size: 100%, 100%;
@@ -212,6 +225,7 @@ input:-webkit-autofill:focus {
 
 .button-whitepaper-header{
     height: 140%;
+    z-index: 5;
     position: absolute;
     aspect-ratio: 7/4;
     background: url(../img/header-section/button-static.png);
@@ -222,6 +236,7 @@ input:-webkit-autofill:focus {
 
 .button-whitepaper-sticky{
     height: 140%;
+    z-index: 5;
     position: absolute;
     aspect-ratio: 5/2;
     background: url(../img/header-section/button-sticky.png);
@@ -231,6 +246,7 @@ input:-webkit-autofill:focus {
 
 
 .button-sticker{
+    z-index: 5;
     width: 100%;
     transform: scale(0.85) translateY(130%);
     aspect-ratio: 157/30;
@@ -244,22 +260,24 @@ input:-webkit-autofill:focus {
     position: fixed;
     background-size: cover;
     aspect-ratio: 1280/36;
-    width: 100%;
+    width: 100vw;
+    max-width: 100vw;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
-    transition: all 0.5s;
-    z-index: -3;
-    opacity: 0;
+    transition: transform 0.2s;
+    transform: translateY(-140%);
+    z-index: 5;
+    
 
     filter: drop-shadow(0 0 2rem black);
 }
 
 .desktop-header-sticky-active{
-    z-index: 5;
-    opacity: 1;
-    transition: opacity 0.5s;
+    
+    transform: translateY(0%);
+    
 }
 
 .desktop-header-sticky-texts{
@@ -277,14 +295,14 @@ input:-webkit-autofill:focus {
     font-size: 1.2vw;
     margin: 0px;
     filter: drop-shadow(0 0 0.5vw #F8B775);
-    transition: all 0.2s ease-out;
+    transition: color 0.2s ease-out, filter 0.2s ease-out;
     transform: translateY(-2px);
 }
 
 .desktop-header-sticky-text:hover{
     filter: drop-shadow(0 0 0.5vw white);
     color: white;
-    transition: all 0.2s ease-out;
+    transition: color 0.2s ease-out, filter 0.2s ease-out;
 }
 
 .desktop-header-sticky .logo{
@@ -325,7 +343,7 @@ input:-webkit-autofill:focus {
     opacity: 0;
     transition: all 0.5s;
 
-    position : fixed
+    position : fixed;
 }
 
 .desktop-popup-wrapper-active{
@@ -1021,7 +1039,7 @@ input:-webkit-autofill:focus {
 .tokens-scroll-heading {
     width: 10vw;
     padding-top: 50%;
-    padding-bottom: 10%;
+    transform: translateY(-5%);
 }
 /* DIALOGUE SECTION */
 .dialogue-section{
@@ -1072,6 +1090,10 @@ input:-webkit-autofill:focus {
     font-size: 1.15vw;
 }
 
+}
+
+.scroll-break{
+    margin: 0;
 }
 
 
@@ -1134,6 +1156,7 @@ input:-webkit-autofill:focus {
 .dialogue-gem{
     width: 20vw;
     position: absolute;
+    transform: scale(0.5);
     top: -48%;
     right: 54%;
 }
@@ -1206,14 +1229,14 @@ input:-webkit-autofill:focus {
     margin:auto;
 }
 .team-member{
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    width: 16%;
+    width: 10vw;
     aspect-ratio: 1/1;
     justify-content: center;
     align-items: center;
     padding: 2%;
+    text-align: center;
 }
 
 .team-member-name{
@@ -1222,8 +1245,8 @@ input:-webkit-autofill:focus {
     color: white;
     height: 15%;
     padding-top: 5%;
-    padding-bottom: 10%;
-
+    margin-bottom: 0px;
+    text-align: center;
 }
 
 .job-position{
@@ -1233,7 +1256,7 @@ input:-webkit-autofill:focus {
     margin-top: 0%;
     text-align: center;
     height: 6%;
-    transform: translateY(-280%);
+    margin-top: 10%;
 }
 
 .team-member-frame{
@@ -1246,6 +1269,7 @@ input:-webkit-autofill:focus {
     justify-content: center;
     align-items: center;
     padding: 1vw;
+    text-align: center;
 }
 .pic-snip{
     border-radius: 50%;

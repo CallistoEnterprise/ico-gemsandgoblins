@@ -4,6 +4,7 @@
 
 .footer-background{
     width: 100%;
+    z-index: 5;
     background-image: url("../img/universal/desktop-green-background.png");
     background-size: 100% 100%;
 }
@@ -38,14 +39,17 @@
     text-decoration: none currentColor solid auto;
     order: 2;
     padding-top: 5%;
+    z-index: 5;
 }
 
 .social-icon {
     padding: 0vw 2vw 3vw 0vw ;
     width: 2.5vw;
+    
 }
 
 .footer-underline-text{
+    z-index: 5;
     order: 3;
     margin-left: 25%;
 }
