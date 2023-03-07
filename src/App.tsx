@@ -24,6 +24,10 @@ const contractCLOE = "0x1eAa43544dAa399b87EEcFcC6Fa579D5ea4A6187";
 // Tokens allocated for the ICO in round 1: 10.000.000
 const tokensAllocated = 10000000;
 
+const formatTokens = (value: number) => value > 1e6
+    ? `${(value / 1e6).toFixed(3)}M`
+    : `${(value).toFixed(2)}`;
+
 function App() {
   const [loading, setLoading] = useState(false);
   const { open } = useWeb3Modal();
@@ -133,8 +137,7 @@ function App() {
     onSuccess(data: any) {
       const rewards = (data.reward).toString();
       const rewardEth = ethers.utils.formatUnits(rewards, 18);
-      const rewardEthRounded = Number(rewardEth).toFixed(2);
-      setGngAmount(rewardEthRounded);
+      setGngAmount(formatTokens(Number(rewardEth)));
     },
   });
 
@@ -175,7 +178,7 @@ function App() {
   }, [gngBalanceICO, phase2, volumePercentage]);
 
   const soldNumber = Number((tokensAllocated - gngBalanceICO).toFixed(2)) * 5;
-  const sold = soldNumber > 1e6 ? `${(soldNumber / 1e6).toFixed(2)}M` : `${(soldNumber).toFixed(2)}`;
+  const sold = formatTokens(soldNumber);
 
   return (
     <div className="App">
@@ -304,7 +307,7 @@ function App() {
                 </div>
                 <span className="round-price text-center">
                   {" "}
-                  $0,02 per GNG token{" "}
+                  $0.02 per GNG token{" "}
                 </span>
 
                 <div className="round-time-left-container">
@@ -387,7 +390,7 @@ function App() {
                     </span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $0,025 / token
+                      $0.025 / token
                       <br />
                       8M tokens
                     </span>
@@ -397,7 +400,7 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $0,05 / token
+                      $0.05 / token
                       <br />
                       5M tokens
                     </span>
@@ -407,7 +410,7 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $0,06 / token
+                      $0.06 / token
                       <br />
                       5M tokens
                     </span>
@@ -417,7 +420,7 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $0,085 / token
+                      $0.085 / token
                       <br />
                       3.5M tokens
                     </span>
@@ -528,11 +531,11 @@ function App() {
                 <div className="round-progress-label-container">
                   <span>SOLD:</span>
                   <span>
-                    {Number((tokensAllocated - gngBalanceICO).toFixed(2)) * 5} <span className="round-progress-label-dark">/ 10M</span>
+                    {sold} <span className="round-progress-label-dark">/ 10M</span>
                   </span>
                 </div>
                 <span className="round-price text-center">
-                  $0,02 per GNG token
+                  $0.02 per GNG token
                 </span>
 
                 <div className="round-time-left-container">
@@ -858,7 +861,7 @@ function App() {
                         Current price:
                       </label>
                       <div className="wallet-connected-form-text">
-                        <span>$0,02</span>
+                        <span>$0.02</span>
                         <span className="wallet-connected-form-text-subtitle">
                           per GNG Token
                         </span>
@@ -883,12 +886,12 @@ function App() {
                           inputMode="numeric"
                           className="with-suffix"
                           onChange={(e) => {
-                            if (/^\d{0,7}$/.test(e.target.value)) {
+                            if (/^\d{0,8}$/.test(e.target.value)) {
                               setMoneyAmountString(e.target.value);
 
                               const input = parseInt(e.target.value);
                               setMoneyAmountInput(
-                                  Math.min(9999999, Math.max(1, isNaN(input) ? 0 : input))
+                                  Math.min(99999999, Math.max(1, isNaN(input) ? 0 : input))
                               );
                             }
                           }}
