@@ -44,6 +44,7 @@ function App() {
   const [gngBalanceICO, setGngBalanceICO] = useState(0);
   // volumePercentage
   const [volumePercentage, setVolumePercentage] = useState(0);
+  const [progressBarPercentage, setProgressBarPercentage] = useState(0);
 
   // State variable for the selected coin
   // SelectedCoin from the select dropdown
@@ -109,7 +110,7 @@ function App() {
   // Calculate the volume percentage for the progress bar
   const styles = {
     progressBar: {
-      width: `${volumePercentage}%`,
+      width: `${progressBarPercentage}%`,
     },
   } as const;
 
@@ -171,10 +172,25 @@ function App() {
   useEffect(() => {
     if (phase2) window.scrollTo(0, 0);
 
+    const adjustVolumePercentage = (num: number) => {
+      if (num >= 100)
+        return 100;
+      else if (num >= 60)
+        return 100 - Math.pow((100 - num)/40, 0.65) * 40;
+      else if (num >= 40)
+        return 52 + Math.pow((num - 50) / 20, 1.5) * 20;
+      else if (num >= 0)
+        return Math.pow(num/40, 0.65) * 40;
+      else
+        return 0;
+    }
+
     const volumePercentageEffect = ((tokensAllocated - gngBalanceICO)/tokensAllocated) * 500;
     console.log("volumePercentageEffect: ", volumePercentageEffect);
+    const volumePercentageAdjusted = adjustVolumePercentage(volumePercentageEffect);
+    console.log("volumePercentageAdjusted: ", volumePercentageAdjusted);
     setVolumePercentage(volumePercentageEffect);
-
+    setProgressBarPercentage(volumePercentageAdjusted);
   }, [gngBalanceICO, phase2, volumePercentage]);
 
   const soldNumber = Number((tokensAllocated - gngBalanceICO).toFixed(2)) * 5;

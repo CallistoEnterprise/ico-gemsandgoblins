@@ -324,4 +324,10 @@ window.presale = () => {
         onResize();
     };
     window.presaleRefreshUi();
+
+    setTimeout(function () {
+
+        loadingWrapper.classList.add("loading-finished");
+
+    }, 1000);
 };

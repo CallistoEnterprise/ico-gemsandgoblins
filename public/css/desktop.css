@@ -44,7 +44,7 @@ input:-webkit-autofill:focus {
 
 /* LOADING */
 
-.loader{
+#loader{
     width: 10%;
 }
 

@@ -46,7 +46,7 @@ imgLoadingScreen.src = "../img/universal/loading/loading-background.png";
 imgLoadingLoader.src = "../img/universal/loading/loader/loader.svg";
 
 //assigning elements
-window.onload=function(){
+window.onload = function(){
     
     initialise();
 
@@ -81,22 +81,6 @@ window.onload=function(){
 
 
     window.scrollTo(0, 0);
-
-    loadingWrapper = document.querySelector("#loading-wrapper");
-
-    loadingScreen = document.querySelector("#loading-screen");
-    loadingScreen.style.backgroundImage = `url(${imgLoadingScreen.src})`;
-    loadingScreen.classList.add("loading-element-loaded");
-
-    loadingLoader = document.querySelector("#loader");
-    loadingLoader.style.backgroundImage = `url(${imgLoadingLoader.src})`;
-    loadingLoader.classList.add("loading-element-loaded");
-
-    setTimeout(function () {
-
-        loadingWrapper.classList.add("loading-finished");
-
-    }, 1000);
 
 
 
@@ -283,9 +267,6 @@ function initialise(){
 
 
     clickWrapper = document.getElementById("click-container");
-
-    if (window.presale)
-        window.presale();
 }
 
 var content;
@@ -298,11 +279,34 @@ document.onreadystatechange = function() {
         loadingLoader = document.querySelector("#loader");
         loadingLoader.style.backgroundImage = `url(${imgLoadingLoader.src})`;
         loadingLoader.classList.add("loading-element-loaded");
+
+        const interval = setInterval(() => {
+            const app = document.querySelector('.App');
+            if (!app) {
+                console.log('no');
+                return;
+            }
+            console.log('yes');
+            clearInterval(interval);
+
+            app.onload = () => {
+                console.log('onload');
+                setTimeout(() => loadingWrapper.classList.add("loading-finished"), 0);
+            };
+
+            if (window.presale)
+                window.presale();
+        }, 100);
+
+        loadingWrapper = document.querySelector("#loading-wrapper");
+
+        loadingScreen = document.querySelector("#loading-screen");
+        loadingScreen.style.backgroundImage = `url(${imgLoadingScreen.src})`;
+        loadingScreen.classList.add("loading-element-loaded");
+
+        loadingLoader = document.querySelector("#loader");
+        loadingLoader.style.backgroundImage = `url(${imgLoadingLoader.src})`;
+        loadingLoader.classList.add("loading-element-loaded");
     }
 };
-    setTimeout(function () {
-
-            loadingWrapper.classList.add("loading-finished");
-
-        }, 1000);
 
