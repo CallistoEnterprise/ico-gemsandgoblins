@@ -44,7 +44,7 @@ input:-webkit-autofill:focus {
 
 /* LOADING */
 
-.loader{
+#loader{
     width: 10%;
 }
 
@@ -58,6 +58,7 @@ input:-webkit-autofill:focus {
 
 .header{
     display: none;
+    user-select: none;
 }
 /* BETA STICKER */
 

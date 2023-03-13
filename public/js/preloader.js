@@ -46,7 +46,7 @@ imgLoadingScreen.src = "../img/universal/loading/loading-background.png";
 imgLoadingLoader.src = "../img/universal/loading/loader/loader.svg";
 
 //assigning elements
-window.onload=function(){
+window.onload = function(){
     
     initialise();
 
@@ -77,26 +77,10 @@ window.onload=function(){
 
     window.addEventListener("scroll", showStickyHeader);
 
-    // heroButtonsLoad()
+    heroButtonsLoad();
 
 
     window.scrollTo(0, 0);
-
-    loadingWrapper = document.querySelector("#loading-wrapper");
-
-    loadingScreen = document.querySelector("#loading-screen");
-    loadingScreen.style.backgroundImage = `url(${imgLoadingScreen.src})`;
-    loadingScreen.classList.add("loading-element-loaded");
-
-    loadingLoader = document.querySelector("#loader");
-    loadingLoader.style.backgroundImage = `url(${imgLoadingLoader.src})`;
-    loadingLoader.classList.add("loading-element-loaded");
-
-    setTimeout(function () {
-
-        loadingWrapper.classList.add("loading-finished");
-
-    }, 1000);
 
 
 
@@ -235,7 +219,7 @@ function initialise(){
     whitelistButtonDesktop = document.getElementById("button-whitelist-desktop");
     whitelistButtonDialogue = document.getElementById("join-whitelist-dialogue-button");
 
-    whitepaperButtonHeader = document.getElementById("button-whitepaper-header");
+    whitepaperButtonHeader = document.getElementsByClassName("button-whitepaper-header").item(1);
     whitepaperButtonSticky = document.getElementById("button-whitepaper-sticky");
 
     desktopPopupCloseButton = document.getElementById("desktop-popup-close-button");
@@ -283,9 +267,6 @@ function initialise(){
 
 
     clickWrapper = document.getElementById("click-container");
-
-    if (window.presale)
-        window.presale();
 }
 
 var content;
@@ -298,11 +279,57 @@ document.onreadystatechange = function() {
         loadingLoader = document.querySelector("#loader");
         loadingLoader.style.backgroundImage = `url(${imgLoadingLoader.src})`;
         loadingLoader.classList.add("loading-element-loaded");
+
+        const interval = setInterval(() => {
+            const app = document.querySelector('.App');
+            if (!app)
+                return;
+
+            clearInterval(interval);
+
+            if (window.presale)
+                window.presale();
+
+            const bgItems = document.querySelectorAll('*[data-bgi="1"]');
+            const imgItems = document.querySelectorAll('.logo img');
+            const context = {
+                state: bgItems.length + imgItems.length,
+            };
+            const finishLoading = () => loadingWrapper.classList.add("loading-finished");
+
+            bgItems.forEach(e => {
+                const bgi = window.getComputedStyle(e).getPropertyValue('background-image');
+                const src = bgi.slice(5, -2);
+
+                const img = new Image();
+                img.onload = () => {
+                    if (--context.state === 0)
+                        finishLoading();
+                };
+                img.src = src;
+            });
+
+            imgItems.forEach(e => {
+                const src = e.src;
+
+                const img = new Image();
+                img.onload = () => {
+                    if (--context.state === 0)
+                        finishLoading();
+                };
+                img.src = src;
+            });
+        }, 100);
+
+        loadingWrapper = document.querySelector("#loading-wrapper");
+
+        loadingScreen = document.querySelector("#loading-screen");
+        loadingScreen.style.backgroundImage = `url(${imgLoadingScreen.src})`;
+        loadingScreen.classList.add("loading-element-loaded");
+
+        loadingLoader = document.querySelector("#loader");
+        loadingLoader.style.backgroundImage = `url(${imgLoadingLoader.src})`;
+        loadingLoader.classList.add("loading-element-loaded");
     }
 };
-    setTimeout(function () {
-
-            loadingWrapper.classList.add("loading-finished");
-
-        }, 1000);
 
