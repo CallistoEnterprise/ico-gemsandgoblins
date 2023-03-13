@@ -1,6 +1,8 @@
 @media only screen and (max-width: 800px) {
     .App {
         background-color: #082420;
+        max-height: 360vw;
+        overflow-y: hidden;
     }
 
     .presale-hero-heading {

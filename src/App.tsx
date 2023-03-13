@@ -260,17 +260,17 @@ function App() {
               </div>
             </div>
 
-            <div className="presale-container">
-              <div className="presale-cable-left"></div>
-              <div className="presale-cable-right"></div>
+            <div className="presale-container" data-bgi="1">
+              <div className="presale-cable-left" data-bgi="1"></div>
+              <div className="presale-cable-right" data-bgi="1"></div>
 
               <div className="presale-heading-container">
-                <h2 className="presale-heading text-center">
+                <h2 className="presale-heading text-center" data-bgi="1">
                   Limited token pre-sale
                 </h2>
               </div>
 
-              <div className="round-container">
+              <div className="round-container" data-bgi="1">
                 <div className="round-heading-container">
                   <span className="round-heading"> Round 1 is live </span>
                   <div className="round-heading-indicator">
@@ -280,10 +280,10 @@ function App() {
                 <span className="round-subheading">
                   GNG tokens are now available in a limited supply...
                 </span>
-                <div className="round-progress-container">
+                <div className="round-progress-container" data-bgi="1">
                   <div className="round-progress-bar-container position-inset">
                     <div className="round-progress-bar position-inset">
-                      <div className="round-progress-bar-fill"></div>
+                      <div className="round-progress-bar-fill" data-bgi="1"></div>
                     </div>
                     <div
                       className="round-progress-bar-mask"
@@ -330,14 +330,14 @@ function App() {
                   <span className="round-time-left-label">
                     time left in round 1
                   </span>
-                  <div className="round-time-left-clock-container">
+                  <div className="round-time-left-clock-container" data-bgi="1">
                     <div className="round-time-left-clock-column">
                       <div
                         className="round-time-left-clock-value"
                         data-field="days"
                       >
                         <div className="round-time-left-clock-value-bg">
-                          <div className="round-time-left-clock-value-bg-flip"></div>
+                          <div className="round-time-left-clock-value-bg-flip" data-bgi="1"></div>
                         </div>
                         <span className="round-time-left-clock-value-text">
                           {" "}
@@ -397,7 +397,7 @@ function App() {
 
               <div className="next-rounds-container">
                 <span className="next-rounds-heading"> Next rounds </span>
-                <div className="next-rounds-cards">
+                <div className="next-rounds-cards" data-bgi="1">
                   <div className="next-rounds-card">
                     <span className="next-rounds-card-title"> Round 2 </span>
                     <span className="next-rounds-card-subtitle">
@@ -461,7 +461,7 @@ function App() {
                   className="presale-buy-button"
                   onClick={() => setPhase2(true)}
                 >
-                  <span className="presale-buy-button-img"></span>
+                  <span className="presale-buy-button-img" data-bgi="1"></span>
                 </button>
               </div>
             </div>
