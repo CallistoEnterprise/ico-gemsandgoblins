@@ -77,7 +77,7 @@ window.onload = function(){
 
     window.addEventListener("scroll", showStickyHeader);
 
-    // heroButtonsLoad()
+    heroButtonsLoad();
 
 
     window.scrollTo(0, 0);
@@ -219,7 +219,7 @@ function initialise(){
     whitelistButtonDesktop = document.getElementById("button-whitelist-desktop");
     whitelistButtonDialogue = document.getElementById("join-whitelist-dialogue-button");
 
-    whitepaperButtonHeader = document.getElementById("button-whitepaper-header");
+    whitepaperButtonHeader = document.getElementsByClassName("button-whitepaper-header").item(1);
     whitepaperButtonSticky = document.getElementById("button-whitepaper-sticky");
 
     desktopPopupCloseButton = document.getElementById("desktop-popup-close-button");
@@ -282,20 +282,43 @@ document.onreadystatechange = function() {
 
         const interval = setInterval(() => {
             const app = document.querySelector('.App');
-            if (!app) {
-                console.log('no');
+            if (!app)
                 return;
-            }
-            console.log('yes');
-            clearInterval(interval);
 
-            app.onload = () => {
-                console.log('onload');
-                setTimeout(() => loadingWrapper.classList.add("loading-finished"), 0);
-            };
+            clearInterval(interval);
 
             if (window.presale)
                 window.presale();
+
+            const bgItems = document.querySelectorAll('*[data-bgi="1"]');
+            const imgItems = document.querySelectorAll('.logo img');
+            const context = {
+                state: bgItems.length + imgItems.length,
+            };
+            const finishLoading = () => loadingWrapper.classList.add("loading-finished");
+
+            bgItems.forEach(e => {
+                const bgi = window.getComputedStyle(e).getPropertyValue('background-image');
+                const src = bgi.slice(5, -2);
+
+                const img = new Image();
+                img.onload = () => {
+                    if (--context.state === 0)
+                        finishLoading();
+                };
+                img.src = src;
+            });
+
+            imgItems.forEach(e => {
+                const src = e.src;
+
+                const img = new Image();
+                img.onload = () => {
+                    if (--context.state === 0)
+                        finishLoading();
+                };
+                img.src = src;
+            });
         }, 100);
 
         loadingWrapper = document.querySelector("#loading-wrapper");

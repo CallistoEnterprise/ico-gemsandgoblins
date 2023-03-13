@@ -61,6 +61,7 @@
         padding: 0 1.67vw;
 
         background: url("/img/presale/Asset_BG_A.png") top no-repeat;
+        filter: drop-shadow(0 0 0.5rem #00000040);
         background-size: contain;
         box-sizing: border-box;
 
@@ -589,6 +590,7 @@
         padding: 0;
 
         background: url("/img/presale/Page2_BG.png") top no-repeat;
+        filter: drop-shadow(0 0 0.5rem #00000040);
         background-size: contain;
         box-sizing: border-box;
 
@@ -745,6 +747,7 @@
         padding: 0;
 
         background: url("/img/presale/Page3_BG_BakedTogether.png") top no-repeat;
+        filter: drop-shadow(0 0 0.5rem #00000040);
         background-size: contain;
         box-sizing: border-box;
 

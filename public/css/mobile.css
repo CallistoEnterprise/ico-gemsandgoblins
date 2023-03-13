@@ -202,6 +202,7 @@ div {
 }
 
 .header{
+    user-select: none;
     width: 130vw;
     top: 0;
     aspect-ratio: 840/874;
@@ -310,7 +311,7 @@ div {
 }
 
 .social-icon-header {
-    padding: 24px 24px 24px 24px ;
+    padding: 4px 24px;
 }
 
 /*LOADING SCREEN*/
@@ -428,6 +429,13 @@ div {
         transform: translateY(-10%);
     }
 
+    .button-whitepaper-header{
+        display: block;
+        width: 100%;
+        aspect-ratio: 7/4;
+        background: url(../img/header-section/button-static.png);
+        background-size: 100%, 100%;
+    }
 }
 
 
