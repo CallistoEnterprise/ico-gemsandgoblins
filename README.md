@@ -1,2 +1,2 @@
-# new-react-project-callisto
-New react project for Callisto Network
+# Gems & Goblins ICO page (landing page)
+Live URL: https://gemsandgoblins.com/
