@@ -38,49 +38,57 @@ function heroButtonsLoad(){
 
     //whitelist button states
 
-    whitelistButtonDesktop.addEventListener('mouseover', () => {
-        clearIntervals()
-        changePosition(whitelistButtonDesktop, 0, 1)
-    });
+    if (whitelistButtonDesktop) {
 
-    whitelistButtonDesktop.addEventListener('mouseout', () => {
-        clearIntervals()
-        
-        changePosition(whitelistButtonDesktop, 12, 18)
-        
-        
-    });
+        whitelistButtonDesktop.addEventListener('mouseover', () => {
+            clearIntervals()
+            changePosition(whitelistButtonDesktop, 0, 1)
+        });
 
-    whitelistButtonDesktop.addEventListener('mousedown', () => {
-        clearIntervals()
-        changePosition(whitelistButtonDesktop, 2, 2)
-    });
+        whitelistButtonDesktop.addEventListener('mouseout', () => {
+            clearIntervals()
 
-    whitelistButtonDesktop.addEventListener('mouseup', () => {
-        clearIntervals()
-        changePosition(whitelistButtonDesktop, 5, 7)
-    });
+            changePosition(whitelistButtonDesktop, 12, 18)
 
-    whitelistButtonDesktop.addEventListener('click', () => {
-        desktopPopup.classList.toggle("desktop-popup-wrapper-active");
-        desktopPopupForm.classList.add("popup-element-active");
-        desktopPopupFail.classList.remove("popup-element-active");
-        desktopPopupSuccess.classList.remove("popup-element-active");
-    });
+
+        });
+
+        whitelistButtonDesktop.addEventListener('mousedown', () => {
+            clearIntervals()
+            changePosition(whitelistButtonDesktop, 2, 2)
+        });
+
+        whitelistButtonDesktop.addEventListener('mouseup', () => {
+            clearIntervals()
+            changePosition(whitelistButtonDesktop, 5, 7)
+        });
+
+        whitelistButtonDesktop.addEventListener('click', () => {
+            desktopPopup.classList.toggle("desktop-popup-wrapper-active");
+            desktopPopupForm.classList.add("popup-element-active");
+            desktopPopupFail.classList.remove("popup-element-active");
+            desktopPopupSuccess.classList.remove("popup-element-active");
+        });
+
+    }
 
     whitelistButtonDialogue.addEventListener('click', () => {
         desktopPopup.classList.toggle("desktop-popup-wrapper-active");
         desktopPopupForm.classList.add("popup-element-active");
         desktopPopupFail.classList.remove("popup-element-active");
         desktopPopupSuccess.classList.remove("popup-element-active");
+        mobilePopup.classList.toggle("mobile-popup-active");
+        mobilePopupForm.classList.add("popup-element-active");
+        mobilePopupSuccess.classList.remove("popup-element-active");
+        mobilePopupFail.classList.remove("popup-element-active");
     });
-
 
 
 
     //whitepaper button states
 
-    /*whitepaperButton.addEventListener('mouseover', () => {
+/*
+    whitepaperButton.addEventListener('mouseover', () => {
         clearIntervals()
         changePosition(whitepaperButton, 0, 2)
     });
@@ -100,10 +108,12 @@ function heroButtonsLoad(){
     whitepaperButton.addEventListener('mouseup', () => {
         clearIntervals()
         changePosition(whitepaperButton, 6, 3)
-    });*/
+    });
+*/
 
     //POPUP MOBILE
 
+/*
     popupConfirmMobile.addEventListener('click', () => {
         if(validateEmail(mobiieMailInput)){
             confirmEmailMobile()
@@ -113,24 +123,30 @@ function heroButtonsLoad(){
         }
         
     });
+*/
 
     //BACK
+/*
     mobilePopupBackButton.addEventListener('click', () => {
         mobilePopupForm.classList.add("popup-element-active");
         mobilePopupFail.classList.remove("popup-element-active");
         
     });
+*/
 
     //SUCCESS
+/*
     mobilePopupSuccessButton.addEventListener('click', () => {
         mobilePopup.classList.remove("mobile-popup-active");
         mobilePopupForm.classList.remove("popup-element-active");
         mobilePopupSuccess.classList.remove("popup-element-active");
         
     });
-    
+*/
 
 
+
+/*
     popupCancelMobile.addEventListener('touchend', () => {
         mobilePopup.classList.toggle("mobile-popup-active");
     });
@@ -176,6 +192,7 @@ function heroButtonsLoad(){
 
         desktopPopup.classList.toggle("desktop-popup-wrapper-active");
     })
+*/
 
 
 
@@ -185,7 +202,7 @@ function heroButtonsLoad(){
 
     whitepaperButtonHeader.addEventListener('mouseover', () => {
         clearIntervals()
-        changePosition(whitepaperButtonHeader, 0, 1)
+            changePosition(whitepaperButtonHeader, 0, 1)
     });
 
     whitepaperButtonHeader.addEventListener('mouseout', () => {
@@ -235,6 +252,7 @@ function heroButtonsLoad(){
     //POPUP DESKTOP
     //BACK
 
+/*
     desktopPopupBackButton.addEventListener('mouseover', () => {
         clearIntervals()
         changePosition(desktopPopupBackButton, 0, 1)
@@ -292,6 +310,7 @@ function heroButtonsLoad(){
     desktopPopupCloseButton.addEventListener('click', () => {
         desktopPopup.classList.remove("desktop-popup-wrapper-active");
     });
+*/
 
     
 }

@@ -66,12 +66,12 @@ const animation = {
         return true;
     }),
     oneShot: (setAnimation, startFrame, endFrame, fps, shouldResetOnEnd = true) => animationTimer(startFrame, endFrame, fps, (frameOffset, frames) => {
-        if (frameOffset >= frames) {
+        if (frameOffset >= Math.abs(frames)) {
             setAnimation(shouldResetOnEnd ? startFrame : startFrame + frames);
             return false;
         }
 
-        setAnimation(startFrame + frameOffset);
+        setAnimation(startFrame + frameOffset * (frames < 0 ? -1 : 1));
         return true;
     }),
     button: (setAnimation, startFrame, hoverFrame, pressedFrame, releasedFrame, endFrame, fps) => {
@@ -266,6 +266,18 @@ window.presale = () => {
         });
     });
 
+/*
+    document.querySelectorAll(".button-whitepaper-header").forEach(el => {
+        const animations = animation.button(
+            percentSetter(el, 100 / 29),
+            29, 6, 2, 0, 0, 24
+        );
+
+        stateMachine.button(el, animations);
+
+    });
+*/
+
     const onResize = () => onResizeHandlers.forEach(handler => handler());
     window.onresize = onResize;
 
@@ -324,4 +336,10 @@ window.presale = () => {
         onResize();
     };
     window.presaleRefreshUi();
+
+    setTimeout(function () {
+
+        loadingWrapper.classList.add("loading-finished");
+
+    }, 1000);
 };

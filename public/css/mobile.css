@@ -6,7 +6,7 @@
 }
     
 
- @font-face {
+@font-face {
     font-family: 'Friz Quadrata Std Medium';
     font-style: normal;
     font-weight: normal;
@@ -27,6 +27,11 @@
     font-style: normal;
     font-weight: normal;
     src: local('Friz Quadrata Std Bold Italic'), url('/fonts/friz-quadrata-std-bold-italic-587033d6d4298.woff') format('woff');
+}
+
+::placeholder {
+    color: rgb(95, 95, 95);
+    opacity: 1;
 }
 
 a, a:hover, a:focus, a:active {
@@ -61,8 +66,23 @@ input:-webkit-autofill:focus {
   transition: background-color 600000s 0s, color 600000s 0s;
 }
 
+#svg-click-wrapper{
+    position: absolute;
+    top: -200vh;
+}
+
+#click-container{
+    position: relative;
+    overflow: hidden;
+}
+
+.svg-click{
+    position: absolute;
+    overflow: hidden !important;
+}
+
 .unselectable {
-    -moz-user-select: -moz-none;
+    -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
     -o-user-select: none;
@@ -70,27 +90,6 @@ input:-webkit-autofill:focus {
 }
 
 
-.content{
-    opacity: 0;
-    transition: all 1s ;
-}
-
-.content-active{
-    opacity: 1;
-}
-
-.content-delayed{
-    opacity: 0;
-    transition: all 0.5s;
-}
-
-.content-delayed-active{
-    opacity: 1;
-}
-
-html{
-    scroll-behavior: smooth
-}
 
 .team-member-name a {
     color: white;
@@ -98,13 +97,33 @@ html{
     text-align: center;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+html{
+    scroll-behavior: smooth
+}
+
+header{
+    overflow-x: hidden;
+}
+
 /*RESET*/
 body {
     padding: 0%;
     margin: 0%;
     background-color: black;
-    overflow-x: hidden;
 
+    position: relative
 }
 
 * {
@@ -183,6 +202,7 @@ div {
 }
 
 .header{
+    user-select: none;
     width: 130vw;
     top: 0;
     aspect-ratio: 840/874;
@@ -191,9 +211,9 @@ div {
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 3;
-    left: 50%;
+    left: 0;
     touch-action: none;
-    transform: translate(-50%, -92%);
+    transform: translate(-10%, -92%);
     
     transition: transform 500ms ease-in-out;
     
@@ -207,7 +227,7 @@ div {
 
 @media only screen and (max-width: 379px){
     .header-active{
-        transform: translate(-50%, 0%);
+        transform: translate(-10%, 0%);
     }
     .header-content{
         position: fixed;
@@ -217,7 +237,7 @@ div {
 
 @media only screen and (min-width: 380px) and (max-width: 419px){
     .header-active{
-        transform: translate(-50%, 0%);
+        transform: translate(-10%, 0%);
     }
     .header-content{
         position: fixed;
@@ -227,7 +247,7 @@ div {
 
 @media only screen and (min-width: 420px) and (max-width: 531px){
     .header-active{
-        transform: translate(-50%, -20%);
+        transform: translate(-10%, -20%);
     }
     .header-content{
         position: fixed;
@@ -238,7 +258,7 @@ div {
 
 @media only screen and (min-width: 531px) and (max-width: 650px){
     .header-active{
-        transform: translate(-50%, -20%);
+        transform: translate(-10%, -20%);
     }
     .header-content{
         position: fixed;
@@ -248,7 +268,7 @@ div {
 
 @media only screen and (min-width: 651px){
     .header-active{
-        transform: translate(-50%, -40%);
+        transform: translate(-10%, -40%);
     }
     .header-content{
         position: fixed;
@@ -291,68 +311,78 @@ div {
 }
 
 .social-icon-header {
-    padding: 24px 24px 24px 24px ;
+    padding: 4px 24px;
 }
 
 /*LOADING SCREEN*/
-.loading-screen{
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    z-index: -2;
-    background-size: cover;
-    background-image: url("../img/universal/loading/loading-background.png");
-    touch-action: none;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: all 1s ease-in-out;
-}
 
-.loading-screen-active{
-    opacity: 1 !important;
-    transition: all 1s ease-in-out;
-    z-index: 9 !important;
-}
 
-.loading-first{
-    width: 100vw;
-    height: 100vh;
-    background-color: black;
-    z-index: 9;
+
+/*change bg image on element load/img load*/
+
+#loading-wrapper{
+    background: black;
+    transition: opacity 1s ease-in-out;
     opacity: 1;
+
+    z-index: 100;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
 }
 
-.loader{
-    width: 30%;
-    background-size: 100%;
-    aspect-ratio: 1/1;
-    overflow: hidden;
-    background-image: url(../img/universal/loading/loader/loader.svg);
-}
+#loading-screen{
+    background-size: cover;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
 
-.loader-wrapper{
+    z-index: 101;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: row;
-    
-    
+
 }
 
-.loader-wrapper > img{
-    position: relative;
-    height: 100%; 
-    
-    animation: loaderAnim 3s 0s steps(60) infinite forwards;
+#loader {
+    background-size: cover;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+
+    z-index: 102;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    aspect-ratio: 1/1;
+
+    overflow: hidden;
 }
 
-@keyframes loaderAnim {
-    from { transform: translateX(0%);}
-    to { transform: translateX(-300%); }
+.loading-finished{
+    pointer-events: none;
+
+    transition: opacity 1s ease-in-out;
+    opacity: 0 !important;
 }
+
+.loading-element-loaded{
+    transition: opacity 1s ease-in-out;
+    opacity: 1 !important;
+}
+
 
 
 /* HERO SECTION*/
@@ -399,6 +429,13 @@ div {
         transform: translateY(-10%);
     }
 
+    .button-whitepaper-header{
+        display: block;
+        width: 100%;
+        aspect-ratio: 7/4;
+        background: url(../img/header-section/button-static.png);
+        background-size: 100%, 100%;
+    }
 }
 
 
@@ -1196,7 +1233,7 @@ div {
 
 }
 .tokens-scroll-content{
-    transform: translateY(50%);
+    transform: translateY(70%);
 }
 
 @media only screen and (min-width: 450px){
@@ -1205,11 +1242,7 @@ div {
     }
 }
 
-@media only screen and (min-width: 320px){
-    .tokens-scroll-content{
-        transform: translateY(70%);
-    }
-}
+
 
 .tokens-scroll-heading {
     width: 45%;
@@ -1293,6 +1326,12 @@ div {
     font-size: 3vw;
 }
 
+.first-dialogue-text a {
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 
 
 .second-dialogue{
@@ -1316,6 +1355,7 @@ div {
 
 .dialogue-gem{
     position: absolute;
+    transform: scale(0.5);
     width: 70vw;
     top: -50%;
     right: 50%;
@@ -1397,7 +1437,7 @@ div {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
+    align-content: flex-start;
     margin-top: 20%;
     z-index: 1;
 
@@ -1436,15 +1476,25 @@ div {
     display: flex;
     flex-direction: column;
     max-width: 128px;
-    margin: 0px 32px 32px 32px;
+    padding: 0px 32px 48px 32px;
 
     aspect-ratio: 1/1;
     z-index: 1;
     align-items: center;
     text-align: center;
-
 }
 
+@media screen and (max-width: 385px) {
+    .team-member{
+        padding: 0px 64px 48px 64px;
+    }
+}
+
+@media screen and (min-width: 563px) and (max-width: 575px) {
+    .team-member{
+        padding: 0px 40px 48px 40px;
+    }
+}
 .team-member-name{
     font-weight: bold;
     font-size: 16px;
@@ -1454,10 +1504,10 @@ div {
     margin-bottom: 0px;
     text-align: center;
     padding-top: 10%;
+    height: 28px;
 }
 
 .job-position{
-    position: relative;
     color: white;
     margin-right: auto;
     margin-left: auto;
@@ -1483,7 +1533,6 @@ div {
 .linkedin-icon{
     max-width: 32px;
     margin: auto;
-    position: relative;
 
 }
 
@@ -1510,6 +1559,13 @@ div {
 
     padding-top: 40%;
     margin-top: -30%;
+}
+
+@media screen and (max-width: 385px) {
+    .network-section{
+        margin-top: -120%;
+        padding-top: 60%;
+    }
 }
 
 
@@ -1562,9 +1618,9 @@ div {
 input {
     border: none; /* Removes the default border */
     -webkit-appearance: none;
-  }
-  
-  input:focus {
+}
+
+input:focus {
     outline: none /* Removes the border when the input is clicked */
-  }
+}
 

@@ -24,6 +24,10 @@ const contractCLOE = "0x1eAa43544dAa399b87EEcFcC6Fa579D5ea4A6187";
 // Tokens allocated for the ICO in round 1: 10.000.000
 const tokensAllocated = 10000000;
 
+const formatTokens = (value: number) => value > 1e6
+    ? `${(value / 1e6).toFixed(3)}M`
+    : `${(value).toFixed(2)}`;
+
 function App() {
   const [loading, setLoading] = useState(false);
   const { open } = useWeb3Modal();
@@ -40,6 +44,7 @@ function App() {
   const [gngBalanceICO, setGngBalanceICO] = useState(0);
   // volumePercentage
   const [volumePercentage, setVolumePercentage] = useState(0);
+  const [progressBarPercentage, setProgressBarPercentage] = useState(0);
 
   // State variable for the selected coin
   // SelectedCoin from the select dropdown
@@ -105,7 +110,7 @@ function App() {
   // Calculate the volume percentage for the progress bar
   const styles = {
     progressBar: {
-      width: `${volumePercentage}%`,
+      width: `${progressBarPercentage}%`,
     },
   } as const;
 
@@ -133,8 +138,7 @@ function App() {
     onSuccess(data: any) {
       const rewards = (data.reward).toString();
       const rewardEth = ethers.utils.formatUnits(rewards, 18);
-      const rewardEthRounded = Number(rewardEth).toFixed(2);
-      setGngAmount(rewardEthRounded);
+      setGngAmount(formatTokens(Number(rewardEth)));
     },
   });
 
@@ -168,11 +172,29 @@ function App() {
   useEffect(() => {
     if (phase2) window.scrollTo(0, 0);
 
+    const adjustVolumePercentage = (num: number) => {
+      if (num >= 100)
+        return 100;
+      else if (num >= 60)
+        return 100 - Math.pow((100 - num)/40, 0.65) * 40;
+      else if (num >= 40)
+        return 52 + Math.pow((num - 50) / 20, 1.5) * 20;
+      else if (num >= 0)
+        return Math.pow(num/40, 0.65) * 40;
+      else
+        return 0;
+    }
+
     const volumePercentageEffect = ((tokensAllocated - gngBalanceICO)/tokensAllocated) * 500;
     console.log("volumePercentageEffect: ", volumePercentageEffect);
+    const volumePercentageAdjusted = adjustVolumePercentage(volumePercentageEffect);
+    console.log("volumePercentageAdjusted: ", volumePercentageAdjusted);
     setVolumePercentage(volumePercentageEffect);
-
+    setProgressBarPercentage(volumePercentageAdjusted);
   }, [gngBalanceICO, phase2, volumePercentage]);
+
+  const soldNumber = Number((tokensAllocated - gngBalanceICO).toFixed(2)) * 5;
+  const sold = formatTokens(soldNumber);
 
   return (
     <div className="App">
@@ -238,17 +260,17 @@ function App() {
               </div>
             </div>
 
-            <div className="presale-container">
-              <div className="presale-cable-left"></div>
-              <div className="presale-cable-right"></div>
+            <div className="presale-container" data-bgi="1">
+              <div className="presale-cable-left" data-bgi="1"></div>
+              <div className="presale-cable-right" data-bgi="1"></div>
 
               <div className="presale-heading-container">
-                <h2 className="presale-heading text-center">
+                <h2 className="presale-heading text-center" data-bgi="1">
                   Limited token pre-sale
                 </h2>
               </div>
 
-              <div className="round-container">
+              <div className="round-container" data-bgi="1">
                 <div className="round-heading-container">
                   <span className="round-heading"> Round 1 is live </span>
                   <div className="round-heading-indicator">
@@ -258,10 +280,10 @@ function App() {
                 <span className="round-subheading">
                   GNG tokens are now available in a limited supply...
                 </span>
-                <div className="round-progress-container">
+                <div className="round-progress-container" data-bgi="1">
                   <div className="round-progress-bar-container position-inset">
                     <div className="round-progress-bar position-inset">
-                      <div className="round-progress-bar-fill"></div>
+                      <div className="round-progress-bar-fill" data-bgi="1"></div>
                     </div>
                     <div
                       className="round-progress-bar-mask"
@@ -296,26 +318,26 @@ function App() {
                 <div className="round-progress-label-container">
                   <span> SOLD: </span>
                   <span>
-                    {Number((tokensAllocated - gngBalanceICO).toFixed(2)) * 5} <span className="round-progress-label-dark">/ 10M</span>
+                    {sold} <span className="round-progress-label-dark">/ 10M</span>
                   </span>
                 </div>
                 <span className="round-price text-center">
                   {" "}
-                  $0,02 per GNG token{" "}
+                  $0.02 per GNG token{" "}
                 </span>
 
                 <div className="round-time-left-container">
                   <span className="round-time-left-label">
                     time left in round 1
                   </span>
-                  <div className="round-time-left-clock-container">
+                  <div className="round-time-left-clock-container" data-bgi="1">
                     <div className="round-time-left-clock-column">
                       <div
                         className="round-time-left-clock-value"
                         data-field="days"
                       >
                         <div className="round-time-left-clock-value-bg">
-                          <div className="round-time-left-clock-value-bg-flip"></div>
+                          <div className="round-time-left-clock-value-bg-flip" data-bgi="1"></div>
                         </div>
                         <span className="round-time-left-clock-value-text">
                           {" "}
@@ -375,7 +397,7 @@ function App() {
 
               <div className="next-rounds-container">
                 <span className="next-rounds-heading"> Next rounds </span>
-                <div className="next-rounds-cards">
+                <div className="next-rounds-cards" data-bgi="1">
                   <div className="next-rounds-card">
                     <span className="next-rounds-card-title"> Round 2 </span>
                     <span className="next-rounds-card-subtitle">
@@ -384,9 +406,9 @@ function App() {
                     </span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $0,025 / token
+                      $0.025 / token
                       <br />
-                      13M tokens
+                      8M tokens
                     </span>
                   </div>
                   <div className="next-rounds-card">
@@ -394,9 +416,9 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $0,05 / token
+                      $0.05 / token
                       <br />
-                      8M tokens
+                      5M tokens
                     </span>
                   </div>
                   <div className="next-rounds-card">
@@ -404,9 +426,9 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $0,06 / token
+                      $0.06 / token
                       <br />
-                      8M tokens
+                      5M tokens
                     </span>
                   </div>
                   <div className="next-rounds-card">
@@ -414,9 +436,9 @@ function App() {
                     <span className="next-rounds-card-subtitle"></span>
                     <div className="next-rounds-card-separator"></div>
                     <span className="next-rounds-card-info">
-                      $0,085 / token
+                      $0.085 / token
                       <br />
-                      6M tokens
+                      3.5M tokens
                     </span>
                   </div>
                 </div>
@@ -439,7 +461,7 @@ function App() {
                   className="presale-buy-button"
                   onClick={() => setPhase2(true)}
                 >
-                  <span className="presale-buy-button-img"></span>
+                  <span className="presale-buy-button-img" data-bgi="1"></span>
                 </button>
               </div>
             </div>
@@ -525,11 +547,11 @@ function App() {
                 <div className="round-progress-label-container">
                   <span>SOLD:</span>
                   <span>
-                    {Number((tokensAllocated - gngBalanceICO).toFixed(2)) * 5} <span className="round-progress-label-dark">/ 10M</span>
+                    {sold} <span className="round-progress-label-dark">/ 10M</span>
                   </span>
                 </div>
                 <span className="round-price text-center">
-                  $0,02 per GNG token
+                  $0.02 per GNG token
                 </span>
 
                 <div className="round-time-left-container">
@@ -855,7 +877,7 @@ function App() {
                         Current price:
                       </label>
                       <div className="wallet-connected-form-text">
-                        <span>$0,02</span>
+                        <span>$0.02</span>
                         <span className="wallet-connected-form-text-subtitle">
                           per GNG Token
                         </span>
@@ -880,12 +902,12 @@ function App() {
                           inputMode="numeric"
                           className="with-suffix"
                           onChange={(e) => {
-                            if (/^\d{0,7}$/.test(e.target.value)) {
+                            if (/^\d{0,8}$/.test(e.target.value)) {
                               setMoneyAmountString(e.target.value);
 
                               const input = parseInt(e.target.value);
                               setMoneyAmountInput(
-                                  Math.min(9999999, Math.max(1, isNaN(input) ? 0 : input))
+                                  Math.min(99999999, Math.max(1, isNaN(input) ? 0 : input))
                               );
                             }
                           }}
