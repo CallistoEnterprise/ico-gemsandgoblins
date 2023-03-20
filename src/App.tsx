@@ -13,6 +13,7 @@ import { FailPopup } from "./FailPopup";
 import { BigNumber, ethers } from "ethers";
 import { BuySoy } from "./components/buySoy";
 import { BuyCloe } from "./components/buyCloe";
+import {VestingPopup} from "./VestingPopup";
 
 const contractICO = "0x93026EcAED46d825989bBE298C7EE2B7cdC3c3A3";
 const contractGnG = "0x700D226Be058a0110655575082Db12Fd6862EeF6";
@@ -72,6 +73,7 @@ function App() {
   // Used to toggle popups
   const [showSuccess, setShowSuccess] = useState(false);
   const [showFail, setShowFail] = useState(false);
+  const [showVesting, setShowVesting] = useState(false);
   const [errorPopup, setErrorPopup] = useState("Please check again!");
 
   const { data: balanceOfUser } = useContractRead({
@@ -938,7 +940,10 @@ function App() {
                   </span>
                   <span className="wallet-connected-form-info-note">
                     Note: The tokens of this ICO are subject to vesting, meaning that they will be released over a
-                    set period rather than being immediately available. For more info visit our whitepaper.
+                    set period rather than being immediately available. For more info <button type="button"
+                                                                                              className="vesting-link"
+                                                                                              onClick={() => setShowVesting(true)}
+                  >click here.</button>
                   </span>
                 </form>
 
@@ -1033,6 +1038,9 @@ function App() {
         >
           {errorPopup}
         </FailPopup>
+        <VestingPopup isOpen={showVesting}
+                      onClose={() => setShowVesting(false)}
+        />
       </div>
     </div>
   );

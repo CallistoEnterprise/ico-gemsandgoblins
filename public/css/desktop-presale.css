@@ -879,6 +879,15 @@
         color: #ad6237;
     }
 
+    .vesting-link {
+        color: #cebeb7;
+        text-decoration: underline;
+    }
+
+    .vesting-link:hover {
+        text-decoration: none;
+    }
+
     .wallet-connected-form-input {
         position: relative;
         display: flex;
@@ -1005,6 +1014,18 @@
         padding: 3.2vw 2.5vw 3.2vw 2.2vw;
     }
 
+    .popup.vesting {
+        background: url("/img/presale/Page4_BG_Info.png") top no-repeat;
+        background-size: 100%;
+
+        width: 28.47vw;
+        height: 30.23vw;
+
+        padding: 3.2vw 0;
+
+        filter: drop-shadow(0 0 2rem #00000040);
+    }
+
     .popup-title {
         font-size: 1.667vw;
         line-height: 2vw;
@@ -1012,6 +1033,18 @@
 
         text-align: center;
         margin: 2.8vw 3vw 0;
+    }
+
+    .vesting .popup-title {
+        margin-top: 3vw;
+    }
+
+    .popup-subtitle {
+        font-size: 1vw;
+        line-height: 1.2vw;
+        font-weight: bold;
+
+        text-align: center;
     }
 
     .popup-body {
@@ -1022,6 +1055,14 @@
 
         text-align: center;
         margin: 1.60vw 3vw 0;
+    }
+
+    .vesting .popup-body {
+        font-size: 0.972vw;
+        line-height: 1.17vw;
+        margin-top: 1vw;
+
+        text-align: justify;
     }
 
     .popup-token-count {
