@@ -833,6 +833,15 @@
         color: #ad6237;
     }
 
+    .vesting-link {
+        color: #cebeb7;
+        text-decoration: underline;
+    }
+
+    .vesting-link:hover {
+        text-decoration: none;
+    }
+
     .wallet-connected-form-input {
         position: relative;
         display: flex;
@@ -923,7 +932,7 @@
     }
 
     .popup-container {
-        position: absolute;
+        position: fixed;
         left: 0;
         top: 0;
         right: 0;
@@ -970,6 +979,16 @@
         padding: 14vw 0 14vw;
     }
 
+    .popup.vesting {
+        background: url("/img/presale/MOBILE_BG_Info.png") top no-repeat;
+        background-size: 100%;
+
+        width: 88.89vw;
+        height: 148vw;
+
+        padding: 14vw 0 14vw;
+    }
+
     .popup-title {
         font-size: 6.67vw;
         line-height: 8.00vw;
@@ -983,6 +1002,18 @@
         margin-top: 16vw;
     }
 
+    .vesting .popup-title {
+        margin-top: 16vw;
+    }
+
+    .popup-subtitle {
+        font-size: 4vw;
+        line-height: 4.8vw;
+        font-weight: bold;
+
+        text-align: center;
+    }
+
     .popup-body {
         font-size: 4.44vw;
         line-height: 5.33vw;
@@ -990,6 +1021,14 @@
 
         text-align: center;
         margin: 10vw 12.2vw 0;
+    }
+
+    .vesting .popup-body {
+        font-size: 3.888vw;
+        line-height: 4.666vw;
+        margin-top: 4vw;
+
+        text-align: justify;
     }
 
     .popup-token-count {
@@ -1046,6 +1085,10 @@
         align-items: center;
 
         margin: 18vw 3vw 0;
+    }
+
+    .vesting .popup-button-container {
+        margin-top: 10vw;
     }
 
     .popup-close-button {
