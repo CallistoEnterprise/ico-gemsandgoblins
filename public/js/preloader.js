@@ -47,7 +47,7 @@ imgLoadingLoader.src = "../img/universal/loading/loader/loader.svg";
 
 //assigning elements
 window.onload = function(){
-    
+
     initialise();
 
     //header button click
@@ -82,14 +82,6 @@ window.onload = function(){
 
     window.scrollTo(0, 0);
 
-
-
-    setTimeout(function () {
-        startAnimation(logo, 17, 100, 109, 0, logoInterval);
-        startAnimation(logoDesktop, 17, 100, 109, 0, logoDesktopInterval);
-    }, 1500);
-
-
     window.addEventListener('click', (e) => {
         document.body.appendChild(clickParticleCreate(e));
     });
@@ -120,13 +112,13 @@ function clickParticleCreate(e) {
 
         clickBase = document.getElementById("click_" + el)
     }
-    
+
     var clickParticle = clickBase.cloneNode(true);
-    
+
     clickParticle.style.left = e.pageX + "px";
     clickParticle.style.top = e.pageY + "px";
     clickParticle.style.transform = "translate(-50%, -50%)"
-    
+
     clickParticle.style.zIndex = "10";
     clickParticle.style.position = "absolute";
 
@@ -135,7 +127,7 @@ function clickParticleCreate(e) {
     }, 500);
 
     return clickParticle
-    
+
 }
 
 
@@ -158,14 +150,14 @@ function startAnim() {
         startAnimOpen = 0
         position = 0
     }
-  
+
     animationInterval = setInterval(() => {
         headerButton.style.backgroundPosition = `${position}% center`;
-  
+
         if (step < numOfSteps) {
             position = position + diff;
             step += 1;
-            
+
         }
     }, speed);
 
@@ -177,21 +169,21 @@ function startAnimation(object, speed, diff, numOfSteps, repeat, interval) {
     var position = 0;
     var step = 0
 
-  
+
     interval = setInterval(() => {
         object.style.transform = `translateX(-${position}%)`;
-  
+
         if (step < numOfSteps) {
             position = position + diff;
             step += 1;
         }
         else if (repeat == 1){
-            startAnimation(object, speed, diff, numOfSteps, repeat) 
+            startAnimation(object, speed, diff, numOfSteps, repeat)
             clearInterval(interval);
-            
+
         }
 
-        
+
     }, speed);
 
 }
@@ -202,7 +194,7 @@ function showStickyHeader(){
     if (window.pageYOffset > breakingPoint) {
         headerSticky.classList.add("desktop-header-sticky-active");
         logoDesktopSticky.style.transform = `translateX(-10900%)`;
-        
+
     }
     else {
         headerSticky.classList.remove("desktop-header-sticky-active");
@@ -291,11 +283,17 @@ document.onreadystatechange = function() {
                 window.presale();
 
             const bgItems = document.querySelectorAll('*[data-bgi="1"]');
-            const imgItems = document.querySelectorAll('.logo img');
+            const imgItems = document.querySelectorAll('.logo img, .logo-wrapper img');
             const context = {
                 state: bgItems.length + imgItems.length,
             };
-            const finishLoading = () => loadingWrapper.classList.add("loading-finished");
+            const finishLoading = () => {
+                loadingWrapper.classList.add("loading-finished");
+                setTimeout(function () {
+                    startAnimation(logo, 17, 100, 109, 0, logoInterval);
+                    startAnimation(logoDesktop, 17, 100, 109, 0, logoDesktopInterval);
+                }, 300);
+            }
 
             bgItems.forEach(e => {
                 const bgi = window.getComputedStyle(e).getPropertyValue('background-image');
